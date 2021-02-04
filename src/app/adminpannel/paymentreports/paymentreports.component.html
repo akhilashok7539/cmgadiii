@@ -1,0 +1,88 @@
+<app-navigation></app-navigation>
+
+<app-sidebar></app-sidebar>
+<div class="page-wrapper" style="margin-top: 33px;">
+
+
+
+
+    <div class="content">
+
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Payment Reports</h4>
+
+            </div>
+
+
+            <div class="col-sm-8 col-9 text-right m-b-20">
+
+                <!-- <a class="btn btn btn-primary btn-rounded float-right " style="color: white;" (click)="addcompany()"><i
+                        class="fa fa-plus"></i> </a> -->
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <!-- <h5>Vehicles</h5> -->
+
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="search here" [(ngModel)]="searchString"
+                            (keyup)="applyFilter(searchString)">
+
+
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                    <mat-table #table [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="transId">
+                            <mat-header-cell *matHeaderCellDef>Transaction ID  </mat-header-cell>
+                            <mat-cell *matCellDef="let element "> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="uname">
+                            <mat-header-cell *matHeaderCellDef>User Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="unumber">
+                            <mat-header-cell *matHeaderCellDef> User Number</mat-header-cell>
+                            <mat-cell *matCellDef="let element"></mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="dname">
+                            <mat-header-cell *matHeaderCellDef> Driver Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element"></mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="dnumber">
+                            <mat-header-cell *matHeaderCellDef> Driver Number</mat-header-cell>
+                            <mat-cell *matCellDef="let element"></mat-cell>
+                        </ng-container>
+                      
+
+
+
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+
+                    <mat-paginator #paginator [length]="totalLength" [pageSize]="limit" [pageSizeOptions]="pageLimit">
+                    </mat-paginator>
+
+                    <h5 *ngIf="message == 'No data found'">No data Found</h5>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

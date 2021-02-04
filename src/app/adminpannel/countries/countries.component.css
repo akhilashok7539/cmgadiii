@@ -1,0 +1,14 @@
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.table-responsive{
+    margin-left: 195px;
+    margin-top: 16px;
+}
+/* ::ng-deep .mat-row:hover {
+    background-color: rgba(255, 115, 0, 0.527);
+  }
+  h5{
+      text-align: center;
+  } */

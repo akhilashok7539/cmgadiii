@@ -1,0 +1,6 @@
+#header-area .header-social-icons a:hover i.fa, #header-area .mainmenu ul li.active a, #header-area .mainmenu ul li:hover a {
+    color: #ffd000;
+}
+#header-area, #header-area a {
+    color: #fff;
+}

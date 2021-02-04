@@ -1,0 +1,26 @@
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.single-popular-car h3 span.price {
+    color: #0e0e0e;
+    float: right;
+    font-size: 14px;
+    font-weight: 700;
+}
+.vehImg{
+    /* width: 78%;
+    margin: 0 auto;
+    height: 200px;
+    display: block; */
+    display: block;
+    /* height: 134px; */
+    margin-bottom: 10px;
+    margin-left: auto;
+    width: 221px !important;
+    margin-right: auto;
+    height: 183px !important;
+}
+    /* img{
+        max-width: -webkit-fill-available;
+    } */

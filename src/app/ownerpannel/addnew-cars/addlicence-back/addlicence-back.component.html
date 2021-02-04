@@ -1,0 +1,40 @@
+<app-navigation></app-navigation>
+
+<div class="page-wrapper">
+    <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/vehicles"><i
+                style="color: black;">Vehicles</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i style="color:#1492E6;">Add Vehicles</i> </p>
+    <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+    padding: 20px;
+    background-color: #F8FAFB;
+    margin-top: 25px;
+    margin-left: 31px;">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Add Vehicles licence Image Back</h3>
+            </div>
+        </div>
+        <div class="row" style="     padding: 34px;   background-color: WHITE;">
+            <div class="col-lg-12">
+                <form [formGroup]="addVehiclesform">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label> Image 2 <span class="text-danger">*</span></label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.img2.errors }" class="form-control" #file type="file" (change)="addimage2($event)" formControlName="img2">
+                                <div *ngIf="submitted && f.img2.errors" class="invalid-feedback">
+                                    <div *ngIf="f.img2.errors.required">Image 2 is required</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="col-sm-12">
+                    <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,191 @@
+<app-navigation></app-navigation>
+<app-sidebar></app-sidebar>
+<!-- 
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Vehicle Details</h3>
+                <hr>
+
+            </div>
+
+            <div class="col-sm-12">
+                <img src="{{apiurl}}vehicle/getImage1/{{vehicleID}}" alt="" style="    width: 124px;">
+                <hr style="    width: 52%;
+                margin-right: auto;
+                margin-left: auto;
+                display: block;">
+            </div>
+          
+            <div class="col-sm-12">
+                <mat-card>
+                    <p><i class="fa fa-industry"></i> &nbsp; Comapny Name : {{vehicleModel.vehicleCompany}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-car"></i> &nbsp; Vehicle Type : {{vehicleModel.vehicleType}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-registered"></i> &nbsp; Vehicle Registration :
+                        {{vehicleModel.vehicleRegistration}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-car"></i> &nbsp; Vehicle Model :
+                        {{vehicleModel.vehicleModel}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-map-marker"></i> &nbsp; Location :
+                        {{vehicleModel.locality}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-calendar"></i> &nbsp; Vehicle Year :
+                        {{vehicleModel.vehicleYear}}</p>
+                </mat-card>
+                <mat-card>
+                    <p><i class="fa fa-inr"></i> &nbsp; Vehicle Rent :
+                        {{vehicleModel.rent}}</p>
+                </mat-card>
+
+                <mat-card>
+                    <p><i class="fa fa-inr"></i> &nbsp; Vehicle Rent :
+                        {{vehicleModel.rent}}</p>
+                </mat-card>
+                <mat-card>
+                    <p>License Front</p>
+                    <img [src]="liscence1" alt="" style="    width: 36%;">
+                </mat-card>
+                <mat-card>
+                    <p>License Back</p>
+                    <img [src]="liscence2" alt="" style="    width: 36%;">
+                </mat-card>  <mat-card>
+                    <p>RC Book</p>
+                    <img [src]="rc" alt="" style="    width: 36%;">
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+<div class="page-wrapper">
+    <div class="container">
+        <h4>Vehicle <span style="color: #ffa800;">Details</span> </h4>
+<hr>
+        <div class="row">
+            <div class="col-sm-8">
+
+                <!-- <mat-card> -->
+                <div class="card">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 style="text-align: center;">{{vehicleModel.vehicleCompany}},{{vehicleModel.vehicleModel}}</h5>
+
+                            <hr>
+                        </div>
+                        <!-- <div class="col-sm-3">
+                            <p style="
+                           background: #ffcb67;
+                            border-radius: 125px;
+                            padding: 3px;
+                        ">{{vehicleModel.vehicleModel}}</p>
+                        </div> -->
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{apiurl}}vehicle/getImage1/{{vehicleID}}" alt=""
+                                style="     width: 200px; height: 186px;  ">
+                        </div>
+                        <div class="col-sm-8">
+                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle
+                                Type : {{vehicleModel.vehicleType}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number
+                                : {{vehicleModel.vehicleRegistration}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location :
+                                {{vehicleModel.locality}}</p>
+                            <hr>
+                            <h6>Rent Details</h6>
+                            &nbsp;
+                            <p *ngIf="rentperhour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour :
+                                {{rentperhour}}</p>
+                            <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day :
+                                {{vehicleModel.rent}}</p>
+                            <p *ngIf="rentperkm != null" style="    text-align: left;"><i class="fa fa-road"></i>&nbsp; Rent Per KM :
+                                {{rentperkm}}</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{apiurl}}driver/getProfilePic/{{driverDetails}}" alt="" />
+
+                        </div>
+                        <div class="col-sm-8">
+                            <h6>Driver Details</h6>
+                            <hr>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-user"></i>&nbsp;Driver Name
+                                :
+                                {{vehicleModel.dname}}</p>
+                            <p *ngIf="DriverDetailsofCar !=null"style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact
+                                Number :
+                                {{vehicleModel.dnumber}}</p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i
+                                    class="fa fa-map-marker"></i>&nbsp;Driver
+                                Address : {{vehicleModel.daddreess}}</p>
+                            <p *ngIf="DriverDetailsofCar ==null"> No Driver is linked to this vehicle!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card" *ngIf="vehiclestatus == 'PENDING'">
+
+                    <div class="row">
+                      
+                        <div class="col-sm-12">
+                            <h6>Vehicle Approve or Reject</h6>
+                            <hr>
+                            <p>Please verify the above documents and then approve or reject vehicles</p>
+                            
+                            <button class="btn btn-success" (click)="approve()">Approve</button>
+                            <button class="btn btn-danger" (click)="reject()">Reject</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <h6> Vehicle Documents </h6>
+                    <hr>
+                    <p>License Front</p>
+                    <img [src]="liscence1" alt="">
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+
+                    <p>License Back</p>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <img [src]="liscence2" alt="">
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+
+                    <p>RC Book</p>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <img [src]="rc" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

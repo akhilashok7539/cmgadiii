@@ -1,0 +1,36 @@
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.table-responsive{
+    margin-left: 195px;
+    margin-top: 16px;
+}
+.service-item
+{
+    border-radius: 17px;
+}
+h1{
+    text-align: center;
+    padding-top: 143px;
+}
+.service-item {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    color: #222;
+    margin-bottom: 30px;
+    padding: 17px 25px;
+}
+.service-item h3{
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: none;
+    margin: 20px 0 15px;
+}
+
+.section-padding {
+    padding: 36px 0;
+}
+.page-wrapper{
+    margin-left: 221px;
+}

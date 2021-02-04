@@ -1,0 +1,119 @@
+<app-navigation></app-navigation>
+<div class="row" style="margin-bottom: 27px;
+margin-top: 100px;  ">
+ 
+    <div class="col-sm-4">
+        <button routerLink="/admin" class=" btn btn-dark" style="float: Left;"><i class="fa fa-arrow-left"></i> Back</button>
+
+    </div>
+    <div class="col-sm-4">
+        <h4 style="text-align: center;" >Driver <em style="font-style: normal;
+            color: #ffb100;">Management</em> </h4>
+    </div>
+    <div class="col-sm-4">
+        <button routerLink="/add-drivers" class=" btn btn-success" style="float: right;"> <i class="fa fa-plus"></i> Add Drivers</button>
+        
+    </div>
+</div>
+<div class="row">
+    
+</div>
+<div class="row">
+<div class="container">
+
+    <div class="col-sm-12">
+      
+        <!-- <mat-card>
+            <span class="close"> <i  matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i> </span>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="{{apUrl}}driver/getProfilePic/{{driverslist.id}}" alt="" style="height: 108px;
+                    width: 92px;">
+                   
+
+                </div>
+                <div class="col-sm-8">
+                    <p>Driver Name : {{driverslist.name}}</p>
+                    <p>Phone Number : {{driverslist.number}} </p>
+                    <p>Pan Card No : {{driverslist.panCardNO}}</p>
+                    <p>License Front : <Button (click)="getlicsence(driverslist.id)" style="    border: none;
+                    background: none;" matTooltip="donwload "> <i class="fa fa-eye"></i></Button></p>
+                    <p>License Back : <Button (click)="getlicsenceback(driverslist.id)"  style="    border: none;
+                    background: none;" matTooltip="donwload"> <i class="fa fa-eye"></i></Button></p>
+
+                </div>
+            </div>
+        </mat-card> -->
+            <!-- <ul  *ngFor="let driverslist of driverslist; let i=index;">
+                <li><a style="    margin-top: 13px;
+                    "> {{i+1}}</a> </li>
+            <li><a style="    margin-top: 13px;
+                width: 200px;"><img src="{{apUrl}}driver/getProfilePic/{{driverslist.id}}" alt="Avatar" class="avatar"></a></li>
+            <li><a style="    margin-top: 13px;
+                width: 200px;">{{driverslist.name}}</a></li>
+            <li><a style="    margin-top: 13px;
+                width: 200px;">{{driverslist.number}}</a></li>
+            <li><a style="    margin-top: 13px;
+                width: 200px;">{{driverslist.panCardNO}}</a></li>
+            <li><a style="    margin-top: 13px;
+                width: 200px;">License Front : <Button (click)="getlicsence(driverslist.id)" style="    border: none;
+                    background: none;" matTooltip="License Front "> <i class="fa fa-eye"></i></Button></a> </li>    
+            <li> <a style="margin-top: 13px;
+                width: 200px;"> License Back : <Button (click)="getlicsenceback(driverslist.id)"  style="    border: none;
+                    background: none;" matTooltip="License Back"> <i class="fa fa-eye"></i></Button></a> </li>
+                    <li><a  style="margin-top: 13px;"><i  matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i></a> </li>
+          
+                </ul> -->
+          
+
+
+                    <mat-table #table [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef>Driver Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element "> {{element.name}}</mat-cell>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="phonenumber">
+                            <mat-header-cell *matHeaderCellDef> Contact Number</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.number}}</mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="pan">
+                            <mat-header-cell *matHeaderCellDef>Pancard Number</mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.panCardNO}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="licensefrnt">
+                            <mat-header-cell *matHeaderCellDef>License Front</mat-header-cell>
+                            <mat-cell *matCellDef="let element"><Button (click)="getlicsence(element.id)" style="    border: none;
+                                background: none;" matTooltip="License Front "> <i class="fa fa-eye"></i> View</Button> </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="licenseback">
+                            <mat-header-cell *matHeaderCellDef>License Back</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <Button (click)="getlicsenceback(element.id)"  style="    border: none;
+                                background: none;" matTooltip="License Back">
+                                 <i class="fa fa-eye"></i> View</Button></mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="edit">
+                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                            <mat-cell *matCellDef="let element"><i  matTooltip="Edit Profile" (click)="edit(element)" class="fa fa-edit"></i> </mat-cell>
+
+                        </ng-container>
+
+
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+
+                    <mat-paginator #paginator [length]="totalLength" [pageSize]="limit" (page)="changePage($event)">
+                    </mat-paginator>
+
+
+                </div>
+
+          
+
+    </div>
+</div>

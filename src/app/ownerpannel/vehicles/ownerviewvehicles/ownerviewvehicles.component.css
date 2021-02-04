@@ -1,0 +1,25 @@
+.page-wrapper{
+    margin-left: 236px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.detailsheading{
+    float: right;
+}
+.detailsheading1{
+    float: left;
+}
+mat-card{
+    margin-top: 10px;
+    margin-left: 5px;
+    
+}
+.row
+{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.card{
+    padding: 20px;
+}

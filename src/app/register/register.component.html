@@ -1,0 +1,128 @@
+<app-navigation></app-navigation>
+<div class="page-wrapper" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+
+            </div>
+            <div class="col-sm-5">
+                <form [formGroup]="registerForm">
+                    <div class="card">
+                        <div class="card-title">
+                            <h4>Register</h4>
+                            <p>Welcome back! Please register your account.</p>
+
+                            <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                                <input [(ngModel)]="registerModel.name" formControlName="name" matInput
+                                    placeholder="Name" type="text">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon></mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('name').hasError('required')">
+                                   Name is Required!
+                                </mat-error>
+
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                                <input [(ngModel)]="registerModel.email" formControlName="email" matInput
+                                    placeholder="Email ID" type="text">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon></mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                                    Email ID is Required!
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                                    Email ID must be a valid!
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                                <input [(ngModel)]="registerModel.username" formControlName="username" matInput
+                                    placeholder="User Name" type="text">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon></mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('username').hasError('required')">
+                                    User Name is Required!
+                                </mat-error>
+                               
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                                <input [(ngModel)]="registerModel.address" formControlName="address" matInput
+                                    placeholder="Address" type="text">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon></mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('address').hasError('required')">
+                                   Address is Required!
+                                </mat-error>
+                               
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width" style="margin-top: 10px;">
+                                <input [(ngModel)]="registerModel.mobNo" formControlName="mobNo" matInput
+                                    placeholder="Mobile Number" type="number">
+                                <button mat-icon-button matSuffix>
+                                    <mat-icon></mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('mobNo').hasError('required')">
+                                    Mobile Number is Required!
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('mobNo').hasError('pattern')">
+                                    Mobile Number must be a valid 10 digit !
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <input [type]="hide ? 'password' : 'text'" [(ngModel)]="registerModel.password"
+                                    formControlName="password" matInput placeholder="Password" type="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                                    Password is Required!
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('password').hasError('minlength')">
+                                   Minimum 8 letters needed!
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <input [type]="hide ? 'password' : 'text'" [(ngModel)]="registerModel.Confirmpassword"
+                                    formControlName="Confirmpassword" matInput placeholder="Confirm Password" type="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="registerForm.get('Confirmpassword').hasError('required')">
+                                    Password is Required!
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.get('Confirmpassword').hasError('mustMatch')">
+                                   Password must is Required!
+                                </mat-error>
+                            </mat-form-field>
+
+                            <div class="row" style="    margin: 10px;">
+                                <div class="col-sm-6">
+                                    <button class="loginbtn" [disabled]="!registerForm.valid"   (click)="register()">Register</button>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <p routerLink="/login" style="text-align: center; outline: none; cursor: pointer;">
+                                        Already have an account? Login</p>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <p style="margin-top: 50px;">Term of use. Privacy policy</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<!-- <app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="row" style="margin-top: 5vw;">
+    <div class="col-md-10 ">
+  
+      <div class="table-responsive">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>Countries</h5>
+  
+          </div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="search here" [(ngModel)]="searchString"
+              (keyup)="applyFilter(searchString)">
+          
+  
+  
+          </div>
+        </div>
+  
+        <mat-table #table [dataSource]="dataSource">
+  
+          <ng-container matColumnDef="no">
+            <mat-header-cell *matHeaderCellDef>No </mat-header-cell>
+            <mat-cell *matCellDef="let element ; let i = index;"> {{this.paginator.pageIndex == 0 ? i + 1 : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}} </mat-cell>
+          </ng-container> 
+          <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name | uppercase }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="code">
+            <mat-header-cell *matHeaderCellDef> Exam Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+          </ng-container>
+  
+  
+  
+  
+  
+  
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+  
+  
+        <mat-paginator #paginator [length]="totalLength" [pageSize]="limit" [pageSizeOptions]="pageLimit"
+          >
+        </mat-paginator>
+        
+        <h5 *ngIf="message == 'No data found'">No data Found</h5>
+  
+  
+      </div>
+    </div>
+  </div> -->

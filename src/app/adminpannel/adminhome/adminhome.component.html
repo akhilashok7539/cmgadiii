@@ -1,0 +1,16 @@
+<div class="page-wrapper" >
+    <div class="row" >
+        <div class="col-md-12 " *ngIf="userRole == 'ADMIN'">
+    
+            <!-- <div class="table-responsive"> -->
+                <!-- <app-countries></app-countries> -->
+                <app-companies></app-companies>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<div *ngIf="userRole == 'OWNER'">
+<app-ownerpannel></app-ownerpannel>
+    
+</div>

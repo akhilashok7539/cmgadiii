@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="row" style="margin-left: 10px;margin-bottom: 10px;">
+    <button class="btn btn-dark" routerLink="/admin"> <i class="fa fa-arrow-left"
+        aria-hidden="true"></i> Back</button>
+</div>
+<div class="row" style="margin-top: 0px;">
+    <div class="col-sm-4" *ngFor="let result of result">
+        <div class="card">
+            <div class="row" style="margin-top: 0px;">
+                <div class="col-sm-4">
+                    <span class="material-icons" style="color: green;">
+                        location_on
+                        </span>
+                    <p>{{result.startingLocation}} </p>
+                </div>
+                <div class="col-sm-4">
+                    <div class="line-top"></div>
+                </div>
+                <div class="col-sm-4">
+                    <span class="material-icons" style="    color: red;
+                        margin-left: 66px;">
+                        location_on
+                        </span>
+                    <p style="text-align: end;">{{result.destinationLocation}}</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 0px;">
+                <div class="col-sm-12">
+                    <h5>Details</h5>
+                    <hr>
+
+                </div>
+                <div class="col-sm-12">
+                    <p>Vehicle Model <em style="    float: right;">{{result.model}}</em> </p>
+                    <p>Requested Days <em style="    float: right;">{{result.requestedDays}}</em> </p>
+                    <p>Requested Date <em style="    float: right;">{{result.requestedDate}}</em> </p>
+                    <p>Requested End Date <em style="    float: right;">{{result.requestEndDate}}</em> </p>
+
+                    <p>Starting Km <em style="    float: right;">{{result.startingKM}}</em> </p>
+                    <p>Ending KM <em style="    float: right;">{{result.endingKM}}</em> </p>
+                    <p>Travelled KM <em style="    float: right;">{{result.customerTravelledKM}}</em> </p>
+                    <p>Amount <em style="    float: right;">{{result.amount}}</em> </p>
+                    <p>Driver is Required <em style="    float: right;">{{result.driverRequired}}</em> </p>
+                </div>
+                <!-- <div class="col-sm-6">
+                    <p style="text-align:end ;">{{result.model}}</p>
+                    <p style="text-align:end ;">{{result.requestedDays}}</p>
+                    <p style="text-align:end ;">{{result.requestedDate}}</p>
+                    <p style="text-align:end ;">{{result.requestEndDate}}</p>
+                    <p style="text-align:end ;">{{result.startingKM}}</p>
+                    <p style="text-align:end ;">{{result.endingKM}}</p>
+                    <p style="text-align:end ;">{{result.customerTravelledKM}}</p>
+                    <p style="text-align:end ;">{{result.amount}}</p>
+                    <p style="text-align:end ;">{{result.driverRequired}}</p>
+
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+</div>

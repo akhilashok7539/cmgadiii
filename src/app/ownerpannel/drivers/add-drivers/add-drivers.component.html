@@ -1,0 +1,106 @@
+<app-navigation></app-navigation>
+
+<div class="page-wrapper">
+    <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/drivers"><i
+                style="color: black;">Drivers</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i style="color:#1492E6;">Add Drivers</i> </p>
+    <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+    padding: 20px;
+    background-color: #F8FAFB;
+    margin-top: 25px;
+    margin-left: 31px;">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Add New Drivers</h3>
+            </div>
+        </div>
+        <div class="row" style="     padding: 34px;   background-color: WHITE;">
+            <div class="col-lg-12">
+
+                <form [formGroup]="driverForm">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Driver Name <span class="text-danger">*</span></label>
+                                <input [(ngModel)]="driverModel.name" formControlName="name" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Driver Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Phone Number<span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" type="text" [(ngModel)]="number" formControlName="number">
+
+                                <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                                    <div *ngIf="f.number.errors.required">Driver Number is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Address<span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" type="text" [(ngModel)]="driverModel.address" formControlName="address">
+
+                                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                    <div *ngIf="f.address.errors.required">Driver Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Pancard No<span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pancard.errors }" type="text" [(ngModel)]="driverModel.pancard" formControlName="pancard">
+
+                                <div *ngIf="submitted && f.pancard.errors" class="invalid-feedback">
+                                    <div *ngIf="f.pancard.errors.required">Driver Pancard is required</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-sm-4">
+                            <div class="form-group">
+                                <label> License Front <span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.liscencefrnt.errors }"
+                                #file type="file" (change)="addliscensefrnt($event)"  formControlName="liscencefrnt" >
+                                <div *ngIf="submitted && f.liscencefrnt.errors" class="invalid-feedback">
+                                    <div *ngIf="f.liscencefrnt.errors.required">Driver liscence front pic is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>License Back <span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.liscenceback.errors }"
+                                #file type="file" (change)="addliscenseback($event)" formControlName="liscenceback"  >
+                                <div *ngIf="submitted && f.liscenceback.errors" class="invalid-feedback">
+                                    <div *ngIf="f.liscenceback.errors.required">Driver liscence back Pic is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label> Profile Pic <span class="text-danger">*</span></label>
+                                <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.propic.errors }"
+                                #file type="file" (change)="addprofilepic($event)"  formControlName="propic"   >
+                                <div *ngIf="submitted && f.propic.errors" class="invalid-feedback">
+                                    <div *ngIf="f.propic.errors.required">Driver Pic is required</div>
+                                </div>
+
+                            </div>
+                        </div> -->
+
+                        <div class="col-sm-12">
+                            <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

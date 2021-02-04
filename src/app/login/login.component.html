@@ -1,0 +1,39 @@
+<app-navigation></app-navigation>
+<div class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+            </div>
+            <div class="col-sm-5">
+                <form (ngSubmit)="onSubmit(loginfrom, userData)" #loginfrom="ngForm">
+                    <div class="card">
+                        <div class="card-title">
+                            <h4>LOGIN</h4>
+                            <p>Welcome back! Please login to your account.</p>
+                            <div class="form-group">
+                                <label for="email">Username</label>
+                                <input type="text" id="email" class="form-control" [(ngModel)]="userData.usernameOrEmail" name="usernameOrEmail" #email="ngModel" required>
+                                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a user
+                                    name</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" class="form-control" [(ngModel)]="userData.password" name="password" #password="ngModel" required>
+                                <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a
+                                    password!</span>
+
+                            </div>
+                            <div class="row" style="    margin: 0px;">
+                                <button class="loginbtn" [disabled]="!loginfrom.valid">Login</button> &nbsp; &nbsp;
+                                <button class="signupbtn" (click)=register()>Sign up</button>
+                            </div>
+                            <p style="text-align: left;cursor: pointer;
+                            margin-top: 12px;" routerLink="/forgotpassword">Forgot Password ?</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

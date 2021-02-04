@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+<div class="page-wrapper" style="margin-top: 101px;">
+    <div class="row">
+
+        <div class="col-sm-4">
+            <button routerLink="/admin" class=" btn btn-dark" style="float: Left;"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i> Back</button>
+
+        </div>
+        <div class="col-sm-4">
+            <h4 style="text-align: center;">Vehicle <em style="font-style: normal;
+                color: #ffb100;">Handover Management</em> </h4>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+        <hr>
+    </div>
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-3" *ngFor="let results of results">
+            <!-- <mat-card style="margin-bottom: 10px;"> -->
+            <div class="card" style="margin-bottom: 10px;">
+                <span class="close">   <button matTooltip="View Vehicle" class="btn btn-dark"
+                    style="display: block;margin-bottom: 10px;margin-left: auto;"
+                    (click)="view(results)"> <i class="fa fa-eye"></i> </button></span>
+                <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt=""
+                    style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
+                <P style="text-align: center;">Company : {{results.companyName}}</P>
+                <P style="text-align: center;">Customer Name : {{results.customerName}}</P>
+                <P style="text-align: center;">Starting Location : {{results.startingLocation}}</P>
+                <P style="text-align: center;">Destination Location : {{results.destinationLocation}}</P>
+
+                &nbsp;
+             
+                <button class="btn btn-dark" (click)="openDialog(results)">Add current kilometer</button>
+                <!-- </mat-card> -->
+            </div>
+        </div>
+    </div>
+
+
+</div>

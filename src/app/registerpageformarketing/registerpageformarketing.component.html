@@ -1,0 +1,310 @@
+<header id="header-area" class="fixed-top">
+    <!--== Header Top Start ==-->
+    <div id="header-top" class="d-none d-xl-block">
+        <div class="container">
+            <div class="row">
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-left">
+                    <i class="fa fa-map-marker"></i> Kerala
+                </div>
+                <!--== Single HeaderTop End ==-->
+
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-center">
+                    <i class="fa fa-mobile"></i> +91
+                </div>
+                <!--== Single HeaderTop End ==-->
+
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-center">
+                    <i class="fa fa-clock-o"></i> Mon-Fri
+                </div>
+                <!--== Single HeaderTop End ==-->
+
+                <!--== Social Icons Start ==-->
+                <div class="col-lg-3 text-right">
+                    <div class="header-social-icons">
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <!--== Social Icons End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Top End ==-->
+
+    <!--== Header Bottom Start ==-->
+    <div id="header-bottom">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a href="index2.html" class="logo">
+                        <img src="assets/img/logoos.png" style="
+                        height: 64px;" alt="JSOFT">
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright">
+                        <ul>
+                            <li class="active"><a href="#">Home</a>
+
+                            </li>
+                            <!-- <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">services</a></li> -->
+                            <!-- <li> <a routerLink="">Registration</a> -->
+                            <!-- </li>    -->
+
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Bottom End ==-->
+</header>
+<!--== Header Area End ==-->
+
+<!--== SlideshowBg Area Start ==-->
+<section id="slider-area">
+    <!--== slide Item One ==-->
+    <div class="single-slide-item overlay">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-7 text-right">
+                    <div class="display-table">
+                        <div class="display-table-cell">
+                            <div class="slider-right-text">
+                                <h1>BOOK A CAR TODAY!</h1>
+                                <!-- <p>FOR AS LOW AS $10 A DAY PLUS 15% DISCOUNT <br> FOR OUR RETURNING CUSTOMERS</p> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="row"> -->
+                <div class="col-sm-5">
+                    <div class="r" style="background: rgba(245, 234, 234, 0.473);    padding: 24px;
+                        border-radius: 13px;">
+                        <form [formGroup]="publicreisterform">
+
+                            <h5 style="text-align: center; color: #ffd000;    padding-bottom: 18px;">REGISTRATION</h5>
+
+                            <label for="" style="    font-size: 21px;"> Choose a Type</label>
+                            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.types.errors }"
+                                [(ngModel)]="registerModel.types" formControlName="types">
+                                <option value="" selected disabled>Choose a Type</option>
+                                <option value="3">User</option>
+                                <option value="4">Driver</option>
+
+                                <option value="2">Car Owner</option>
+                            </select>
+                            <div *ngIf="submitted && f.types.errors" class="invalid-feedback">
+                                <div *ngIf="f.types.errors.required">User Type is required</div>
+                            </div>
+
+
+                            <label for="" style="    font-size: 21px;">Name </label>
+                            <input type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                                [(ngModel)]="registerModel.name" formControlName="name" placeholder="Name"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                            <label for="" style="    font-size: 21px;">Email ID </label>
+                            <input [(ngModel)]="registerModel.email" formControlName="email" type="text"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email ID"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email Id is required</div>
+                            </div>
+                            <label for="" style="    font-size: 21px;">Phone Number </label>
+                            <input [(ngModel)]="registerModel.mobNo" formControlName="mobNo" type="number"
+                                [ngClass]="{ 'is-invalid': submitted && f.mobNo.errors }" placeholder="Phone Number"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                            <div *ngIf="submitted && f.mobNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.mobNo.errors.required">Phone Number is required</div>
+                                <div *ngIf="f.mobNo.errors.pattern">Please Enter 10 digit Mobile Number.</div>
+
+                            </div>
+
+
+                            <label for="" style="    font-size: 21px;">District </label>
+                            <!-- <input [(ngModel)]="registerModel.dist" formControlName="dist" type="text"
+                                [ngClass]="{ 'is-invalid': submitted && f.dist.errors }" placeholder=" District"
+                                class="form-control" style="    margin-bottom: 11px;background: white;"> -->
+                            <select [(ngModel)]="registerModel.dist" formControlName="dist"
+                                [ngClass]="{ 'is-invalid': submitted && f.dist.errors }"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                                <option value="">Choose a District</option>
+                                <option value="Alappuzha"> Alappuzha</option>
+                                <option value="Ernakulam"> Ernakulam</option>
+                                <option value="Idukki"> Idukki</option>
+                                <option value="	Kannur"> Kannur</option>
+                                <option value="Kasaragod"> Kasaragod</option>
+                                <option value="Kollam"> Kollam</option>
+                                <option value="Kottayam"> Kottayam</option>
+                                <option value="Kozhikode"> Kozhikode</option>
+                                <option value="Malappuram"> Malappuram</option>
+                                <option value="Palakkad"> Palakkad</option>
+                                <option value="Pathanamthitta"> Pathanamthitta</option>
+                                <option value="Thiruvananthapuram"> Thiruvananthapuram</option>
+                                <option value="Thrissur"> Thrissur</option>
+                                <option value="Wayanad"> Wayanad</option>
+
+                            </select>
+                            <div *ngIf="submitted && f.dist.errors" class="invalid-feedback">
+                                <div *ngIf="f.dist.errors.required">District is required</div>
+                            </div>
+
+                            <label for="" style="    font-size: 21px;">Locality </label>
+                            <input [(ngModel)]="registerModel.locality" formControlName="locality" type="text"
+                                [ngClass]="{ 'is-invalid': submitted && f.locality.errors }" placeholder=" Locality"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                            <div *ngIf="submitted && f.locality.errors" class="invalid-feedback">
+                                <div *ngIf="f.locality.errors.required">Locality is required</div>
+
+                            </div>
+                            <label for="" style="    font-size: 21px;">whatsapp Number </label>
+                            <input [(ngModel)]="registerModel.wnumber" formControlName="wnumber" type="number"
+                                [ngClass]="{ 'is-invalid': submitted && f.wnumber.errors }"
+                                placeholder=" Whatsapp Number" class="form-control"
+                                style="    margin-bottom: 11px;background: white;">
+                            <div *ngIf="submitted && f.wnumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.wnumber.errors.required">Whatsapp Number is required</div>
+                                <div *ngIf="f.wnumber.errors.pattern">Please Enter 10 digit Mobile Number.</div>
+                            </div>
+                            <label for="" style="    font-size: 21px;">Address </label>
+                            <textarea [(ngModel)]="registerModel.address" formControlName="address" type="text"
+                                [ngClass]="{ 'is-invalid': submitted && f.address.errors }" placeholder="Address"
+                                class="form-control" style="    margin-bottom: 11px;background: white;">
+                        </textarea>
+                            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                <div *ngIf="f.address.errors.required">Address is required</div>
+                            </div>
+                            <button (click)="register()" style="    margin-left: auto;
+                        background: #ffd000;
+                        margin-right: auto;
+                        display: block;
+                        width: 50%;" class="btn btn-warning">Register</button>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- </div>  -->
+            </div>
+        </div>
+    </div>
+    <!--== slide Item One ==-->
+</section>
+<!-- 
+<section id="about-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>About us</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="display-table">
+                    <div class="display-table-cell">
+                        <div class="about-content">
+                            <p>Lorem simply dummy is a texted of the printing costed and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="assets/img/home-2-about.png" alt="JSOFT">
+                </div>
+            </div>
+        </div>
+
+        <div class="about-feature-area" >
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="about-feature-item " style="    border: 1px solid yellow;">
+                        <i class="fa fa-car"></i>
+                        <h3>ALL BRANDS</h3>
+                        <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="about-feature-item" style="    border: 1px solid yellow;">
+                        <i class="fa fa-car"></i>
+                        <h3>ALL BRANDS</h3>
+                        <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="about-feature-item" style="    border: 1px solid yellow;">
+                        <i class="fa fa-car"></i>
+                        <h3>ALL BRANDS</h3>
+                        <p>Loremed ipsumed is a compnayes odsoyel dolor sit amet, consectetur adipisicing elit. Nesciunted all of.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> -->
+
+<!--== Services Area Start ==-->
+<!-- 
+<section id="mobile-app-area" style="background-color: black;">
+    <div class="container">
+        <div class="row">
+        
+        
+            <div class="col-lg-6"> 
+                <div class="mobile-app-content">
+                    <h2>SAVE 30% WITH THE APP</h2>
+
+                    <div class="app-btns">
+                        <a href="#"><i class="fa fa-android"></i> Android Store</a>
+                        <a href="#"><i class="fa fa-apple"></i> Apple Store</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+
+
+<!-- <app-footer></app-footer> -->
+
+
+<div class="footer-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved </p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</div>

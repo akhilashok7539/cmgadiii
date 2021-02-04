@@ -1,0 +1,227 @@
+<app-navigation></app-navigation>
+
+<div class="page-wrapper">
+    <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/drivers"><i
+                style="color: black;">Drivers</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i style="color:#1492E6;">Edit Drivers</i> </p>
+
+
+    <div class="container" style="margin-top: 20px;">
+
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Edit Driver Basic Details
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                        Driver Basic Details
+
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+                padding: 20px;
+                background-color: #F8FAFB;
+                margin-top: 25px;
+                  margin-left: 1px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Edit Driver Basic Details</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="     padding: 34px;   background-color: WHITE;">
+                        <div class="col-lg-12">
+
+                            <form [formGroup]="driverForm">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Driver Name <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="driverModel.name" formControlName="name" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+
+                                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                                <div *ngIf="f.name.errors.required">Driver Name is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Phone Number<span class="text-danger">*</span></label>
+                                            <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" type="text" [(ngModel)]="driverModel.number" formControlName="number">
+
+                                            <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                                                <div *ngIf="f.number.errors.required">Driver Number is required</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Address<span class="text-danger">*</span></label>
+                                            <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" type="text" [(ngModel)]="driverModel.address" formControlName="address">
+
+                                            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                                <div *ngIf="f.address.errors.required">Driver Address is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Pancard No<span class="text-danger">*</span></label>
+                                            <input class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pancard.errors }" type="text" [(ngModel)]="driverModel.pancard" formControlName="pancard">
+
+                                            <div *ngIf="submitted && f.pancard.errors" class="invalid-feedback">
+                                                <div *ngIf="f.pancard.errors.required">Driver Pancard is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Edit Driver License Front
+
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                        Driver License Front
+
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+                <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+                padding: 20px;
+                background-color: #F8FAFB;
+                margin-top: 25px;
+                  margin-left: 1px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Edit Driver License Front
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="     padding: 34px;   background-color: WHITE;">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label> License Front <span class="text-danger">*</span></label>
+                                        <input class="form-control" #file type="file" (change)="addliscensefrnt($event)">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" (click)="update()">Update</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Edit Driver License Back
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                        Driver License Back
+
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+            padding: 20px;
+            background-color: #F8FAFB;
+            margin-top: 25px;
+              margin-left: 1px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Edit Driver License Back
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="     padding: 34px;   background-color: WHITE;">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>License Back <span class="text-danger">*</span></label>
+                                        <input class="form-control" #file type="file" (change)="addliscenseback($event)">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" (click)="updateLback()">Update</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Edit Driver Profile Picture
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                        Driver Profile Picture
+
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+            padding: 20px;
+            background-color: #F8FAFB;
+            margin-top: 25px;
+              margin-left: 1px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Edit Driver Profile Picture</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="     padding: 34px;   background-color: WHITE;">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label> Profile Pic <span class="text-danger">*</span></label>
+                                        <input class="form-control" #file type="file" (change)="addprofilepic($event)">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" (click)="updatepPic()">Update</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+    </div>
+
+</div>

@@ -1,0 +1,142 @@
+<!-- <app-header></app-header> -->
+<app-navigation></app-navigation>
+<div class="page-wrapper" style="margin-top: 101px;">
+    <div class="row">
+       
+        <div class="col-sm-4">
+            <button routerLink="/admin" class=" btn btn-dark" style="float: Left;"><i class="fa fa-arrow-left"
+                aria-hidden="true"></i> Back</button>
+
+        </div>
+        <div class="col-sm-4">
+            <h4 style="text-align: center;" >Vehicle <em style="font-style: normal;
+                color: #ffb100;">Management</em> </h4>
+        </div>
+        <div class="col-sm-4">
+            <button routerLink="/add-cars" class=" btn btn-success" style="float: right;"><i class="fa fa-plus"
+                aria-hidden="true"></i> Add New Cars</button>
+        </div>
+      
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+
+        </div>
+        <div class="col-sm-3">
+            <select [(ngModel)]="vstatus" (change)="changeFilter(vstatus)" class="form-control"
+                style="margin-top: 15px;">
+                <option value="" selected disabled>Filter Options</option>
+                <option value="1">Approved</option>
+                <option value="3">Rejected</option>
+                <option value="2">Pending</option>
+
+            </select>
+        </div>
+
+    </div>
+    <div class="row " style="margin-top: 11px;">
+        <!-- Single Popular Car Start -->
+        <div class="col-lg-3 col-md-6 con suv mpv" *ngFor="let car of carList">
+            <div class="single-popular-car">
+                <div class="p-car-thumbnails">
+                    <!-- <a  > -->
+                    <img src="{{apUrl}}vehicle/getImage1/{{car.id}}" alt="JSOFT" class="vehImg">
+                    <!-- </a> -->
+                </div>
+
+                <div class="p-car-content">
+                    <h3>
+                        <a>{{car.companyName}}</a>
+                        <span class="price"><i class="fa fa-tag"></i> {{car.rentPerDay}}</span>
+                    </h3>
+                    <h5 style="float: right;">Model : {{car.model}}</h5>
+
+                    <h5>{{car.numberPlate}}</h5>
+
+                    <h5 style="    float: right;
+                        margin-top: -1px;">{{car.type}}</h5>
+
+                    <h5>{{car.year}}</h5>
+                    <h5><i class="fa fa-map-marker"></i> {{car.locationName}}</h5>
+
+                    <!-- <div class="p-car-feature">
+                            <a href="#">{{car.year}}</a>
+                            <br>
+                            <a href="#">{{car.type}}</a>
+                            <br>
+                            <a href="#"><i class="fa fa-map-marker"></i>  {{car.locationName}}</a>
+                        </div> -->
+
+
+                
+                </div>
+                <div class="p-car-content" style="    padding: 0px 20px 19px;">
+                    <button style="margin: 2px;" (click)="view(car)" class="btn btn-dark"><i class="fa fa-eye"></i>
+                        View</button>
+                    <button style="margin: 2px;" (click)="edit(car)" class="btn btn-danger"><i class="fa fa-pencil"></i>
+                        Edit</button>
+                    <button style="margin: 2px;" (click)="delete(car)" class="btn btn-warning"><i
+                            class="fa fa-trash"></i> Delete</button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- <div class="col-lg-3 col-md-6 con suv mpv">
+            <div class="single-popular-car">
+                <div class="p-car-thumbnails">
+                    <a class="car-hover" href="assets/img/car/car-1.jpg">
+                        <img src="assets/img/car/car-5.jpg" alt="JSOFT">
+                    </a>
+                </div>
+
+                <div class="p-car-content">
+                    <h3>
+                        <a href="#">Dodge Ram 1500</a>
+                        <span class="price"><i class="fa fa-tag"></i> $55/day</span>
+                    </h3>
+
+                    <h5>HATCHBACK</h5>
+
+                    <div class="p-car-feature">
+                        <a href="#">2017</a>
+                        <a href="#">manual</a>
+                        <a href="#">AIR CONDITION</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-lg-3 col-md-6 con suv mpv">
+            <div class="single-popular-car">
+                <div class="p-car-thumbnails">
+                    <a class="car-hover" href="assets/img/car/car-1.jpg">
+                        <img src="assets/img/car/car-1.jpg" alt="JSOFT">
+                    </a>
+                </div>
+
+                <div class="p-car-content">
+                    <h3>
+                        <a href="#">Dodge Ram 1500</a>
+                        <span class="price"><i class="fa fa-tag"></i> $55/day</span>
+                    </h3>
+
+                    <h5>HATCHBACK</h5>
+
+                    <div class="p-car-feature">
+                        <a href="#">2017</a>
+                        <a href="#">manual</a>
+                        <a href="#">AIR CONDITION</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="row" *ngIf="errormessage == 'No data found'">
+        <img src="./assets/img/nodata.png" alt="" style="    margin: auto;
+        display: block;     width: 36%;   filter: brightness(0.5);">
+    </div>
+    <h5 *ngIf="errormessage == 'No data found'" style="text-align: center;">No Vehicles Found</h5>
+</div>

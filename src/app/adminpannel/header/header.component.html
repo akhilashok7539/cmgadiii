@@ -1,0 +1,47 @@
+<!-- <mat-toolbar class="mat-elevation-z6" color="primary" >
+ Dashboard 
+ <div style="position:absolute; right:10px;">
+    <button style="outline: none;" mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Profile Actions">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()" style="outline: none;">
+          <span>Sign Out</span>
+          <mat-icon style="padding-left: 5px;">exit_to_app</mat-icon>
+        </button>
+    </mat-menu>
+</div>
+  </mat-toolbar> -->
+  <header id="header-area" class="fixed-top">
+
+    <div id="header-bottom" style="background-color: rgb(0 0 0);">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                   
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright">
+                        <ul>
+                            <li routerLinkActive="active">
+                                <a routerLink="/Home">Home</a>
+
+                            </li>
+                            <li routerLinkActive="active"><a href="about.html">About</a></li>
+                            <li routerLinkActive="active"><a href="services.html">services</a></li>
+
+
+                            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+                            <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+</header>

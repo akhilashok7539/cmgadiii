@@ -1,0 +1,71 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+    <div class="row">
+        <!-- <h2>s</h2> -->
+      
+        <div class="col-sm-12">
+            <div class="card">
+                <span style="    margin-left: auto;" (click)="close()" class="close">X</span>
+                <h4>{{customerName}}</h4>
+                <hr>
+
+                <div class="line"></div>
+
+                <hr>
+                <span class="round" style="    margin-left: 94px;
+                background: green;
+                margin-top: -29px;
+                height: 25px;
+            
+              
+                width: 25px;
+                border-radius: 100%;"></span>
+
+                <span class="round" style="    margin-left: auto;
+                background: red;
+                margin-right: 94px;
+                margin-top: -25px;
+                height: 25px;
+               
+                left: -7px;
+                width: 25px;
+                border-radius: 100%;"></span>
+                <div class="row">
+                    <p style="margin-left: 70px; margin-right: auto;">Starting From : {{startingLocation}}</p>
+                    <p style="margin-left: auto; margin-right: 100px;">Destination : {{destinationLocation}}</p>
+
+                </div>
+
+                <!-- <div class="row" style="margin-top: 20px;"> -->
+                <h5 style="text-align:center;">Details</h5>
+
+                <hr style="margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                    background: yellow;">
+                <p style="text-align:center;"><i class="fa fa-calendar"></i> Requested Date : {{requestedDate}}</p>
+                <h6 style="text-align:center;">Vehicle Details</h6>
+                <hr style="margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                    background: yellow;">
+
+                <p style="text-align:center;"><i class="fa fa-car"></i> Company Name : {{companyName}}</p>
+                <p style="text-align:center;"><i class="fa fa-car"></i> Vehicle Model : {{model}}</p>
+                <p style="text-align:center;"><i class="fa fa-number"></i> Registration Number : {{numberPlate}}</p>
+                <p style="text-align:center;"><i class="fa fa-inr"></i> Rent Per Day : {{rentPerDay}}</p>
+
+                <!-- </div>  -->
+                <div class="row" style="    margin: 13px auto 0;" *ngIf="approvalstatus == 2">
+                    <button class="btn btn-success" style="margin-right: 10px;" (click)="approve()"> <i class="fa fa-check"></i> Approve</button>
+                    <button class="btn btn-danger" style="margin-left: 10px;" (click)="reject()"> <i class="fa fa-close"></i> Reject</button>
+                </div>
+            </div>
+
+         
+
+        </div>
+
+    </div>
+</div>

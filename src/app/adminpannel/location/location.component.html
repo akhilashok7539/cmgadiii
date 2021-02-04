@@ -1,0 +1,103 @@
+<app-navigation></app-navigation>
+
+<app-sidebar></app-sidebar>
+<div class="page-wrapper" style="margin-top: 33px;">
+
+
+
+
+    <div class="content">
+
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Locality</h4>
+
+            </div>
+
+
+            <div class="col-sm-8 col-9 text-right m-b-20">
+
+                <a class="btn btn btn-primary btn-rounded float-right " style="color: white;" routerLink="/add-location"><i
+                        class="fa fa-plus"></i> Add Locality </a>
+            </div>
+        </div>
+        <div class="row" >
+
+            <div class="table-responsive">
+                <!-- <div class="row">
+                    <div class="col-sm-4">
+                     
+
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="search here" [(ngModel)]="searchString"
+                            (keyup)="applyFilter(searchString)">
+
+
+
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!-- <h5>Owner</h5> -->
+
+                    </div>
+                    <div class="col-sm-6" style="    padding: 11px;">
+
+                        <input type="text" class="form-control" placeholder="search locality" [(ngModel)]="searchString"
+                        (keyup)="applyFilter(searchString)">
+                        <span style="    float: right;
+                        margin-top: -29px;
+                        margin-right: 13px;
+                    "><i class="fa fa-search"></i> </span>
+                    </div>
+                    <div class="col-sm-3">
+                       
+
+
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                    <mat-table #table [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="location">
+                            <mat-header-cell *matHeaderCellDef>Location Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element "> {{element.name}}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="Edit">
+                            <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <button (click)="edit(element)" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>  &nbsp;&nbsp;&nbsp;
+                          <button (click)="delete(element)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button> </mat-cell>
+                       
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="delete">
+                            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <button (click)="delete(element)" class="btn btn-dark">Delete</button> </mat-cell>
+                        </ng-container> -->
+                        
+
+
+
+
+
+
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+
+                    <mat-paginator #paginator [length]="totalLength" [pageSize]="limit" >
+                    </mat-paginator>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

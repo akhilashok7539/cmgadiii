@@ -1,0 +1,44 @@
+<header id="header-area" class="fixed-top">
+
+    <div id="header-bottom" style="background-color: rgb(0 0 0);">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a routerLink="/Home" class="logo">
+                        <img src="assets/img/logoos.png" style="
+                        height: 64px;" alt="JSOFT " *ngIf="!isloggedIn">
+                        <h6 *ngIf="isloggedIn" style="    color: white;
+                        font-weight: bold;
+                        padding-top: 16px;">Cmgaadi.com</h6>
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright">
+                        <ul>
+                            <li *ngIf="!isloggedIn" routerLinkActive="active">
+                                <a routerLink="/Home">Home</a>
+                            </li>
+                            <li *ngIf="isloggedIn" routerLinkActive="active">
+                                <a routerLink="/admin">Home</a>
+                            </li>
+                            <li *ngIf="!isloggedIn" routerLinkActive="active">
+                                <a routerLink="/login">Login</a>
+                            </li>
+                            <li *ngIf="!isloggedIn" routerLinkActive="active">
+                                <a routerLink="/register">Register</a>
+                            </li>
+                            <li *ngIf="isloggedIn" (click)="logout()">
+                                <a style="cursor: pointer;">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+</header>
