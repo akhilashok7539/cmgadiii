@@ -41,6 +41,13 @@ import { AdddriverLicscenceComponent } from './ownerpannel/drivers/add-drivers/a
 import { AdddriverLicscencebackComponent } from './ownerpannel/drivers/add-drivers/adddriver-licscenceback/adddriver-licscenceback.component';
 import { AdddriverProfilepicComponent } from './ownerpannel/drivers/add-drivers/adddriver-profilepic/adddriver-profilepic.component';
 import { VehicletrackingComponent } from './ownerpannel/vehicletracking/vehicletracking.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { FeaturesComponent } from './features/features.component';
+import { TermsandconditonsComponent } from './termsandconditons/termsandconditons.component';
+import { PrivacyandpolicyComponent } from './privacyandpolicy/privacyandpolicy.component';
+import { CancelationpolicyComponent } from './cancelationpolicy/cancelationpolicy.component';
+import { ServicesComponent } from './services/services.component';
 
 
 const routes: Routes = [
@@ -48,7 +55,14 @@ const routes: Routes = [
   // {path: '**', redirectTo: '/404'},
   {path: '404', component: ErrorPageComponent},
   {path: 'userhome', component: RegisterpageformarketingComponent},
-   
+  { path:'aboutus', component: AboutusComponent },
+  { path:'features', component: FeaturesComponent },
+  { path:'contactus', component: ContactusComponent },
+  { path:'terms', component: TermsandconditonsComponent },
+  { path:'privacy', component: PrivacyandpolicyComponent },
+  { path:'cancelations', component: CancelationpolicyComponent },
+  { path:'services', component: ServicesComponent },
+
   { path:'Home', component: HomeComponent },
   { path:'login', component: LoginComponent },
   { path:'register', component: RegisterComponent },

@@ -1,9 +1,8 @@
-<header id="header-area" class="fixed-top">
+<!-- <header id="header-area" class="fixed-top">
 
     <div id="header-bottom" style="background-color: rgb(0 0 0);">
         <div class="container">
             <div class="row">
-                <!--== Logo Start ==-->
                 <div class="col-lg-4">
                     <a routerLink="/Home" class="logo">
                         <img src="assets/img/logoos.png" style="
@@ -13,14 +12,15 @@
                         padding-top: 16px;">Cmgaadi.com</h6>
                     </a>
                 </div>
-                <!--== Logo End ==-->
 
-                <!--== Main Menu Start ==-->
                 <div class="col-lg-8 d-none d-xl-block">
                     <nav class="mainmenu alignright">
                         <ul>
                             <li *ngIf="!isloggedIn" routerLinkActive="active">
-                                <a routerLink="/Home">Home</a>
+                                <a routerLink="/userhome">Home</a>
+                            </li>
+                            <li class="nav-item" routerLinkActive="active">
+                                <a class="nav-link" routerLink="/aboutus" style="color: white;">About US</a>
                             </li>
                             <li *ngIf="isloggedIn" routerLinkActive="active">
                                 <a routerLink="/admin">Home</a>
@@ -37,8 +37,44 @@
                         </ul>
                     </nav>
                 </div>
-                <!--== Main Menu End ==-->
             </div>
         </div>
     </div>
-</header>
+</header> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: #00060f !important;">
+    <a class="navbar-brand" href="#">
+        <img src="./assets/img/logoos.png" alt="" style="width: 50px;">
+    </a>
+    <button style="background: white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/userhome" style="color: white;">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/aboutus" style="color: white;">About Us</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/features" style="color: white;">Features</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/services" style="color: white;">Services</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/contactus" style="color: white;">Contact Us</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/login" style="color: white;">Login</a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/register" style="color: white;">Register</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

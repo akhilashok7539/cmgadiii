@@ -67,6 +67,13 @@ import { AdddriverLicscenceComponent } from './ownerpannel/drivers/add-drivers/a
 import { AdddriverLicscencebackComponent } from './ownerpannel/drivers/add-drivers/adddriver-licscenceback/adddriver-licscenceback.component';
 import { AdddriverProfilepicComponent } from './ownerpannel/drivers/add-drivers/adddriver-profilepic/adddriver-profilepic.component';
 import { VehicletrackingComponent } from './ownerpannel/vehicletracking/vehicletracking.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { FeaturesComponent } from './features/features.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { TermsandconditonsComponent } from './termsandconditons/termsandconditons.component';
+import { PrivacyandpolicyComponent } from './privacyandpolicy/privacyandpolicy.component';
+import { CancelationpolicyComponent } from './cancelationpolicy/cancelationpolicy.component';
+import { ServicesComponent } from './services/services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -118,7 +125,14 @@ import { VehicletrackingComponent } from './ownerpannel/vehicletracking/vehiclet
     AdddriverLicscenceComponent,
     AdddriverLicscencebackComponent,
     AdddriverProfilepicComponent,
-    VehicletrackingComponent
+    VehicletrackingComponent,
+    AboutusComponent,
+    FeaturesComponent,
+    ContactusComponent,
+    TermsandconditonsComponent,
+    PrivacyandpolicyComponent,
+    CancelationpolicyComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,

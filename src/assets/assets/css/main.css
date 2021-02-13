@@ -2719,7 +2719,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .single-review:hover {
     cursor: pointer;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(255, 238, 0, 0.856);
     box-shadow: 0px 20px 30px 0px rgba(35, 94, 231, 0.2);
 }
 
