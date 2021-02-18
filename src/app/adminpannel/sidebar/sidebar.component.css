@@ -1,10 +1,9 @@
-
+/* 
 .sidebar {
 	background: linear-gradient(to bottom, white , #ffcb67);
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 	top: 79px;
 	width: 230px;
-	/* z-index: 1039; */
 	z-index: 0;
 	background-color: #fff;
 	bottom: 0;
@@ -55,7 +54,6 @@
 .sidebar-menu li.menu-title a {
 	color: #009efb;
 	display: inline-block;
-	/* float: right; */
 	padding: 0;
 }
 .sidebar-menu li.menu-title a.btn {
@@ -214,4 +212,4 @@
 .sidebar-menu li.active a {
 	color: orange;
 }
-
+ */

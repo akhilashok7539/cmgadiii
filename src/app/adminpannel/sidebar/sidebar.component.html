@@ -1,19 +1,19 @@
 <!-- <mat-sidenav-container>
-    <mat-sidenav  mode="side" opened="true" [fixedInViewport]="true" [fixedTopGap]="64">
-                <ul>
-                    <li routerLink="/admin" routerLinkActive="active">Home</li>
-                    
-                    <li *ngIf="userRole == 'ADMIN'" routerLink="/countries" routerLinkActive="active">Countries</li>
+    <mat-sidenav mode="side" opened="true" [fixedInViewport]="true" [fixedTopGap]="64">
+        <ul>
+            <li routerLink="/admin" routerLinkActive="active">Home</li>
 
-                </ul>
-      </mat-sidenav>
-  
- </mat-sidenav-container> -->
-    
-<div class="sidebar" id="sidebar" >
+            <li *ngIf="userRole == 'ADMIN'" routerLink="/countries" routerLinkActive="active">Countries</li>
+
+        </ul>
+    </mat-sidenav>
+
+</mat-sidenav-container> -->
+<!-- 
+<div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll" style="overflow-y: auto;">
         <div id="sidebar-menu" class="sidebar-menu">
-            <ul  *ngIf="userRole == 'ADMIN'">
+            <ul *ngIf="userRole == 'ADMIN'">
 
                 <img src="assets/img/logoos.png" alt="" style="    display: block;
                 width: 52%;
@@ -21,72 +21,143 @@
                 padding-top: 32px;">
                 <li class="menu-title" style="text-align: center;"> <strong>  Admin</strong></li>
                 <li routerLinkActive="active">
-                    <a routerLink ="/admin"><i class="fa fa-user"></i> <span>Owners</span></a>
+                    <a routerLink="/admin"><i class="fa fa-user"></i> <span>Owners</span></a>
                 </li>
                 <li routerLinkActive="active">
-                    <a routerLink ="/locations"><i class="fa fa-map-marker"></i> <span>Locality</span></a>
+                    <a routerLink="/locations"><i class="fa fa-map-marker"></i> <span>Locality</span></a>
                 </li>
                 <li routerLinkActive="active">
-                    <a routerLink="/admin-vehicles" ><i class="fa fa-car"></i> <span>Vehicles</span></a>
+                    <a routerLink="/admin-vehicles"><i class="fa fa-car"></i> <span>Vehicles</span></a>
                 </li>
                 <li routerLinkActive="active">
-                    <a routerLink ="/admin-paymentreports"><i class="fa fa-inr"></i> <span>Payment Reports</span></a>
+                    <a routerLink="/admin-paymentreports"><i class="fa fa-inr"></i> <span>Payment Reports</span></a>
                 </li>
-              
+
                 <li routerLinkActive="active">
-                    <a routerLink ="/admin-resetpassword"><i class="fa fa-lock"></i> <span>Reset Password</span></a>
+                    <a routerLink="/admin-resetpassword"><i class="fa fa-lock"></i> <span>Reset Password</span></a>
                 </li>
-                
-            </ul >
-            <ul  *ngIf ="userRole=='OWNER'">
+
+            </ul>
+            <ul *ngIf="userRole=='OWNER'">
                 <img src="assets/img/logoos.png" alt="" style="    display: block;
                 width: 52%;
                 margin: 0 auto;
                 padding-top: 32px;">
                 <li class="menu-title" style="text-align: center;"> <strong> Owner</strong></li>
                 <li routerLinkActive="active">
-                    <a routerLink ="/admin"><i class="fa fa-user-md"></i> <span>Home</span></a>
-                </li>
-                <!-- <li routerLinkActive="active">
-                    <a routerLink ="/items"><i class="fa fa-user-md"></i> <span>Vehicles</span></a>
-                </li>
-           
-             
-                <li routerLinkActive="active">
-                    <a routerLink ="/booking-customers"><i class="fa fa-user-md"></i> <span>Drivers  </span></a>
-                </li>
-               
-                <li routerLinkActive="active">
-                    <a  routerLink ="/admin-deliveryBoys"><i class="fa fa-user-md"></i> <span>Vehicle Tracking</span></a>
+                    <a routerLink="/admin"><i class="fa fa-user-md"></i> <span>Home</span></a>
                 </li>
               
                 <li routerLinkActive="active">
-                    <a routerLink ="/booking-history"><i class="fa fa-user-md"></i> <span>Payment reports</span></a>
+                    <a routerLink="/item-rating"><i class="fa fa-user-md"></i> <span>Terms & Conditions</span></a>
                 </li>
-              
                 <li routerLinkActive="active">
-                    <a routerLink ="/item-rating"><i class="fa fa-user-md"></i> <span>  Bank manage</span></a>
-                </li>  -->
-               
-                 <!-- <li routerLinkActive="active">
-                    <a routerLink ="/item-rating"><i class="fa fa-user-md"></i> <span>Profile</span></a>
-                </li>  -->
+                    <a routerLink="/item-rating"><i class="fa fa-user-md"></i> <span>Privacy</span></a>
+                </li>
                 <li routerLinkActive="active">
-                    <a routerLink ="/item-rating"><i class="fa fa-user-md"></i> <span>Terms & Conditions</span></a>
-                </li> 
-                <li routerLinkActive="active">
-                    <a routerLink ="/item-rating"><i class="fa fa-user-md"></i> <span>Privacy</span></a>
-                </li> 
-                <li routerLinkActive="active">
-                    <a routerLink ="/item-rating"><i class="fa fa-user-md"></i> <span>Help and Support</span></a>
-                </li> 
+                    <a routerLink="/item-rating"><i class="fa fa-user-md"></i> <span>Help and Support</span></a>
+                </li>
                 <li routerLinkActive="active">
                     <a routerLink="/admin-resetpassword"><i class="fa fa-lock"></i> <span>Reset Password</span></a>
-                </li> 
-                <!-- <li routerLinkActive="active">
-                    <a routerLink ="/booking-history"><i class="fa fa-user-md"></i> <span>Change password</span></a>
-                </li> -->
-            </ul >
+                </li>
+
+            </ul>
         </div>
     </div>
-</div>
+</div> -->
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="position: fixed;">
+
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3"> <sup></sup></div>
+    </a>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
+    <!-- 
+    <div class="sidebar-heading">
+        Interface
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Utilities</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-heading">
+        Addons
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Login Screens:</h6>
+                <a class="collapse-item" href="login.html">Login</a>
+                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item" href="blank.html">Blank Page</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tables</span></a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block"> -->
+
+
+
+</ul>

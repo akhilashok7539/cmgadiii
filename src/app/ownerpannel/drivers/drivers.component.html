@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<!-- <app-navigation></app-navigation>
 <div class="row" style="margin-bottom: 27px;
 margin-top: 100px;  ">
  
@@ -23,50 +23,7 @@ margin-top: 100px;  ">
 
     <div class="col-sm-12">
       
-        <!-- <mat-card>
-            <span class="close"> <i  matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i> </span>
-            <div class="row">
-                <div class="col-sm-4">
-                    <img src="{{apUrl}}driver/getProfilePic/{{driverslist.id}}" alt="" style="height: 108px;
-                    width: 92px;">
-                   
-
-                </div>
-                <div class="col-sm-8">
-                    <p>Driver Name : {{driverslist.name}}</p>
-                    <p>Phone Number : {{driverslist.number}} </p>
-                    <p>Pan Card No : {{driverslist.panCardNO}}</p>
-                    <p>License Front : <Button (click)="getlicsence(driverslist.id)" style="    border: none;
-                    background: none;" matTooltip="donwload "> <i class="fa fa-eye"></i></Button></p>
-                    <p>License Back : <Button (click)="getlicsenceback(driverslist.id)"  style="    border: none;
-                    background: none;" matTooltip="donwload"> <i class="fa fa-eye"></i></Button></p>
-
-                </div>
-            </div>
-        </mat-card> -->
-            <!-- <ul  *ngFor="let driverslist of driverslist; let i=index;">
-                <li><a style="    margin-top: 13px;
-                    "> {{i+1}}</a> </li>
-            <li><a style="    margin-top: 13px;
-                width: 200px;"><img src="{{apUrl}}driver/getProfilePic/{{driverslist.id}}" alt="Avatar" class="avatar"></a></li>
-            <li><a style="    margin-top: 13px;
-                width: 200px;">{{driverslist.name}}</a></li>
-            <li><a style="    margin-top: 13px;
-                width: 200px;">{{driverslist.number}}</a></li>
-            <li><a style="    margin-top: 13px;
-                width: 200px;">{{driverslist.panCardNO}}</a></li>
-            <li><a style="    margin-top: 13px;
-                width: 200px;">License Front : <Button (click)="getlicsence(driverslist.id)" style="    border: none;
-                    background: none;" matTooltip="License Front "> <i class="fa fa-eye"></i></Button></a> </li>    
-            <li> <a style="margin-top: 13px;
-                width: 200px;"> License Back : <Button (click)="getlicsenceback(driverslist.id)"  style="    border: none;
-                    background: none;" matTooltip="License Back"> <i class="fa fa-eye"></i></Button></a> </li>
-                    <li><a  style="margin-top: 13px;"><i  matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i></a> </li>
-          
-                </ul> -->
-          
-
-
+    
                     <mat-table #table [dataSource]="dataSource">
 
                         <ng-container matColumnDef="name">
@@ -115,5 +72,85 @@ margin-top: 100px;  ">
 
           
 
+    </div>
+</div> -->
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Driver Management</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <button routerLink="/add-drivers" style="float: right;" class=" btn btn-success"><i class="fa fa-plus"
+                            aria-hidden="true"></i> Add New Drivers</button>
+                    </div>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Driver Name</th>
+                                        <th>Phone Number</th>
+                                        <th>Pan Card</th>
+                                        <th>License Front</th>
+                                        <th>License Back</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let driverslist of driverslist">
+                                        <td>{{driverslist.name}}</td>
+                                        <td>{{driverslist.number}}</td>
+                                        <td>{{driverslist.panCardNO}}</td>
+                                        <td>
+                                            <Button (click)="getlicsence(driverslist.id)" style="    border: none;
+                                            background: none;" matTooltip="License Front "> <i class="fa fa-eye"></i> View</Button>
+                                        </td>
+                                        <td>
+                                            <Button (click)="getlicsenceback(driverslist.id)" style="    border: none;
+                                            background: none;" matTooltip="License Back">
+                                             <i class="fa fa-eye"></i> View</Button>
+                                        </td>
+                                        <td><i matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
