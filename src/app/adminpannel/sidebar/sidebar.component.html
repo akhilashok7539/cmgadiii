@@ -79,11 +79,69 @@
 
     <li class="nav-item active">
         <a class="nav-link" routerLink="/admin">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fa fa-tachometer"></i>
             <span>Dashboard</span></a>
     </li>
 
     <hr class="sidebar-divider">
+
+
+    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+        <a class="nav-link" routerLink="/vehicles">
+            <i class="fa fa-car "></i>
+            <span>Vehicle</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/admin-vehicles">
+            <i class="fa fa-car "></i>
+            <span>Vehicle</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/admin">
+            <i class="fa fa-map-marker "></i>
+            <span>Vehicle Tracking</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+        <a class="nav-link" routerLink="/drivers">
+            <i class="fa fa-user "></i>
+            <span>Drivers</span></a>
+    </li>
+
+    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/admin">
+            <i class="fa fa-clipboard "></i>
+            <span>Payment Reports</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+        <a class="nav-link" routerLink="/admin">
+            <i class="fa fa-refresh "></i>
+            <span>Request</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+        <a class="nav-link" routerLink="/handovervehicles">
+            <img src="./assets/img/iconshandover.png" alt="" style="width: 15px !important;"> Handover Vehicle
+        </a>
+    </li>
+    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+        <a class="nav-link" routerLink="/bankdetails">
+            <i class="fa fa-university"></i>
+            <span>Bank Manage</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/chatsandfeebacks">
+            <i class="fa fa-envelope"></i>
+            <span>Feedbacks</span></a>
+    </li>
+    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/locations">
+            <i class="fa fa-map-marker"></i>
+            <span>Location</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin-resetpassword">
+            <i class="fa fa-key"></i>
+            <span>Reset Password</span></a>
+    </li>
     <!-- 
     <div class="sidebar-heading">
         Interface

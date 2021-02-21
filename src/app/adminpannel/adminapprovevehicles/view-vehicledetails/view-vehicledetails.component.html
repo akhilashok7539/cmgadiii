@@ -1,4 +1,5 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
+
 <app-sidebar></app-sidebar>
 <!-- 
 <div class="page-wrapper">
@@ -69,7 +70,7 @@
 <div class="page-wrapper">
     <div class="container">
         <h4>Vehicle <span style="color: #ffa800;">Details</span> </h4>
-<hr>
+        <hr>
         <div class="row">
             <div class="col-sm-8">
 
@@ -94,25 +95,22 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <img src="{{apiurl}}vehicle/getImage1/{{vehicleID}}" alt=""
-                                style="     width: 200px; height: 186px;  ">
+                            <img src="{{apiurl}}vehicle/getImage1/{{vehicleID}}" alt="" style="     width: 200px; height: 186px;  ">
                         </div>
                         <div class="col-sm-8">
-                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle
-                                Type : {{vehicleModel.vehicleType}}</p>
-                            <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number
-                                : {{vehicleModel.vehicleRegistration}}</p>
-                            <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location :
-                                {{vehicleModel.locality}}</p>
+                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle Type : {{vehicleModel.vehicleType}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number : {{vehicleModel.vehicleRegistration}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location : {{vehicleModel.locality}}
+                            </p>
                             <hr>
                             <h6>Rent Details</h6>
                             &nbsp;
-                            <p *ngIf="rentperhour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour :
-                                {{rentperhour}}</p>
-                            <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day :
-                                {{vehicleModel.rent}}</p>
-                            <p *ngIf="rentperkm != null" style="    text-align: left;"><i class="fa fa-road"></i>&nbsp; Rent Per KM :
-                                {{rentperkm}}</p>
+                            <p *ngIf="rentperhour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour : {{rentperhour}}
+                            </p>
+                            <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day : {{vehicleModel.rent}}
+                            </p>
+                            <p *ngIf="rentperkm != null" style="    text-align: left;"><i class="fa fa-road"></i>&nbsp; Rent Per KM : {{rentperkm}}
+                            </p>
 
                         </div>
                     </div>
@@ -128,15 +126,11 @@
                         <div class="col-sm-8">
                             <h6>Driver Details</h6>
                             <hr>
-                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-user"></i>&nbsp;Driver Name
-                                :
-                                {{vehicleModel.dname}}</p>
-                            <p *ngIf="DriverDetailsofCar !=null"style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact
-                                Number :
-                                {{vehicleModel.dnumber}}</p>
-                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i
-                                    class="fa fa-map-marker"></i>&nbsp;Driver
-                                Address : {{vehicleModel.daddreess}}</p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-user"></i>&nbsp;Driver Name : {{vehicleModel.dname}}
+                            </p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact Number : {{vehicleModel.dnumber}}
+                            </p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-map-marker"></i>&nbsp;Driver Address : {{vehicleModel.daddreess}}</p>
                             <p *ngIf="DriverDetailsofCar ==null"> No Driver is linked to this vehicle!</p>
                         </div>
                     </div>
@@ -145,12 +139,12 @@
                 <div class="card" *ngIf="vehiclestatus == 'PENDING'">
 
                     <div class="row">
-                      
+
                         <div class="col-sm-12">
                             <h6>Vehicle Approve or Reject</h6>
                             <hr>
                             <p>Please verify the above documents and then approve or reject vehicles</p>
-                            
+
                             <button class="btn btn-success" (click)="approve()">Approve</button>
                             <button class="btn btn-danger" (click)="reject()">Reject</button>
 
@@ -164,24 +158,14 @@
                     <h6> Vehicle Documents </h6>
                     <hr>
                     <p>License Front</p>
-                    <img [src]="liscence1" alt="">
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    <img [src]="liscence1" alt=""> &nbsp; &nbsp; &nbsp;
 
                     <p>License Back</p>
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    <img [src]="liscence2" alt="">
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    <img [src]="liscence2" alt=""> &nbsp; &nbsp; &nbsp;
 
                     <p>RC Book</p>
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    &nbsp; &nbsp; &nbsp;
                     <img [src]="rc" alt="">
                 </div>
 

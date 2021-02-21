@@ -1,0 +1,55 @@
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <app-header></app-header>
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Users Feedbacks</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="">Start Date</label>
+                        <input type="date" class="form-control" [(ngModel)]="date1">
+                        <label for="">End Date</label>
+                        <input type="date" class="form-control" [(ngModel)]="date2" (change)="selected(date2)">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card shadow mb-4" *ngFor="let result of results">
+
+                            <div class="card-body">
+                                <img src="./assets/img/client/client-pic-3.jpg" alt="" style="height: 100px !important;
+                                margin: 0 auto;
+                                display: block;
+                                border-radius: 57%;">
+                                <h6 style="text-align: center;margin-top: 20px;">{{result.userName}}</h6>
+                                <p style="text-align: center;font-weight: bold;">{{result.createdTime | slice:0:10}}</p>
+
+                                <p style="    margin-bottom: 0px;color: orange; text-align: center;font-weight: bold;">
+                                    Rating : {{result.experiance}}</p>
+                                <p style="text-align: center;">⭐⭐⭐⭐⭐</p>
+
+
+                                <p style="    padding: 11px;
+                                border: 1px solid #8080804f;">{{result.comment}}</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

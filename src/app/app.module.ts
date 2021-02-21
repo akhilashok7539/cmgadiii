@@ -74,6 +74,12 @@ import { TermsandconditonsComponent } from './termsandconditons/termsandconditon
 import { PrivacyandpolicyComponent } from './privacyandpolicy/privacyandpolicy.component';
 import { CancelationpolicyComponent } from './cancelationpolicy/cancelationpolicy.component';
 import { ServicesComponent } from './services/services.component';
+import { ChatsadnfeedbacksComponent } from './chatsadnfeedbacks/chatsadnfeedbacks.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { UsersComponent } from './users/users.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
+import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,7 +138,12 @@ import { ServicesComponent } from './services/services.component';
     TermsandconditonsComponent,
     PrivacyandpolicyComponent,
     CancelationpolicyComponent,
-    ServicesComponent
+    ServicesComponent,
+    ChatsadnfeedbacksComponent,
+    UsersComponent,
+    PricingComponent,
+    MobilenumberComponent,
+    VerifyotpComponent
   ],
   imports: [
     BrowserModule,
@@ -145,7 +156,7 @@ import { ServicesComponent } from './services/services.component';
     BrowserAnimationsModule
   ],
   providers: [
-    // AuthGuard,
+    AuthGuard,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     { provide: HTTP_INTERCEPTORS, useClass: LoadingScreenInterceptor, multi: true },
 

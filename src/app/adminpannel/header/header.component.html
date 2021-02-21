@@ -13,12 +13,24 @@
 </div>
   </mat-toolbar> -->
 
+<div class="row">
 
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 fixed-top shadow">
 
-    <a class="navbar-brand" href="#">
-        <img src="./assets/img/logonew.png" alt="" style="width: 101px;">
-        <!-- <h6>CMGAADI</h6> -->
-    </a>
+        <div class="col-sm-10">
+            <a class="navbar-brand">
+                <img src="./assets/img/logonew.png" alt="" style="width: 101px;">
+                <!-- <h6>CMGAADI</h6> -->
+            </a>
+        </div>
+        <div class="col-sm-2">
+            <a (click)="logout()" style="    float: right;
+            color: black;
+            font-weight: 500;">Logout</a>
 
-</nav>
+        </div>
+
+    </nav>
+
+
+</div>

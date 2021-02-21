@@ -22,6 +22,10 @@ export class AdminService {
   {
     return this.http.get(this.BASEURL+'user/listUsers?page='+pageIndex+'&size=10&roleId=2');
   }
+  getallusers(page){
+    return this.http.get(this.BASEURL+'user/listUsers?page='+page+'&size=10&roleId=3');
+
+  }
   getalllocation(){
     return this.http.get(this.BASEURL+'admin/listLocality');
 
@@ -37,6 +41,10 @@ export class AdminService {
   }
   getallvehicles(){
     return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=2&page=0&size=100');
+
+  }
+  getalldata(fday,lastday,pagesize,size){
+    return this.http.get(this.BASEURL+'rating/listReview?start='+fday+'&end='+lastday+'&page='+pagesize+'&size='+size);
 
   }
   getallvehiclesapproved(){

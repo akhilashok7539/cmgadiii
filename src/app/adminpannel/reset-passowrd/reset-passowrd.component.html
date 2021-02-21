@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 
 <app-sidebar></app-sidebar>
 <div class="page-wrapper" style="margin-top: 33px;">
@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <h4 style="text-align: center;" >Reset <em style="font-style: normal;
+                <h4 style="text-align: center;">Reset <em style="font-style: normal;
                     color: #ffb100;">Password</em> </h4>
                 <hr>
             </div>
@@ -34,8 +34,7 @@
                         <div class="col-sm-12" style="margin-left: auto;
                         margin-right: auto;">
                             <label for="">Old Password</label>
-                            <input class="form-control" placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldPasswords.errors }"
-                            type="password" [(ngModel)]="adminmodel.oldPasswords" formControlName="oldPasswords">
+                            <input class="form-control" placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldPasswords.errors }" type="password" [(ngModel)]="adminmodel.oldPasswords" formControlName="oldPasswords">
                             <div *ngIf="submitted && f.oldPasswords.errors" class="invalid-feedback">
                                 <div *ngIf="f.oldPasswords.errors.required"> Old Password is required</div>
                                 <div *ngIf="f.oldPasswords.errors.minlength">Old Password must be at least 8 characters</div>
@@ -45,8 +44,7 @@
                         <div class="col-sm-12" style="margin-left: auto;
                         margin-right: auto;">
                             <label for="">Password</label>
-                            <input class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-                            type="password" [(ngModel)]="adminmodel.password" formControlName="password">
+                            <input class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" type="password" [(ngModel)]="adminmodel.password" formControlName="password">
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                 <div *ngIf="f.password.errors.required"> Password is required</div>
                                 <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
@@ -56,13 +54,12 @@
                         <div class="col-sm-12" style="margin-left: auto;margin-top: 10px;
                         margin-right: auto;">
                             <label for="">Confirm Password</label>
-                            <input class="form-control" placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
-                                type="password" [(ngModel)]="adminmodel.confirmPassword" formControlName="confirmPassword">
-                               
-                               <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                                   <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                                   <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                               </div>
+                            <input class="form-control" placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" type="password" [(ngModel)]="adminmodel.confirmPassword" formControlName="confirmPassword">
+
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
                         </div>
                         <div class="col-sm-12">
                             <button style="    margin: 12px;

@@ -9,12 +9,15 @@ import { AuthenticationService } from 'src/app/_services/authentication.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router,private authenticationService:AuthenticationService) { }
+  constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }
   logout() {
-    this.authenticationService.logout();
+    localStorage.clear();
     this.router.navigate(['/login']);
+  }
+
 }
-}
+
+

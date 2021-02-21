@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
     this.registerModel = new Registeruser();
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      mobNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
-      email: ['', Validators.required],
+      // mobNo: ['', [Validators.required, Validators.pattern('[6-9]\\d{9}')]],
+      // email: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       Confirmpassword: ['', Validators.required],
       address: ['', Validators.required],
@@ -41,13 +41,14 @@ export class RegisterComponent implements OnInit {
     // alert('User Registration successfully');
     // console.log(this.registerForm.value);
     // this.registerForm.reset();
+    let mobnumber = JSON.parse(sessionStorage.getItem("mobileandemail"))
     let req ={
       "name":this.registerModel.name,
       "userName":this.registerModel.username,
-      "emailId":this.registerModel.email,
+      "emailId":mobnumber['emailid'],
       "password":this.registerModel.password,
-      // "mobile":this.registerModel.mobNo,
-      "username":this.registerModel.mobNo,
+      "mobile":mobnumber['mobilenumber'],
+      // "username":this.registerModel.mobNo,
 
       "addres":this.registerModel.address,
       "roleId":2

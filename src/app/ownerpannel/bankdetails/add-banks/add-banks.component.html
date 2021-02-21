@@ -1,9 +1,8 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 
 <div class="page-wrapper">
     <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/vehicles"><i
-                style="color: black;">Cars</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i
-            style="color:#1492E6;">Add Banks</i> </p>
+                style="color: black;">Cars</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i style="color:#1492E6;">Add Banks</i> </p>
     <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
     padding: 20px;
     background-color: #F8FAFB;
@@ -22,9 +21,8 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Account Holder Name <span class="text-danger">*</span></label>
-                                <input [(ngModel)]="bankModel.acocuntholderName" formControlName="acocuntholderName" [ngClass]="{ 'is-invalid': submitted && f.acocuntholderName.errors }" class="form-control" 
-                                type="text"   >
-                             
+                                <input [(ngModel)]="bankModel.acocuntholderName" formControlName="acocuntholderName" [ngClass]="{ 'is-invalid': submitted && f.acocuntholderName.errors }" class="form-control" type="text">
+
                                 <div *ngIf="submitted && f.acocuntholderName.errors" class="invalid-feedback">
                                     <div *ngIf="f.acocuntholderName.errors.required">Acocunt holder name is required</div>
                                 </div>
@@ -33,9 +31,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Account Number<span class="text-danger">*</span></label>
-                                <input [ngClass]="{ 'is-invalid': submitted && f.accountNumber.errors }"
-                                    class="form-control" type="text" [(ngModel)]="bankModel.accountNumber"
-                                    formControlName="accountNumber">
+                                <input [ngClass]="{ 'is-invalid': submitted && f.accountNumber.errors }" class="form-control" type="text" [(ngModel)]="bankModel.accountNumber" formControlName="accountNumber">
                                 <div *ngIf="submitted && f.accountNumber.errors" class="invalid-feedback">
                                     <div *ngIf="f.accountNumber.errors.required">Company Name is required</div>
                                 </div>
@@ -45,9 +41,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>IFSC Code<span class="text-danger">*</span></label>
-                                <input [ngClass]="{ 'is-invalid': submitted && f.ifscode.errors }"
-                                    class="form-control" type="text" [(ngModel)]="bankModel.ifscode"
-                                    formControlName="ifscode">
+                                <input [ngClass]="{ 'is-invalid': submitted && f.ifscode.errors }" class="form-control" type="text" [(ngModel)]="bankModel.ifscode" formControlName="ifscode">
                                 <div *ngIf="submitted && f.ifscode.errors" class="invalid-feedback">
                                     <div *ngIf="f.ifscode.errors.required">IFSC Code is required</div>
                                 </div>
@@ -57,20 +51,17 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Bank Name<span class="text-danger">*</span></label>
-                                <input [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }"
-                                    class="form-control" type="text" [(ngModel)]="bankModel.bankName"
-                                    formControlName="bankName">
+                                <input [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }" class="form-control" type="text" [(ngModel)]="bankModel.bankName" formControlName="bankName">
                                 <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
                                     <div *ngIf="f.bankName.errors.required">Bank Name is required</div>
                                 </div>
 
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-12">
-                            <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;"
-                                (click)="submit()" class="btn btn-warning">Submit</button>
-                                <!-- <button (click)="clicks()">click</button> -->
+                            <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
+                            <!-- <button (click)="clicks()">click</button> -->
                         </div>
                     </div>
                 </form>

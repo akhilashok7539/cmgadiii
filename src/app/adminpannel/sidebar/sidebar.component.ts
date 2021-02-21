@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   userDetails: any;
-  userRole: any;
+  Role: any;
 
   constructor() { }
 
   ngOnInit() {
     this.userDetails = JSON.parse(localStorage.getItem('ROLE'));
-    this.userRole = this.userDetails;
-    console.log(this.userRole)
+    this.Role = this.userDetails;
+    console.log(this.Role)
   }
 
 }

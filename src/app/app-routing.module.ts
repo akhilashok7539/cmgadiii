@@ -48,6 +48,12 @@ import { TermsandconditonsComponent } from './termsandconditons/termsandconditon
 import { PrivacyandpolicyComponent } from './privacyandpolicy/privacyandpolicy.component';
 import { CancelationpolicyComponent } from './cancelationpolicy/cancelationpolicy.component';
 import { ServicesComponent } from './services/services.component';
+import { ChatsadnfeedbacksComponent } from './chatsadnfeedbacks/chatsadnfeedbacks.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { UsersComponent } from './users/users.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
+import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
 
 
 const routes: Routes = [
@@ -62,50 +68,56 @@ const routes: Routes = [
   { path:'privacy', component: PrivacyandpolicyComponent },
   { path:'cancelations', component: CancelationpolicyComponent },
   { path:'services', component: ServicesComponent },
-
+  { path:'users', component: UsersComponent },
   { path:'Home', component: HomeComponent },
+  { path:'verifyotp', component: VerifyotpComponent },
+
+  
+  { path:'Pricing', component: PricingComponent },
+  { path:'userregister', component: MobilenumberComponent },
   { path:'login', component: LoginComponent },
   { path:'register', component: RegisterComponent },
-  { path:'admin', component: AdminpannelComponent ,},
-  { path:'countries', component: CountriesComponent,},
-  { path:'vehicles', component: VehiclesComponent,},
-  { path:'locations', component: LocationComponent,},
-  { path:'admin-vehicles', component: AdminapprovevehiclesComponent,},
-  { path:'admin-paymentreports', component: PaymentreportsComponent,},
-  { path:'admin-resetpassword', component: ResetPassowrdComponent,},
-  { path:'add-cars', component: AddnewCarsComponent,},
-  { path:'drivers', component: DriversComponent,},
-  { path:'add-drivers', component: AddDriversComponent,},
-  { path:'forgotpassword', component: ForgotpasswordComponent,},
-  { path:'add-location', component: AddLocationComponent,},
-  { path:'edit-location/:id/:name', component: EditLocationComponent,},
+  { path:'admin', component: AdminpannelComponent ,canActivate:[AuthGuard]},
+  { path:'countries', component: CountriesComponent,canActivate:[AuthGuard]},
+  { path:'vehicles', component: VehiclesComponent,canActivate:[AuthGuard]},
+  { path:'locations', component: LocationComponent,canActivate:[AuthGuard]},
+  { path:'admin-vehicles', component: AdminapprovevehiclesComponent,canActivate:[AuthGuard]},
+  { path:'admin-paymentreports', component: PaymentreportsComponent,canActivate:[AuthGuard]},
+  { path:'admin-resetpassword', component: ResetPassowrdComponent,canActivate:[AuthGuard]},
+  { path:'add-cars', component: AddnewCarsComponent,canActivate:[AuthGuard]},
+  { path:'drivers', component: DriversComponent,canActivate:[AuthGuard]},
+  { path:'add-drivers', component: AddDriversComponent,canActivate:[AuthGuard]},
+  { path:'forgotpassword', component: ForgotpasswordComponent,canActivate:[AuthGuard]},
+  { path:'add-location', component: AddLocationComponent,canActivate:[AuthGuard]},
+  { path:'edit-location/:id/:name', component: EditLocationComponent,canActivate:[AuthGuard]},
 
-  { path:'edit-car/:id', component: EditCarsComponent,},
+  { path:'edit-car/:id', component: EditCarsComponent,canActivate:[AuthGuard]},
   // { path:'view-licsense/:id', component: ViewliscenceComponent,},
   { path:'public', component: PulicregistrationmarketingComponent},
-  { path:'viewVehicle', component: ViewVehicledetailsComponent},
-  { path:'ownerviewvehicles', component: OwnerviewvehiclesComponent},
-  { path:'viewlicsence', component: ViewliscenceComponent},
-  { path:'viewlicsenceback', component: ViewlicsencebackComponent},
-  { path:'editdrivers', component: EditDriversComponent},
-  { path:'bankdetails', component: BankdetailsComponent},
-  { path:'handovervehicles', component: HandovervehiclesComponent},
-  { path:'add-bankdetails', component: AddBanksComponent},
-  { path:'edit-bankdetails', component: EditBankdetailsComponent},
-  { path:'request', component: RequestsComponent},
-  { path:'view-request/:id/:name', component: ViewRequestsComponent},
+  { path:'viewVehicle', component: ViewVehicledetailsComponent,canActivate:[AuthGuard]},
+  { path:'ownerviewvehicles', component: OwnerviewvehiclesComponent,canActivate:[AuthGuard]},
+  { path:'viewlicsence', component: ViewliscenceComponent,canActivate:[AuthGuard]},
+  { path:'viewlicsenceback', component: ViewlicsencebackComponent,canActivate:[AuthGuard]},
+  { path:'editdrivers', component: EditDriversComponent,canActivate:[AuthGuard]},
+  { path:'bankdetails', component: BankdetailsComponent,canActivate:[AuthGuard]},
+  { path:'handovervehicles', component: HandovervehiclesComponent,canActivate:[AuthGuard]},
+  { path:'add-bankdetails', component: AddBanksComponent,canActivate:[AuthGuard]},
+  { path:'edit-bankdetails', component: EditBankdetailsComponent,canActivate:[AuthGuard]},
+  { path:'request', component: RequestsComponent,canActivate:[AuthGuard]},
+  { path:'view-request/:id/:name', component: ViewRequestsComponent,canActivate:[AuthGuard]},
 
-  { path:'image1', component: AddimageOneComponent},
-  { path:'image2', component: AddimageTwoComponent},
-  { path:'licsence1', component: AddlicenceFrontComponent},
-  { path:'licsence2', component: AddlicenceBackComponent},
-  { path:'rcfrnt', component: AddrcimageComponent},
-  { path:'driverlicsencefrnt', component: AdddriverLicscenceComponent},
-  { path:'driverlicsenceback', component: AdddriverLicscencebackComponent},
-  { path:'profilepicdriver', component: AdddriverProfilepicComponent},
+  { path:'image1', component: AddimageOneComponent,canActivate:[AuthGuard]},
+  { path:'image2', component: AddimageTwoComponent,canActivate:[AuthGuard]},
+  { path:'licsence1', component: AddlicenceFrontComponent,canActivate:[AuthGuard]},
+  { path:'licsence2', component: AddlicenceBackComponent,canActivate:[AuthGuard]},
+  { path:'rcfrnt', component: AddrcimageComponent,canActivate:[AuthGuard]},
+  { path:'driverlicsencefrnt', component: AdddriverLicscenceComponent,canActivate:[AuthGuard]},
+  { path:'driverlicsenceback', component: AdddriverLicscencebackComponent,canActivate:[AuthGuard]},
+  { path:'profilepicdriver', component: AdddriverProfilepicComponent,canActivate:[AuthGuard]},
 
-  { path:'vehicletracking', component: VehicletrackingComponent},
+  { path:'vehicletracking', component: VehicletrackingComponent,canActivate:[AuthGuard]},
 
+  { path:'chatsandfeebacks', component: ChatsadnfeedbacksComponent,canActivate:[AuthGuard]},
 
 
 ];

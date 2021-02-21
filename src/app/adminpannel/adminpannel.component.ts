@@ -8,11 +8,13 @@ import { AdminService } from './admin.service';
   providers:[AdminService]
 })
 export class AdminpannelComponent implements OnInit {
- 
+ Role;
   constructor( ) { }
 
   ngOnInit() {
-   
+    this.Role = JSON.parse(localStorage.getItem("ROLE"));
+    console.log(this.Role);
+    
   }
  
 }

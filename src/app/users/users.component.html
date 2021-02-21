@@ -1,0 +1,62 @@
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <app-header></app-header>
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">User Management</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Email ID</th>
+                                        <th>Address</th>
+                                        <th>Mobile</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let car of results">
+                                        <th>{{car.name}}</th>
+                                        <th>{{car.userName}}</th>
+                                        <th>{{car.emailId}}</th>
+
+                                        <th>{{car.address}}
+                                        </th>
+                                        <th>{{car.mobile}}</th>
+                                        <th></th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

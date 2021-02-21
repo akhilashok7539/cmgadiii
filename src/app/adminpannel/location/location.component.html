@@ -1,5 +1,4 @@
-<app-navigation></app-navigation>
-
+<!-- <app-header></app-header>
 <app-sidebar></app-sidebar>
 <div class="page-wrapper" style="margin-top: 33px;">
 
@@ -17,14 +16,14 @@
 
             <div class="col-sm-8 col-9 text-right m-b-20">
 
-                <a class="btn btn btn-primary btn-rounded float-right " style="color: white;" routerLink="/add-location"><i
-                        class="fa fa-plus"></i> Add Locality </a>
+                <a class="btn btn btn-primary btn-rounded float-right " style="color: white;"
+                    routerLink="/add-location"><i class="fa fa-plus"></i> Add Locality </a>
             </div>
         </div>
-        <div class="row" >
+        <div class="row">
 
-            <div class="table-responsive">
-                <!-- <div class="row">
+            <div class="table-responsive"> -->
+<!-- <div class="row">
                     <div class="col-sm-4">
                      
 
@@ -38,28 +37,28 @@
 
                     </div>
                 </div> -->
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- <h5>Owner</h5> -->
+<!-- <div class="row">
+                    <div class="col-sm-3"> -->
+<!-- <h5>Owner</h5> -->
 
-                    </div>
+<!-- </div>
                     <div class="col-sm-6" style="    padding: 11px;">
 
                         <input type="text" class="form-control" placeholder="search locality" [(ngModel)]="searchString"
-                        (keyup)="applyFilter(searchString)">
+                            (keyup)="applyFilter(searchString)">
                         <span style="    float: right;
                         margin-top: -29px;
                         margin-right: 13px;
                     "><i class="fa fa-search"></i> </span>
                     </div>
                     <div class="col-sm-3">
-                       
+
 
 
 
                     </div>
-                </div>
-                <div class="col-sm-12">
+                </div> -->
+<!-- <div class="col-sm-12">
 
                     <mat-table #table [dataSource]="dataSource">
 
@@ -69,15 +68,12 @@
                         </ng-container>
                         <ng-container matColumnDef="Edit">
                             <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
-                            <mat-cell *matCellDef="let element"> <button (click)="edit(element)" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>  &nbsp;&nbsp;&nbsp;
-                          <button (click)="delete(element)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button> </mat-cell>
-                       
+                            <mat-cell *matCellDef="let element"> <button (click)="edit(element)" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button> &nbsp;&nbsp;&nbsp;
+                                <button (click)="delete(element)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button> </mat-cell>
+
                         </ng-container>
-                        <!-- <ng-container matColumnDef="delete">
-                            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-                            <mat-cell *matCellDef="let element"> <button (click)="delete(element)" class="btn btn-dark">Delete</button> </mat-cell>
-                        </ng-container> -->
-                        
+                
+
 
 
 
@@ -90,13 +86,77 @@
                     </mat-table>
 
 
-                    <mat-paginator #paginator [length]="totalLength" [pageSize]="limit" >
+                    <mat-paginator #paginator [length]="totalLength" [pageSize]="limit">
                     </mat-paginator>
 
 
 
+                </div> -->
+
+<!-- </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Location Management</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn btn-primary btn-rounded float-right " style="color: white;" routerLink="/add-location"><i class="fa fa-plus"></i> Add Locality </a>
+                    </div>
                 </div>
 
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Location Name</th>
+                                        <th>Edit</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let location of results">
+                                        <td>{{location.name}}</td>
+                                        <td> <button (click)="edit(location)" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button> &nbsp;&nbsp;&nbsp;
+                                            <button (click)="delete(location)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

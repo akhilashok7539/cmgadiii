@@ -32,7 +32,7 @@
 
                 <div class="row">
 
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body" routerLink="/vehicles">
                                 <div class="row no-gutters align-items-center">
@@ -47,7 +47,36 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body" routerLink="/admin-vehicles">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Vehicle</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-car fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body" routerLink="/users">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Users</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-user fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-success shadow h-100 py-2" style="border-left: 0.25rem solid #ff0278 !important;">
                             <div class="card-body">
@@ -64,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
                         <div class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #ff5f02 !important;">
                             <div class="card-body" routerLink="/drivers">
                                 <div class="row no-gutters align-items-center">
@@ -80,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
                         <div class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #ff02d5 !important;">
 
                             <div class="card-body">
@@ -97,9 +126,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
                         <!-- <div class="card border-left-info shadow h-100 py-2"> -->
-                        <div class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #00d6a1 !important;">
+                        <div routerLink="/request" class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #00d6a1 !important;">
 
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -114,12 +143,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
+                        <div routerLink="/handovervehicles" class="card border-left-info shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div style="    color: #ff8e00 !important;" class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Handover Vehicle </div>
                                     </div>
                                     <div class="col-auto">
@@ -131,8 +160,8 @@
 
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
+                        <div routerLink="/bankdetails" class="card border-left-info shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -147,7 +176,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
+                        <div routerLink="/admin-resetpassword" class="card border-left-info shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -156,6 +185,37 @@
                                     </div>
                                     <div class="col-auto">
                                         <i class="fa fa-key fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div routerLink="/chatsandfeebacks" class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Feedbacks</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-envelope fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
+                        <div routerLink="/locations" class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Location</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-map-marker fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>

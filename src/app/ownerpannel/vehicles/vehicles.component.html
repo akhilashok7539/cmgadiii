@@ -87,9 +87,7 @@
 
 <div id="wrapper">
 
-    <!-- Sidebar -->
     <app-sidebar></app-sidebar>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -112,8 +110,8 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <button routerLink="/add-cars" style="float: right;" class=" btn btn-success"><i class="fa fa-plus"
-                            aria-hidden="true"></i> Add New Cars</button>
+                        <button routerLink="/add-cars" style="float: right;" class=" btn btn-success"><i
+                                class="fa fa-plus" aria-hidden="true"></i> Add New Cars</button>
                     </div>
                 </div>
 
@@ -123,27 +121,36 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Car Name</th>
+                                        <th>Location</th>
+                                        <th>Image</th>
+                                        <th>Year</th>
+                                        <th>Registration Number</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                    <tr *ngFor="let car of carList">
+                                        <!-- <th>{{apUrl}}vehicle/getImage1/{{car.id}}</th> -->
+                                        <th>{{car.companyName}}</th>
+                                        <th>{{car.locationName}}</th>
+                                        <th>
+                                            <img src="{{apUrl}}vehicle/getImage1/{{car.id}}" alt="" style="height: 100px;">
+                                        </th>
+                                        <th>{{car.year}}</th>
+                                        <th>{{car.numberPlate}}</th>
+                                        <th> <button style="margin: 2px;" (click)="view(car)" class="btn btn-dark"><i class="fa fa-eye"></i>
+                                            View</button>
+                                            <button style="margin: 2px;" (click)="edit(car)" class="btn btn-danger"><i class="fa fa-pencil"></i>
+                                            Edit</button>
+                                            <button style="margin: 2px;" (click)="delete(car)" class="btn btn-warning"><i
+                                                class="fa fa-trash"></i> Delete</button></th>
                                     </tr>
+
 
                                 </tbody>
                             </table>

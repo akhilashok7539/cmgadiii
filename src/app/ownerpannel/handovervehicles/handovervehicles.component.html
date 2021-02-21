@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 <div class="page-wrapper" style="margin-top: 101px;">
     <div class="row">
 
@@ -24,15 +24,14 @@
                 <span class="close">   <button matTooltip="View Vehicle" class="btn btn-dark"
                     style="display: block;margin-bottom: 10px;margin-left: auto;"
                     (click)="view(results)"> <i class="fa fa-eye"></i> </button></span>
-                <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt=""
-                    style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
+                <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                 <P style="text-align: center;">Company : {{results.companyName}}</P>
                 <P style="text-align: center;">Customer Name : {{results.customerName}}</P>
                 <P style="text-align: center;">Starting Location : {{results.startingLocation}}</P>
                 <P style="text-align: center;">Destination Location : {{results.destinationLocation}}</P>
 
                 &nbsp;
-             
+
                 <button class="btn btn-dark" (click)="openDialog(results)">Add current kilometer</button>
                 <!-- </mat-card> -->
             </div>
