@@ -80,6 +80,7 @@ import { UsersComponent } from './users/users.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
 import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
+import { CarRentersComponent } from './car-renters/car-renters.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -143,7 +144,8 @@ import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
     UsersComponent,
     PricingComponent,
     MobilenumberComponent,
-    VerifyotpComponent
+    VerifyotpComponent,
+    CarRentersComponent
   ],
   imports: [
     BrowserModule,

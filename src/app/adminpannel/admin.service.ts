@@ -23,8 +23,11 @@ export class AdminService {
     return this.http.get(this.BASEURL+'user/listUsers?page='+pageIndex+'&size=10&roleId=2');
   }
   getallusers(page){
-    return this.http.get(this.BASEURL+'user/listUsers?page='+page+'&size=10&roleId=3');
+    return this.http.get(this.BASEURL+'user/listUsers?page='+page+'&size=10&roleId=2');
 
+  }
+  getallownersforadmin(page){
+    return this.http.get(this.BASEURL+'user/listUsers?page='+page+'&size=10&roleId=3');
   }
   getalllocation(){
     return this.http.get(this.BASEURL+'admin/listLocality');

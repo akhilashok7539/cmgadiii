@@ -54,6 +54,7 @@ import { UsersComponent } from './users/users.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
 import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
+import { CarRentersComponent } from './car-renters/car-renters.component';
 
 
 const routes: Routes = [
@@ -118,7 +119,7 @@ const routes: Routes = [
   { path:'vehicletracking', component: VehicletrackingComponent,canActivate:[AuthGuard]},
 
   { path:'chatsandfeebacks', component: ChatsadnfeedbacksComponent,canActivate:[AuthGuard]},
-
+  { path:'carrenters', component:CarRentersComponent ,canActivate:[AuthGuard]},
 
 ];
 

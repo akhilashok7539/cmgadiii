@@ -77,10 +77,14 @@
 
     <hr class="sidebar-divider my-0">
 
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" routerLink="/admin">
-            <i class="fa fa-tachometer"></i>
-            <span>Dashboard</span></a>
+            <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                <i class="fa fa-home"></i> Dashboard
+
+            </div>
+
+        </a>
     </li>
 
     <hr class="sidebar-divider">
@@ -88,60 +92,124 @@
 
     <li class="nav-item active" *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/vehicles">
-            <i class="fa fa-car "></i>
-            <span>Vehicle</span></a>
+            <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                <i class="fa fa-car "></i> Vehicle Management
+
+            </div>
+
+        </a>
     </li>
-    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+    <li class="nav-item" *ngIf="Role == 'ADMIN'">
         <a class="nav-link" routerLink="/admin-vehicles">
-            <i class="fa fa-car "></i>
-            <span>Vehicle</span></a>
+
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-car"></i> Vehicle Management
+
+            </div>
+        </a>
     </li>
-    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+    <li class="nav-item" *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/admin">
-            <i class="fa fa-map-marker "></i>
-            <span>Vehicle Tracking</span></a>
+            <!-- <i class="fa fa-map-marker "></i>
+            <span>Vehicle Tracking</span> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-map-marker" style="    font-size: 20px;
+                margin-right: 7px;"> </i> Vehicle Tracking
+
+            </div>
+
+        </a>
     </li>
-    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+    <li class="nav-item " *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/drivers">
             <i class="fa fa-user "></i>
             <span>Drivers</span></a>
     </li>
 
-    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
-        <a class="nav-link" routerLink="/admin">
-            <i class="fa fa-clipboard "></i>
-            <span>Payment Reports</span></a>
+    <li class="nav-item " *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/admin-paymentreports">
+            <!-- <i class="fa fa-clipboard "></i>
+            <span>Payment Reports</span></a> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-clipboard" style="    font-size: 14px;
+                margin-right: 3px;"> </i> Payment Reports
+
+            </div>
+        </a>
     </li>
-    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+    <li class="nav-item " *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/admin">
             <i class="fa fa-refresh "></i>
             <span>Request</span></a>
     </li>
-    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+    <li class="nav-item " *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/handovervehicles">
             <img src="./assets/img/iconshandover.png" alt="" style="width: 15px !important;"> Handover Vehicle
         </a>
     </li>
-    <li class="nav-item active" *ngIf="Role != 'ADMIN'">
+    <li class="nav-item " *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/bankdetails">
             <i class="fa fa-university"></i>
             <span>Bank Manage</span></a>
     </li>
-    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+    <li class="nav-item " *ngIf="Role == 'ADMIN'">
         <a class="nav-link" routerLink="/chatsandfeebacks">
-            <i class="fa fa-envelope"></i>
-            <span>Feedbacks</span></a>
+            <!-- <i class="fa fa-envelope"></i>
+            <span>Feedbacks</span> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-envelope" style="    font-size: 14px;
+                margin-right: 3px;"> </i> Feedbacks
+
+            </div>
+
+        </a>
     </li>
-    <li class="nav-item active" *ngIf="Role == 'ADMIN'">
+    <li class="nav-item" *ngIf="Role == 'ADMIN'">
         <a class="nav-link" routerLink="/locations">
-            <i class="fa fa-map-marker"></i>
-            <span>Location</span></a>
+            <!-- <i class="fa fa-map-marker"></i>
+            <span>Location</span> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-map-marker" style="     font-size: 20px;
+                margin-right: 7px;"> </i> Location Management
+
+            </div>
+        </a>
     </li>
-    <li class="nav-item active">
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true">
+            <!-- <i class="fa fa-wrench"></i>
+            <span>Users</span> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-user" style="     font-size: 20px;
+                margin-right: 7px;"> </i> Users
+
+                <i class="fa fa-angle-down" style="float: right;
+                font-size: 26px;"></i>
+            </div>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" routerLink="/users">Car Owners</a>
+                <a class="collapse-item" routerLink="/carrenters">Car Renters </a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" routerLink="/admin-resetpassword">
-            <i class="fa fa-key"></i>
-            <span>Reset Password</span></a>
+            <!-- <i class="fa fa-key"></i>
+            <span>Reset Password</span> -->
+
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <i class="fa fa-key" style="     font-size: 18px;
+                margin-right: 0px;"> </i> Reset Password
+
+            </div>
+        </a>
     </li>
+
+
     <!-- 
     <div class="sidebar-heading">
         Interface

@@ -68,8 +68,8 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('ROLE',JSON.stringify('OWNER'))
             this.router.navigate(['/admin']);
             Swal.fire(
-              'Owner Login!',
-              ' Owner Login Successfully',
+              'WELCOME!',
+              'Login Successfully',
               'success'
             )
 
