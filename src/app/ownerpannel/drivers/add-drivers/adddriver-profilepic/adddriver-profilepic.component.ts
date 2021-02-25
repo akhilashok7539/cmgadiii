@@ -57,7 +57,7 @@ export class AdddriverProfilepicComponent implements OnInit {
     }
     else {
       this.formData.append('image', this.lisencefrnt);
-      this.formData.append('type', "2");
+      this.formData.append('type', "3");
       this.formData.append('id', this.driverId['id']);
       this.ownerservice.adddriverimnage(this.formData).subscribe(
         data =>{

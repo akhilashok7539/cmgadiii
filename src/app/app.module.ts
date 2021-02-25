@@ -81,6 +81,10 @@ import { PricingComponent } from './pricing/pricing.component';
 import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
 import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
 import { CarRentersComponent } from './car-renters/car-renters.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
+import { AgmCoreModule } from '@agm/core';
+import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -145,13 +149,19 @@ import { CarRentersComponent } from './car-renters/car-renters.component';
     PricingComponent,
     MobilenumberComponent,
     VerifyotpComponent,
-    CarRentersComponent
+    CarRentersComponent,
+    SlideshowComponent,
+    AllbanksComponent,
+    AddFeedbackComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA8VTIDe4Yi7VHOJLbVgsr5UyDKHV2vBe4'
+    }),
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
     ReactiveFormsModule,

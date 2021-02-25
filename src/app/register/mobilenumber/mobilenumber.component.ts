@@ -40,7 +40,9 @@ export class MobilenumberComponent implements OnInit {
         this.router.navigate(['/verifyotp'])
       },
       error=>{
-
+        console.log(error.error['message']);
+        
+        this.toaster.error(error.error['message']);
       }
     )
   }

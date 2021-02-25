@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 <app-sidebar></app-sidebar>
 
 <div class="page-wrapper">
@@ -31,25 +31,22 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <img src="{{apiurl}}vehicle/getImage1/{{vId}}" alt=""
-                                style="     width: 200px; height: 186px;  ">
+                            <img src="{{apiurl}}vehicle/getImage1/{{vId}}" alt="" style="     width: 200px; height: 186px;  ">
                         </div>
                         <div class="col-sm-8">
-                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle
-                                Type :{{vehicleModel.vehicleType}}</p>
-                            <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number
-                                : {{vehicleModel.vehicleRegistration}}</p>
-                            <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location :
-                                {{vehicleModel.locality}}</p>
+                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle Type :{{vehicleModel.vehicleType}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number : {{vehicleModel.vehicleRegistration}}</p>
+                            <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location : {{vehicleModel.locality}}
+                            </p>
                             <hr>
                             <h6>Rent Details</h6>
                             &nbsp;
-                            <p  *ngIf="rentPerHour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour :
-                                {{rentperhour}}</p>
-                            <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day :
-                                {{vehicleModel.rent}}</p>
-                            <p *ngIf="rentperkm != null" style="    text-align: left;"><i class="fa fa-road"></i>&nbsp; Rent Per KM :
-                                {{rentperkm}}</p>
+                            <p *ngIf="rentPerHour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour : {{rentperhour}}
+                            </p>
+                            <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day : {{vehicleModel.rent}}
+                            </p>
+                            <p *ngIf="rentperkm != null" style="    text-align: left;"><i class="fa fa-road"></i>&nbsp; Rent Per KM : {{rentperkm}}
+                            </p>
 
                         </div>
                     </div>
@@ -66,22 +63,18 @@
                         <div class="col-sm-8">
                             <h6>Driver Details</h6>
                             <hr>
-                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-user"></i>&nbsp;Driver Name
-                                :
-                                {{vehicleModel.dname}}</p>
-                            <p *ngIf="DriverDetailsofCar !=null"style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact
-                                Number :
-                                {{vehicleModel.dnumber}}</p>
-                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i
-                                    class="fa fa-map-marker"></i>&nbsp;Driver
-                                Address : {{vehicleModel.daddreess}}</p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-user"></i>&nbsp;Driver Name : {{vehicleModel.dname}}
+                            </p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact Number : {{vehicleModel.dnumber}}
+                            </p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-map-marker"></i>&nbsp;Driver Address : {{vehicleModel.daddreess}}</p>
                             <p *ngIf="DriverDetailsofCar ==null"> No Driver is linked to this vehicle!</p>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <div class="card">
                     <h6> Vehicle Details </h6>
                     <hr>
@@ -107,9 +100,9 @@
                     <img [src]="rc" alt="">
                 </div>
 
-            </div>
+            </div> -->
         </div>
-        
+
         <!-- <div class="col-sm-12">
 
 
@@ -191,3 +184,8 @@
     </div>
 </div>
 <!-- </div> -->
+
+<!-- 
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+</agm-map> -->

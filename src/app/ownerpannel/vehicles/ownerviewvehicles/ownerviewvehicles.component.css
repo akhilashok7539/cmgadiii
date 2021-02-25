@@ -1,25 +1,31 @@
-.page-wrapper{
+.page-wrapper {
     margin-left: 236px;
     text-align: center;
     margin-top: 100px;
 }
 
-.detailsheading{
+.detailsheading {
     float: right;
 }
-.detailsheading1{
+
+.detailsheading1 {
     float: left;
 }
-mat-card{
+
+mat-card {
     margin-top: 10px;
     margin-left: 5px;
-    
 }
-.row
-{
+
+.row {
     margin-left: 0px;
     margin-right: 0px;
 }
-.card{
+
+.card {
     padding: 20px;
+}
+
+agm-map {
+    height: 600px;
 }

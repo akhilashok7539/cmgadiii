@@ -70,7 +70,7 @@ export class AddDriversComponent implements OnInit {
 
       this.formData.append('name', this.driverModel.name);
       this.formData.append('ownerId', this.ownerId);
-      this.formData.append('number', this.driverModel.number);
+      this.formData.append('number', this.number);
       this.formData.append('addresss', this.driverModel.address);
       this.formData.append('panCardNO', this.driverModel.pancard);
       // this.formData.append('proPic', this.propic);

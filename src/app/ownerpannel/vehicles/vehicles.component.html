@@ -112,6 +112,13 @@
                     <div class="col-sm-6">
                         <button routerLink="/add-cars" style="float: right;" class=" btn btn-success"><i
                                 class="fa fa-plus" aria-hidden="true"></i> Add New Cars</button>
+                        <select [(ngModel)]="vstatus" (change)="changeFilter(vstatus)" class="form-control" style="margin-top: 49px;">
+                                        <option value="" selected disabled>Filter Options</option>
+                                        <option value="1">Approved</option>
+                                        <option value="3">Rejected</option>
+                                        <option value="2">Pending</option>
+                        
+                                    </select>
                     </div>
                 </div>
 
@@ -127,8 +134,9 @@
                                         <th>Car Name</th>
                                         <th>Location</th>
                                         <th>Image</th>
-                                        <th>Year</th>
                                         <th>Registration Number</th>
+                                        <th>Status</th>
+
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -141,8 +149,9 @@
                                         <th>
                                             <img src="{{apUrl}}vehicle/getImage1/{{car.id}}" alt="" style="height: 100px;">
                                         </th>
-                                        <th>{{car.year}}</th>
                                         <th>{{car.numberPlate}}</th>
+                                        <th>{{car.status}}</th>
+
                                         <th> <button style="margin: 2px;" (click)="view(car)" class="btn btn-dark"><i class="fa fa-eye"></i>
                                             View</button>
                                             <button style="margin: 2px;" (click)="edit(car)" class="btn btn-danger"><i class="fa fa-pencil"></i>

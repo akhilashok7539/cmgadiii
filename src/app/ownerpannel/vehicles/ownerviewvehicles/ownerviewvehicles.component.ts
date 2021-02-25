@@ -1,9 +1,10 @@
-import { Component, OnInit, Sanitizer } from '@angular/core';
+import { Component, NgZone, OnInit, Sanitizer } from '@angular/core';
 import { AdminService } from 'src/app/adminpannel/admin.service';
 import { environment } from 'src/environments/environment.prod';
 import { DomSanitizer } from '@angular/platform-browser';
 import { OwnerService } from '../../owner.service';
 import { Vehicle } from 'src/app/_models/vehicle';
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-ownerviewvehicles',
@@ -23,7 +24,16 @@ export class OwnerviewvehiclesComponent implements OnInit {
   id;
   rentperkm;
   rentPerHour: any;
-  constructor(private adminService:AdminService,private domsanitizer:DomSanitizer,private owenerservice:OwnerService) { }
+  latitude;
+  longitude;
+  lat = 13;
+  lng = 80;
+  zoom: number;
+  private geoCoder;
+  address: string;
+  constructor(private adminService:AdminService,    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
+    private domsanitizer:DomSanitizer,private owenerservice:OwnerService) { }
 
   ngOnInit() {
     this.vehicleModel = new Vehicle();
@@ -138,4 +148,31 @@ export class OwnerviewvehiclesComponent implements OnInit {
       }
     )
   }
+
+
+  // markerDragEnd($event) {
+  //   console.log($event);
+  //   this.latitude = $event.latLng.lat.d;
+  //   this.longitude = $event.latLng.lng;
+  //   console.log("lat long"+this.latitude, this.longitude)
+  //   this.getAddress(this.latitude, this.longitude);
+  // }
+
+  // getAddress(latitude, longitude) {
+  //   this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+  //     console.log(results);
+  //     console.log(status);
+  //     if (status === 'OK') {
+  //       if (results[0]) {
+  //         this.zoom = 12;
+  //         this.address = results[0].formatted_address;
+  //       } else {
+  //         window.alert('No results found');
+  //       }
+  //     } else {
+  //       window.alert('Geocoder failed due to: ' + status);
+  //     }
+
+  //   });
+  // }
 }

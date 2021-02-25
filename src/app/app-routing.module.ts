@@ -55,6 +55,8 @@ import { PricingComponent } from './pricing/pricing.component';
 import { MobilenumberComponent } from './register/mobilenumber/mobilenumber.component';
 import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
 import { CarRentersComponent } from './car-renters/car-renters.component';
+import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
+import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
 
 
 const routes: Routes = [
@@ -87,6 +89,7 @@ const routes: Routes = [
   { path:'admin-resetpassword', component: ResetPassowrdComponent,canActivate:[AuthGuard]},
   { path:'add-cars', component: AddnewCarsComponent,canActivate:[AuthGuard]},
   { path:'drivers', component: DriversComponent,canActivate:[AuthGuard]},
+  { path:'add-feedback', component: AddFeedbackComponent,canActivate:[AuthGuard]},
   { path:'add-drivers', component: AddDriversComponent,canActivate:[AuthGuard]},
   { path:'forgotpassword', component: ForgotpasswordComponent,canActivate:[AuthGuard]},
   { path:'add-location', component: AddLocationComponent,canActivate:[AuthGuard]},
@@ -101,6 +104,8 @@ const routes: Routes = [
   { path:'viewlicsenceback', component: ViewlicsencebackComponent,canActivate:[AuthGuard]},
   { path:'editdrivers', component: EditDriversComponent,canActivate:[AuthGuard]},
   { path:'bankdetails', component: BankdetailsComponent,canActivate:[AuthGuard]},
+  { path:'allbanks', component: AllbanksComponent,canActivate:[AuthGuard]},
+
   { path:'handovervehicles', component: HandovervehiclesComponent,canActivate:[AuthGuard]},
   { path:'add-bankdetails', component: AddBanksComponent,canActivate:[AuthGuard]},
   { path:'edit-bankdetails', component: EditBankdetailsComponent,canActivate:[AuthGuard]},

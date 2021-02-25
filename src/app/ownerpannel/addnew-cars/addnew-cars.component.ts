@@ -21,6 +21,8 @@ export class AddnewCarsComponent implements OnInit {
   lisence2: any;
   lisencefrnt: any;
   lisenceback: any;
+  lat = 13;
+  lng = 80;
 
   addVehiclesform: FormGroup;
 
