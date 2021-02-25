@@ -1,27 +1,38 @@
 <app-header></app-header>
 
 <div class="row" style="margin-left: 10px;margin-bottom: 10px;">
-    <button class="btn btn-dark" routerLink="/admin"> <i class="fa fa-arrow-left"
-        aria-hidden="true"></i> Back</button>
+    <!-- <button class="btn btn-dark" routerLink="/admin"> <i class="fa fa-arrow-left"
+        aria-hidden="true"></i> Back</button> -->
+
+
+    <div class="col-sm-12">
+        <h4 style="    text-align: center;
+        font-size: 29px;">Vehicle Tracking</h4>
+        <hr style="width: 60%; margin-left: auto;margin-right: auto;">
+    </div>
 </div>
 <div class="row" style="margin-top: 0px;">
     <div class="col-sm-4" *ngFor="let result of result">
         <div class="card">
             <div class="row" style="margin-top: 0px;">
                 <div class="col-sm-4">
-                    <span class="material-icons" style="color: green;">
-                        location_on
-                        </span>
+                    <!-- <span class="material-icons" style="color: green;">
+                        directions_car
+                        </span> -->
+                    <img src="./assets/img/caricon.png" alt="" style="width: 48px;">
                     <p>{{result.startingLocation}} </p>
                 </div>
                 <div class="col-sm-4">
                     <div class="line-top"></div>
                 </div>
                 <div class="col-sm-4">
-                    <span class="material-icons" style="    color: red;
+                    <!-- <span class="material-icons" style="    color: red;
                         margin-left: 66px;">
-                        location_on
-                        </span>
+                    directions_car
+                        </span> -->
+                    <img src="./assets/img/caricon.png" alt="" style="width: 48px;margin-left: 40px;">
+
+
                     <p style="text-align: end;">{{result.destinationLocation}}</p>
                 </div>
             </div>
@@ -32,6 +43,7 @@
 
                 </div>
                 <div class="col-sm-12">
+                    <p>Customer Name <em style="    float: right;">{{result.customerName}}</em></p>
                     <p>Vehicle Model <em style="    float: right;">{{result.model}}</em> </p>
                     <p>Requested Days <em style="    float: right;">{{result.requestedDays}}</em> </p>
                     <p>Requested Date <em style="    float: right;">{{result.requestedDate}}</em> </p>
@@ -41,7 +53,9 @@
                     <p>Ending KM <em style="    float: right;">{{result.endingKM}}</em> </p>
                     <p>Travelled KM <em style="    float: right;">{{result.customerTravelledKM}}</em> </p>
                     <p>Amount <em style="    float: right;">{{result.amount}}</em> </p>
-                    <p>Driver is Required <em style="    float: right;">{{result.driverRequired}}</em> </p>
+                    <p *ngIf="result.driverRequired == false">Driver is Required <em style="    float: right;">No</em> </p>
+                    <p *ngIf="result.driverRequired == true">Driver is Required <em style="    float: right;">Yes</em> </p>
+
                 </div>
                 <!-- <div class="col-sm-6">
                     <p style="text-align:end ;">{{result.model}}</p>

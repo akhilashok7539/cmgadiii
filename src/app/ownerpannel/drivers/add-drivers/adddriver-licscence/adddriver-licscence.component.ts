@@ -20,12 +20,14 @@ export class AdddriverLicscenceComponent implements OnInit {
   lisencefrnt;
   lisenceback;
   propicfile;
+  
   propic;
   ownerdetails: any;
   ownerId: any;
   submitted = false;
   error: any;
   driverId: any;
+  nocdriver:any;
   constructor(private ownerservice: OwnerService, private toaster: ToastrService,
     private fb: FormBuilder, private router: Router) { }
   ngOnInit() {
@@ -47,10 +49,22 @@ export class AdddriverLicscenceComponent implements OnInit {
     this.lisence1 = event.target.files;
     this.lisencefrnt = this.lisence1.item(0);
   }
+  profilepicture(event){
+    let profilepic = event.target.files;
+    this.propicfile = profilepic.item(0);
+  }
+  addliscenseback(event)
+  {
+    let licsencbk =event.target.files;
+    this.lisenceback = licsencbk.item(0);
+  }
+  addnoc(event){
+    let noc =event.target.files;
+    this.nocdriver = noc.item(0);
+  }
   submit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.driverForm.invalid) {
       return;
     }
@@ -71,6 +85,122 @@ export class AdddriverLicscenceComponent implements OnInit {
           Swal.fire(
             'Driver License Added Error!',
             'Driver License Added Error Successfully',
+            'error'
+          )
+        }
+      )
+    }
+  }
+
+  submitlicsencefront()
+  {
+    if(this.lisencefrnt == undefined)
+    {
+
+    }
+    else{
+      this.formData.append('image', this.lisencefrnt);
+      this.formData.append('type', "1");
+      this.formData.append('id', this.driverId['id']);
+      this.ownerservice.adddriverimnage(this.formData).subscribe(
+        data =>{
+          Swal.fire(
+            'Driver License Added!',
+            'Driver License Added Successfully',
+            'success'
+          )
+          // this.router.navigate(['/driverlicsenceback']);
+        },
+        error =>{
+          Swal.fire(
+            'Driver License Added Error!',
+            'Driver License Added Error Successfully',
+            'error'
+          )
+        }
+      )
+    }
+    
+  }
+  submitlicsenceback()
+  {
+    if(this.lisenceback == undefined)
+    {
+
+    }
+    else{
+      this.formData.append('image', this.lisenceback);
+      this.formData.append('type', "2");
+      this.formData.append('id', this.driverId['id']);
+      this.ownerservice.adddriverimnage(this.formData).subscribe(
+        data =>{
+          Swal.fire(
+            'Driver License Added!',
+            'Driver License Added Successfully',
+            'success'
+          )
+          // this.router.navigate(['/driverlicsenceback']);
+        },
+        error =>{
+          Swal.fire(
+            'Driver License Added Error!',
+            'Driver License Added Error Successfully',
+            'error'
+          )
+        }
+      )
+    }
+  }
+  profilepic(){
+    if(this.propicfile == undefined)
+    {
+
+    }
+    else{
+      this.formData.append('image', this.propicfile);
+      this.formData.append('type', "3");
+      this.formData.append('id', this.driverId['id']);
+      this.ownerservice.adddriverimnage(this.formData).subscribe(
+        data =>{
+          Swal.fire(
+            'Driver Profile Pic Added!',
+            'Driver Profile Pic Added Successfully',
+            'success'
+          )
+          // this.router.navigate(['/driverlicsenceback']);
+        },
+        error =>{
+          Swal.fire(
+            'Driver Profile Pic Added Error!',
+            'Driver Profile Pic Added Error Successfully',
+            'error'
+          )
+        }
+      )
+    }
+  }
+  noc(){
+    if(this.nocdriver == undefined)
+    {
+
+    }
+    else{
+      this.formData.append('image', this.nocdriver);
+      this.formData.append('type', "4");
+      this.formData.append('id', this.driverId['id']);
+      this.ownerservice.adddriverimnage(this.formData).subscribe(
+        data =>{
+          Swal.fire(
+            'Driver NOC Added!',
+            'Driver NOC Added Successfully',
+            'success'
+          )
+          // this.router.navigate(['/driverlicsenceback']);
+        },
+        error =>{
+          Swal.fire(
+            'Driver NOC Added Error!',
+            'Driver NOC Added Error Successfully',
             'error'
           )
         }

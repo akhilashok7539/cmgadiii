@@ -120,8 +120,8 @@ margin-top: 100px;  ">
                                         <th>Driver Name</th>
                                         <th>Phone Number</th>
                                         <th>Pan Card</th>
-                                        <th>License Front</th>
-                                        <th>License Back</th>
+                                        <!-- <th>License Front</th>
+                                        <th>License Back</th> -->
                                         <th>Edit</th>
                                     </tr>
                                 </thead>
@@ -131,7 +131,7 @@ margin-top: 100px;  ">
                                         <td>{{driverslist.name}}</td>
                                         <td>{{driverslist.number}}</td>
                                         <td>{{driverslist.panCardNO}}</td>
-                                        <td>
+                                        <!-- <td>
                                             <Button (click)="getlicsence(driverslist.id)" style="    border: none;
                                             background: none;" matTooltip="License Front "> <i class="fa fa-eye"></i> View</Button>
                                         </td>
@@ -139,7 +139,7 @@ margin-top: 100px;  ">
                                             <Button (click)="getlicsenceback(driverslist.id)" style="    border: none;
                                             background: none;" matTooltip="License Back">
                                              <i class="fa fa-eye"></i> View</Button>
-                                        </td>
+                                        </td> -->
                                         <td><i matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i></td>
                                     </tr>
 

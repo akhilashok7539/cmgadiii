@@ -129,9 +129,21 @@ export class OwnerService {
     return this.http.post(this.BASEURL+'driver/addImages',formdata);
 
   }
+  adddrivernoc(formdata){
+    return this.http.post(this.BASEURL+'driver/addnoc',formdata);
+  }
   getallvechilcedetails(id)
   {
     return this.http.get(this.BASEURL+'trip/listForOwnerByApprovalStatus?ownerId='+id+'&status=2');
+
+  }
+  getallvechilcetracking(uid,page){
+    return this.http.get(this.BASEURL+'trip/listForVehicleTrack?ownerId='+uid+'&page='+page+'&size=2500');
+
+  }
+  addcurrentkilometer(req)
+  {
+    return this.http.post(this.BASEURL+'trip/startTrip',req);
 
   }
 }

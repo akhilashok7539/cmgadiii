@@ -1,1 +1,65 @@
-<p>add-feedback works!</p>
+<app-header></app-header>
+
+<div class="page-wrapper">
+    <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/admin"><i
+                style="color: black;">Feedbacks</i></a> &nbsp; <i class="fa fa-angle-double-right"></i> &nbsp; <i style="color:#1492E6;">Add Feedbacks</i> </p>
+    <div class="container" style="    box-shadow: 0px 3px 6px #00000029;
+    padding: 20px;
+    background-color: #F8FAFB;
+    margin-top: 25px;
+    margin-left: 31px;">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4">
+                <h3>Feedback & Rating</h3>
+            </div>
+            <div class="col-sm-4"></div>
+
+
+        </div>
+        <div class="row" style="     padding: 34px;   background-color: WHITE;">
+            <div class="col-lg-12">
+
+                <form [formGroup]="feedbackform">
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Experiance<span class="text-danger">*</span></label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.comments.errors }" class="form-control" type="text" [(ngModel)]="comments" formControlName="comments">
+                                <div *ngIf="submitted && f.comments.errors" class="invalid-feedback">
+                                    <div *ngIf="f.comments.errors.required">Experiance is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Rating<span class="text-danger">*</span></label>
+                                <select [ngClass]="{ 'is-invalid': submitted && f.rating.errors }" class="form-control" [(ngModel)]="rating" formControlName="rating">
+                                    <option value="Terrible">Terrible</option>
+                                    <option value="Poor">Poor</option>
+                                    <option value="Average">Average</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Excellent">Excellent</option>
+
+
+                                </select>
+
+
+                                <div *ngIf="submitted && f.rating.errors" class="invalid-feedback">
+                                    <div *ngIf="f.rating.errors.required">Rating is required</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

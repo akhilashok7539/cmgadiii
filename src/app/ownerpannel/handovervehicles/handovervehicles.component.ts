@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { OwnerService } from '../owner.service';
 import { AddVehiclekmHandoverComponent } from './add-vehiclekm-handover/add-vehiclekm-handover.component';
@@ -19,7 +20,7 @@ export class HandovervehiclesComponent implements OnInit {
   apiurl;
   formData = new FormData();
   message = 'data found';
-  constructor(private ownerService:OwnerService,public dialog: MatDialog) { }
+  constructor(private ownerService:OwnerService,public dialog: MatDialog,private router:Router) { }
 
   ngOnInit() {
     this.apiurl = environment.BASEURL;
@@ -61,4 +62,10 @@ export class HandovervehiclesComponent implements OnInit {
      
     });
   }
+  view(e)
+  {
+    sessionStorage.setItem("vID",e.id);
+    this.router.navigate(['/ownerviewvehicles']);
+  }
+  
 }

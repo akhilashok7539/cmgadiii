@@ -11,6 +11,7 @@ export class VehicletrackingComponent implements OnInit {
   result:any= [];
   userDetails;
   userId;
+  page = 0;
   constructor(private Router:Router,private ownerservice:OwnerService) { }
 
   ngOnInit() {
@@ -20,7 +21,7 @@ export class VehicletrackingComponent implements OnInit {
   {
     this.userDetails = JSON.parse(localStorage.getItem('userDetail'))
     this.userId = this.userDetails['userId'];
-    this.ownerservice.getallvechilcedetails(this.userId).subscribe(
+    this.ownerservice.getallvechilcetracking(this.userId,this.page).subscribe(
       data =>{
         this.result = data;
       },

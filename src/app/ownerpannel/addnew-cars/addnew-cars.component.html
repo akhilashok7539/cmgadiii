@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<app-header></app-header>
 
 <div class="page-wrapper">
     <p style="padding-left: 29px; margin-top: 68px;font-size: 19px;"> <a routerLink="/vehicles"><i
@@ -8,10 +8,17 @@
     background-color: #F8FAFB;
     margin-top: 25px;
     margin-left: 31px;">
-        <div class="row">
+        <div class="row" style="margin-bottom: 10px;">
             <div class="col-md-4">
                 <h3>Add New Vehicles</h3>
             </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h3>Pricing : <em *ngIf="vehicleModel.vehicleType == '3Wheeler'">25 RS Per 1.5 KM</em>
+                    <em *ngIf="vehicleModel.vehicleType == '4Wheeler'">150 RS per 5 KM</em>
+                </h3>
+            </div>
+
         </div>
         <div class="row" style="     padding: 34px;   background-color: WHITE;">
             <div class="col-lg-12">
@@ -24,7 +31,7 @@
 
                                 <select [ngClass]="{ 'is-invalid': submitted && f.vehicleType.errors }" [(ngModel)]="vehicleModel.vehicleType" formControlName="vehicleType" class="form-control">
                                     <option value="">Choose a option</option>
-                                    <option value="2Wheeler">2 Wheeler</option>
+                                    <!-- <option value="2Wheeler">2 Wheeler</option> -->
                                     <option value="3Wheeler">3 Wheeler</option>
                                     <option value="4Wheeler">4 Wheeler</option>
 
