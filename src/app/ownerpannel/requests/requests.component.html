@@ -16,6 +16,16 @@
 
                 <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabClick($event)">
                     <mat-tab label="Pending">
+                        <div class="row">
+                            <div class="offset-8 col-sm-4">
+                                <select [(ngModel)]="optionselected" (change)="selectedeventfilter(optionselected)" class="form-control" style="margin-top: 10px;">
+                                    <option value="" selected disabled>Choose a filter</option>
+                                   
+                                    <option value="Pending">Pending</option>
+                                    <option value="Preorder">Pre-Book</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-sm-3" *ngFor="let results of results">

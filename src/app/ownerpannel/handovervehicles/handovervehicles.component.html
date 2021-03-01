@@ -21,9 +21,9 @@
         <div class="col-sm-3" *ngFor="let results of results">
             <!-- <mat-card style="margin-bottom: 10px;"> -->
             <div class="card" style="margin-bottom: 10px;">
-                <span class="close">   <button matTooltip="View Vehicle" class="btn btn-dark"
+                <!-- <span class="close">   <button matTooltip="View Vehicle" class="btn btn-dark"
                     style="display: block;margin-bottom: 10px;margin-left: auto;"
-                    (click)="view(results)"> <i class="fa fa-eye"></i> </button></span>
+                    (click)="view(results)"> <i class="fa fa-eye"></i> </button></span> -->
                 <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                 <P style="text-align: center;">Company : {{results.companyName}}</P>
                 <P style="text-align: center;">Customer Name : {{results.customerName}}</P>

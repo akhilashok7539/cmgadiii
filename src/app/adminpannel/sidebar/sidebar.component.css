@@ -213,3 +213,14 @@
 	color: orange;
 }
  */
+
+img {
+    padding-right: 8px;
+}
+
+
+/* 
+.sidebar {
+    overflow-y: scroll;
+    position: fixed;
+} */

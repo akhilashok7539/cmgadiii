@@ -110,6 +110,10 @@ export class OwnerService {
   {
     return this.http.get(this.BASEURL+'trip/listForOwnerByApprovalStatus?ownerId='+id+'&status='+status);
   }
+  getallRequestfromUserBsedonprebook(id,pagenumber){
+    return this.http.get(this.BASEURL+'trip/listAllPreBooking?ownerId='+id+'&page='+pagenumber+'&size=100');
+
+  }
   getapprovalDetaislById(id)
   {
     return this.http.get(this.BASEURL+'trip/getForOwnerByApprovalStatus/'+id);

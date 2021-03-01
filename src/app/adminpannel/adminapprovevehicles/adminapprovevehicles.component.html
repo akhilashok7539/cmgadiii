@@ -78,7 +78,9 @@
                                         <img src="{{apiurl}}vehicle/getImage1/{{results.id}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                         <P style="text-align: center;">Company : {{results.companyName}}</P>
                                         <p style="text-align: center;"><i class="fa fa-map-marker"></i> {{results.locationName }}</p>
-                                        <!-- <p>{{results.rentPerDay}}</p> -->
+                                        <p style="text-align: center;">Ren Per hour :{{results.rentPerHour}}</p>
+                                        <p style="text-align: center;">Ren Per KM :{{results.rentPerKM}}</p>
+
                                         &nbsp;
                                         <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"><i class="fa fa-eye"></i> View Vehicle</button>
                                         <!-- </mat-card> -->

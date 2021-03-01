@@ -35,7 +35,7 @@ export class LoginService {
     let req ={
 
     }
-    return this.http.post(this.BASEURL+'api/auth/generate/otp?number='+number+'&emailId='+email+'&type=1',req);
+    return this.http.post(this.BASEURL+'api/auth/generate/otp?number='+number+'&emailId='+email+'&type=2',req);
   }
   verifyotp(otp,number){
     let req ={

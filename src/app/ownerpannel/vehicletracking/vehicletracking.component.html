@@ -1,11 +1,11 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 
-<div class="row" style="margin-left: 10px;margin-bottom: 10px;">
-    <!-- <button class="btn btn-dark" routerLink="/admin"> <i class="fa fa-arrow-left"
+<div class="row" style="margin-left: 10px;margin-bottom: 10px;"> -->
+<!-- <button class="btn btn-dark" routerLink="/admin"> <i class="fa fa-arrow-left"
         aria-hidden="true"></i> Back</button> -->
 
 
-    <div class="col-sm-12">
+<!-- <div class="col-sm-12">
         <h4 style="    text-align: center;
         font-size: 29px;">Vehicle Tracking</h4>
         <hr style="width: 60%; margin-left: auto;margin-right: auto;">
@@ -13,12 +13,10 @@
 </div>
 <div class="row" style="margin-top: 0px;">
     <div class="col-sm-4" *ngFor="let result of result">
-        <div class="card">
-            <div class="row" style="margin-top: 0px;">
+        <div class="card"> -->
+<!-- <div class="row" style="margin-top: 0px;">
                 <div class="col-sm-4">
-                    <!-- <span class="material-icons" style="color: green;">
-                        directions_car
-                        </span> -->
+             
                     <img src="./assets/img/caricon.png" alt="" style="width: 48px;">
                     <p>{{result.startingLocation}} </p>
                 </div>
@@ -26,10 +24,7 @@
                     <div class="line-top"></div>
                 </div>
                 <div class="col-sm-4">
-                    <!-- <span class="material-icons" style="    color: red;
-                        margin-left: 66px;">
-                    directions_car
-                        </span> -->
+        
                     <img src="./assets/img/caricon.png" alt="" style="width: 48px;margin-left: 40px;">
 
 
@@ -57,20 +52,109 @@
                     <p *ngIf="result.driverRequired == true">Driver is Required <em style="    float: right;">Yes</em> </p>
 
                 </div>
-                <!-- <div class="col-sm-6">
-                    <p style="text-align:end ;">{{result.model}}</p>
-                    <p style="text-align:end ;">{{result.requestedDays}}</p>
-                    <p style="text-align:end ;">{{result.requestedDate}}</p>
-                    <p style="text-align:end ;">{{result.requestEndDate}}</p>
-                    <p style="text-align:end ;">{{result.startingKM}}</p>
-                    <p style="text-align:end ;">{{result.endingKM}}</p>
-                    <p style="text-align:end ;">{{result.customerTravelledKM}}</p>
-                    <p style="text-align:end ;">{{result.amount}}</p>
-                    <p style="text-align:end ;">{{result.driverRequired}}</p>
+             
+            </div> -->
+<!-- <div class="card shadow mb-4">
 
-                </div> -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                            <thead style=" color: #fff; background: #3158c8; ">
+                                <tr>
+                                    <th>Starting Location</th>
+                                    <th>Destination Location</th>
+                                    <th>Customer Name</th>
+                                    <th>Vehicle Model</th>
+                                    <th>Requested Days</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let result of result">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
+        </div>
+    </div>
+</div>
+ -->
+
+
+
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Vehicle Tracking</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <a class="btn btn btn-primary btn-rounded float-right " style="color: white;background: #496fdb;" routerLink="/add-location"><i class="fa fa-plus"></i> Add Locality </a> -->
+                    </div>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location</th>
+                                        <th>Customer Name</th>
+                                        <th>Vehicle Model</th>
+                                        <th>Requested Days</th>
+                                        <th>Requested Date</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let result of result">
+                                        <td>{{result.startingLocation}</td>
+                                        <td>{{result.destinationLocation}</td>
+                                        <td>{{result.customerName}</td>
+                                        <td>{{result.model}</td>
+                                        <td>{{result.requestedDays}</td>
+                                        <td>{{result.requestedDate}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

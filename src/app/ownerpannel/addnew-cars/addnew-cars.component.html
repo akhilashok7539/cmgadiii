@@ -13,11 +13,11 @@
                 <h3>Add New Vehicles</h3>
             </div>
             <div class="col-sm-4"></div>
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <h3>Pricing : <em *ngIf="vehicleModel.vehicleType == '3Wheeler'">25 RS Per 1.5 KM</em>
                     <em *ngIf="vehicleModel.vehicleType == '4Wheeler'">150 RS per 5 KM</em>
                 </h3>
-            </div>
+            </div> -->
 
         </div>
         <div class="row" style="     padding: 34px;   background-color: WHITE;">
@@ -29,8 +29,8 @@
                             <div class="form-group">
                                 <label>Vehicle Type<span class="text-danger">*</span></label>
 
-                                <select [ngClass]="{ 'is-invalid': submitted && f.vehicleType.errors }" [(ngModel)]="vehicleModel.vehicleType" formControlName="vehicleType" class="form-control">
-                                    <option value="">Choose a option</option>
+                                <select [ngClass]="{ 'is-invalid': submitted && f.vehicleType.errors }" [(ngModel)]="vehicleModel.vehicleType" formControlName="vehicleType" (change)="vehicletype($event)" class="form-control">
+                                    <option value="" disabled selected>Choose a option</option>
                                     <!-- <option value="2Wheeler">2 Wheeler</option> -->
                                     <option value="3Wheeler">3 Wheeler</option>
                                     <option value="4Wheeler">4 Wheeler</option>

@@ -69,6 +69,27 @@ export class AddnewCarsComponent implements OnInit {
     this.getalllocality();
     this.getalldrivers();
   }
+  vehicletype(event){
+    console.log(event.target.value);
+    if(event.target.value =='3Wheeler')
+    {
+      Swal.fire(
+        'Minumum Charge  25 per 1.5 KM',
+        ''+'Waiting Charge - Per Half hour basis'+'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 25/-',
+
+        'success'
+      )
+    }
+    else{
+      Swal.fire(
+        'Minumum Charge  150 per 5 KM',
+        ''+'Waiting Charge - Per Half hour basis'+'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 150/-',
+
+        'success'
+      )
+    }
+    
+  }
   getalldrivers() {
     this.owenerservice.getalldrivers(this.ownerId).subscribe(
       data =>{

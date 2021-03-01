@@ -27,7 +27,7 @@ export class ViewVehicledetailsComponent implements OnInit {
   DriverDetailsofCar:any;
   formData = new FormData();
   vehiclestatus: any;
-
+  fileUrl;
   constructor(private domsanitizer: DomSanitizer, private adminService: AdminService) { }
 
   ngOnInit() {
@@ -53,6 +53,10 @@ export class ViewVehicledetailsComponent implements OnInit {
     this.getlicscenceback();
     this.getrc();
     this.getvehicleDetailsById();
+    const data = 'some text';
+    const blob = new Blob([data], { type: 'application/octet-stream' });
+
+    this.fileUrl = this.domsanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
   }
   getvehicleImage2imagesbyId() {
     this.adminService.getimage(this.vehicleID).subscribe(
@@ -167,5 +171,9 @@ export class ViewVehicledetailsComponent implements OnInit {
         )
       }
     )
+  }
+  open()
+  {
+
   }
 }

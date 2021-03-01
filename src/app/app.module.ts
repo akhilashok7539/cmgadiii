@@ -85,6 +85,7 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
 // import { AgmCoreModule } from '@agm/core';
 import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
+import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/ownerpaymentsection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -152,7 +153,8 @@ import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedb
     CarRentersComponent,
     SlideshowComponent,
     AllbanksComponent,
-    AddFeedbackComponent
+    AddFeedbackComponent,
+    OwnerpaymentsectionComponent
   ],
   imports: [
     BrowserModule,

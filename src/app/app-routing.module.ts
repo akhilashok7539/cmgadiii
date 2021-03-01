@@ -57,6 +57,7 @@ import { VerifyotpComponent } from './register/verifyotp/verifyotp.component';
 import { CarRentersComponent } from './car-renters/car-renters.component';
 import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
 import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
+import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/ownerpaymentsection.component';
 
 
 const routes: Routes = [
@@ -125,6 +126,7 @@ const routes: Routes = [
 
   { path:'chatsandfeebacks', component: ChatsadnfeedbacksComponent,canActivate:[AuthGuard]},
   { path:'carrenters', component:CarRentersComponent ,canActivate:[AuthGuard]},
+  { path:'paymentpage', component:OwnerpaymentsectionComponent ,canActivate:[AuthGuard]},
 
 ];
 

@@ -103,8 +103,8 @@ margin-top: 100px;  ">
 
                     </div>
                     <div class="col-sm-6">
-                        <button routerLink="/add-drivers" style="float: right;" class=" btn btn-success"><i class="fa fa-plus"
-                            aria-hidden="true"></i> Add New Drivers</button>
+                        <button routerLink="/add-drivers" style="float: right;    background: #3158c8;" class=" btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            Drivers</button>
                     </div>
                 </div>
 
@@ -117,6 +117,7 @@ margin-top: 100px;  ">
                             <table class="table" id="dataTable" width="100%" cellspacing="0">
                                 <thead style=" color: #fff; background: #3158c8; ">
                                     <tr>
+                                        <!-- <th>Driver Image</th> -->
                                         <th>Driver Name</th>
                                         <th>Phone Number</th>
                                         <th>Pan Card</th>
@@ -128,7 +129,11 @@ margin-top: 100px;  ">
 
                                 <tbody>
                                     <tr *ngFor="let driverslist of driverslist">
-                                        <td>{{driverslist.name}}</td>
+                                        <td>
+                                            <img src="https://cmgaadi.com/server/driver/getProfilePic/{{driverslist.id}}" alt="" style="height: 40px;
+                                                border-radius: 100%;    margin-right: 9px;
+                                                width: 40px;" /> {{driverslist.name}}
+                                        </td>
                                         <td>{{driverslist.number}}</td>
                                         <td>{{driverslist.panCardNO}}</td>
                                         <!-- <td>

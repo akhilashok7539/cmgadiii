@@ -33,11 +33,13 @@ export class DriversComponent implements OnInit {
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   message: string;
+  
   constructor(private router: Router, public dialog: MatDialog,
 
     private ownerservice: OwnerService, private domsanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    // this.apiurl = environment.BASEURL;
     this.ownerdetails = JSON.parse(localStorage.getItem('userDetail'));
     this.ownerId = this.ownerdetails['userId'];
     this.apUrl = environment.BASEURL;

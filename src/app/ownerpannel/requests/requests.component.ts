@@ -19,6 +19,8 @@ export class RequestsComponent implements OnInit {
   apiurl;
   formData = new FormData();
   message = 'data found';
+  optionselected:any="";
+  pagenumberprebook=0;
   constructor(private ownerService: OwnerService, private router: Router) { }
 
   ngOnInit() {
@@ -42,9 +44,35 @@ export class RequestsComponent implements OnInit {
       this.getallrejectedData();
     }
   }
+  selectedeventfilter(s){
+    if(s =='Pending')
+    {
+      this.getallPendingdata();
+    }
+    else if(s=='Preorder'){
+      this.getallprebookdata();
+    }
+  }
   getallPendingdata() {
 
     this.ownerService.getallRequestfromUserBsedonStatus(this.ownerId, this.PENDING).subscribe(
+      data => {
+        this.results = data;
+        if (this.results.length == 0) {
+          this.message = 'No Data Found';
+        }
+        else {
+          this.message = 'Data Found';
+
+        }
+      },
+      error => {
+
+      }
+    )
+  }
+  getallprebookdata(){
+    this.ownerService.getallRequestfromUserBsedonprebook(this.ownerId, this.pagenumberprebook).subscribe(
       data => {
         this.results = data;
         if (this.results.length == 0) {

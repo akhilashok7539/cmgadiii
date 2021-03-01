@@ -158,15 +158,23 @@
                     <h6> Vehicle Documents </h6>
                     <hr>
                     <p>License Front</p>
-                    <img [src]="liscence1" alt=""> &nbsp; &nbsp; &nbsp;
+                    <!-- <button (click)="open()" download="file.txt">
+                        Download
+                    </button> -->
+                    <a [href]="liscence1" download="liscence1">Download License Front</a>
+
+                    <!-- <img [src]="liscence1" alt=""> &nbsp; &nbsp; &nbsp; -->
 
                     <p>License Back</p>
                     &nbsp; &nbsp; &nbsp;
-                    <img [src]="liscence2" alt=""> &nbsp; &nbsp; &nbsp;
+                    <!-- <img [src]="liscence2" alt=""> &nbsp; &nbsp; &nbsp; -->
+                    <a [href]="liscence2" download="liscence2">Download License Back</a>
 
                     <p>RC Book</p>
                     &nbsp; &nbsp; &nbsp;
-                    <img [src]="rc" alt="">
+                    <!-- <img [src]="rc" alt=""> -->
+                    <a [href]="rc" download="rc">Download RC Book</a>
+
                 </div>
 
             </div>
