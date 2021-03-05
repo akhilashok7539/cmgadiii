@@ -150,4 +150,16 @@ export class OwnerService {
     return this.http.post(this.BASEURL+'trip/startTrip',req);
 
   }
+  getallpaymentsbnyownerid(oid,page)
+  {
+    return this.http.get(this.BASEURL+'trip/listForOwnerPayment?ownerId='+oid+'&page='+page+'&size=200&paymentMode=2');
+  }
+  gettripdetailsbyid(id)
+  {
+    return this.http.get(this.BASEURL+'payment/getDetails/'+id);
+  }
+  savePayments(data)
+  {
+    return this.http.post(this.BASEURL+'payment/savePayment',data);
+  }
 }

@@ -86,6 +86,7 @@ import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
 // import { AgmCoreModule } from '@agm/core';
 import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
 import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/ownerpaymentsection.component';
+import { CollectCashComponent } from './ownerpannel/ownerpaymentsection/collect-cash/collect-cash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -154,7 +155,8 @@ import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/
     SlideshowComponent,
     AllbanksComponent,
     AddFeedbackComponent,
-    OwnerpaymentsectionComponent
+    OwnerpaymentsectionComponent,
+    CollectCashComponent
   ],
   imports: [
     BrowserModule,
@@ -180,6 +182,6 @@ import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/
     // fakeBackendProvider,
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ViewliscenceComponent,AddVehiclekmHandoverComponent]
+  entryComponents:[ViewliscenceComponent,AddVehiclekmHandoverComponent,CollectCashComponent]
 })
 export class AppModule { }

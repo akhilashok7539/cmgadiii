@@ -1,0 +1,35 @@
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                <thead style=" color: #fff; background: #3158c8; ">
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Customer Number </th>
+                        <th>Vehicle Rent </th>
+                        <th>Total Kilometer</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{customerName}}</td>
+                        <td>{{customerMobile}}</td>
+                        <td>{{vehicleRent}}</td>
+                        <td>{{totalKM}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+            <button (click)="collectcash(location)" style="    background: white;
+            color: #3158c8;
+            border: 1px solid #3158c8;
+            margin: 0 auto;
+            display: block;" class="btn btn-danger"> Collect Cash</button>
+
+        </div>
+    </div>
+</div>

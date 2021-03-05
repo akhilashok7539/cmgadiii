@@ -138,18 +138,29 @@
                                 <thead style=" color: #fff; background: #3158c8; ">
                                     <tr>
                                         <th>Customer Name</th>
-                                        <th>Rent </th>
+                                        <th>Starting Location </th>
+                                        <th>Destination Location </th>
+                                        <th>Requested Date</th>
+                                        <th>Amount</th>
+                                        <th></th>
 
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr *ngFor="let location of results">
-                                        <td>{{location.name}}</td>
-                                        <td> <button (click)="edit(location)" style="    background: #3158c8;" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button> &nbsp;&nbsp;&nbsp;
-                                            <button (click)="delete(location)" style="background: white;
+                                    <tr *ngFor="let location of payementresults">
+                                        <td>{{location.customerName}}</td>
+                                        <td>{{location.startingLocation}}</td>
+                                        <td>{{location.destinationLocation}}</td>
+                                        <td>{{location.requestedDate}}</td>
+                                        <td>{{location.amount}}</td>
+                                        <td>
+                                            <!-- <button (click)="edit(location)" style="    background: #3158c8;" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button> &nbsp;&nbsp;&nbsp; -->
+
+                                            <button (click)="collectcash(location)" style="background: white;
                                             color: #3158c8;
-                                            border: 1px solid #3158c8;" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                                            border: 1px solid #3158c8;" class="btn btn-danger"> Collect Cash</button>
+
                                         </td>
                                     </tr>
 
