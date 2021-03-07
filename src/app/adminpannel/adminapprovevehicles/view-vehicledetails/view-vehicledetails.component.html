@@ -131,6 +131,8 @@
                             <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-phone"></i>&nbsp;Contact Number : {{vehicleModel.dnumber}}
                             </p>
                             <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-map-marker"></i>&nbsp;Driver Address : {{vehicleModel.daddreess}}</p>
+                            <p *ngIf="DriverDetailsofCar !=null" style="text-align: left;    font-size: 16px;"><i class="fa fa-id-card"></i>&nbsp;Driver Pancard {{driverpancard}}</p>
+
                             <p *ngIf="DriverDetailsofCar ==null"> No Driver is linked to this vehicle!</p>
                         </div>
                     </div>
@@ -172,9 +174,18 @@
 
                     <p>RC Book</p>
                     &nbsp; &nbsp; &nbsp;
+
                     <!-- <img [src]="rc" alt=""> -->
                     <a [href]="rc" download="rc">Download RC Book</a>
 
+                </div>
+                <div class="card" *ngIf="DriverDetailsofCar !=null">
+                    <h6>Driver Documents</h6>
+                    <p>License Front</p>
+                    <a [href]="liscenimag" download="liscenimag">Download Driver License Front</a>
+
+                    <p>License Back</p>
+                    <a [href]="liscenimagback" download="liscenimagback">Download Driver License Back</a>
                 </div>
 
             </div>

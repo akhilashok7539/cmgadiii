@@ -150,7 +150,10 @@
                                             <img src="{{apUrl}}vehicle/getImage1/{{car.id}}" alt="" style="height: 100px;">
                                         </th>
                                         <th>{{car.numberPlate}}</th>
-                                        <th>{{car.status}}</th>
+                                        <th *ngIf="car.approvalStatus == '1'">Approved</th>
+                                        <th *ngIf="car.approvalStatus == '2'">Pending</th>
+                                        <th *ngIf="car.approvalStatus == '3'">Rejected</th>
+
 
                                         <th> <button style="margin: 2px;" (click)="view(car)" class="btn btn-dark"><i class="fa fa-eye"></i>
                                             View</button>

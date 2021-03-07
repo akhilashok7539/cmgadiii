@@ -4,6 +4,7 @@ import { Vehicle } from 'src/app/_models/vehicle';
 import { environment } from 'src/environments/environment.prod';
 import { AdminService } from '../../admin.service';
 import Swal from 'sweetalert2';
+import { OwnerService } from 'src/app/ownerpannel/owner.service';
 
 @Component({
   selector: 'app-view-vehicledetails',
@@ -28,7 +29,11 @@ export class ViewVehicledetailsComponent implements OnInit {
   formData = new FormData();
   vehiclestatus: any;
   fileUrl;
-  constructor(private domsanitizer: DomSanitizer, private adminService: AdminService) { }
+  driverpancard;
+  liscenimag;
+  driverid;
+  liscenimagback;
+  constructor(private domsanitizer: DomSanitizer, private adminService: AdminService,private onerservice:OwnerService) { }
 
   ngOnInit() {
     this.vehicleModel = new Vehicle();
@@ -53,6 +58,7 @@ export class ViewVehicledetailsComponent implements OnInit {
     this.getlicscenceback();
     this.getrc();
     this.getvehicleDetailsById();
+  
     const data = 'some text';
     const blob = new Blob([data], { type: 'application/octet-stream' });
 
@@ -115,15 +121,21 @@ export class ViewVehicledetailsComponent implements OnInit {
     this.adminService.getVehicleDetailsbyId(this.vehicleID).subscribe(
       data =>{
         this.DriverDetailsofCar = data['driver'];
+        this.driverid = data['driverId'];
+        console.log("DRIVER ID =====" +this.driverid);
+        
         console.log(this.DriverDetailsofCar);
         if(this.DriverDetailsofCar != null)
         {
           this.vehicleModel.dname = this.DriverDetailsofCar['name'];
           this.vehicleModel.dnumber = this.DriverDetailsofCar['number'];
           this.vehicleModel.daddreess = this.DriverDetailsofCar['addresss'];
+          this.driverpancard = this.DriverDetailsofCar['panCardNO'];
         }
        
         this.id = this.driverDetails['id'];
+        this.getlicsence();
+        this.getdriverlicsenceback();
       },
       error =>{
 
@@ -174,6 +186,42 @@ export class ViewVehicledetailsComponent implements OnInit {
   }
   open()
   {
+
+  }
+  getlicsence()
+  {
+    // console.log(id)
+    // this.Id = id
+    console.log(this.driverid);
+    
+    this.onerservice.getliscncefront(this.driverid).subscribe(
+      data =>{
+        var unnsafeimage = URL.createObjectURL(data);
+        console.log(unnsafeimage)
+        this.liscenimag = this.domsanitizer.bypassSecurityTrustUrl(unnsafeimage);
+        // window.open(this.liscenimag,"_blank")
+      },
+      error =>{
+
+      }
+    );
+
+  }
+  getdriverlicsenceback()
+  {
+    // console.log(id)
+    // this.Id = id
+    this.onerservice.getlicscenceback(this.driverid).subscribe(
+      data =>{
+        var unnsafeimage = URL.createObjectURL(data);
+        console.log(unnsafeimage)
+        this.liscenimagback = this.domsanitizer.bypassSecurityTrustUrl(unnsafeimage);
+        // window.open(this.liscenimag,"_blank")
+      },
+      error =>{
+
+      }
+    );
 
   }
 }

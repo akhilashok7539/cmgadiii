@@ -1,14 +1,16 @@
-.row{
+.row {
     margin-left: 0px;
     margin-right: 0px;
 }
+
 .single-popular-car h3 span.price {
     color: #0e0e0e;
     float: right;
     font-size: 14px;
     font-weight: 700;
 }
-.vehImg{
+
+.vehImg {
     /* width: 78%;
     margin: 0 auto;
     height: 200px;
@@ -21,6 +23,25 @@
     margin-right: auto;
     height: 183px !important;
 }
-    /* img{
+
+
+/* img{
         max-width: -webkit-fill-available;
     } */
+
+@media only screen and (max-width: 991px) {
+    .container-fluid {
+        margin-left: 93px !important;
+        margin-top: 99px !important;
+        padding-right: 9px !important;
+    }
+    #wrapper #content-wrapper {
+        background-color: #f8f9fc;
+        overflow-x: unset;
+    }
+    .d-block {
+        border-radius: 19px;
+        width: 102%;
+        height: 161px;
+    }
+}

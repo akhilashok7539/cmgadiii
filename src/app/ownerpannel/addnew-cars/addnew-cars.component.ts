@@ -5,6 +5,7 @@ import { Vehicle } from 'src/app/_models/vehicle';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-addnew-cars',
   templateUrl: './addnew-cars.component.html',
@@ -160,10 +161,21 @@ export class AddnewCarsComponent implements OnInit {
       // this.formData.append('image1', this.image1);
       // this.formData.append('image2', this.image2);
       this.formData.append('driverId', this.vehicleModel.driver);
+if(this.vehicleModel.dRent == undefined)
+{
+  this.formData.append('driverRentPerKM', "");
 
-      this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
+}
+else{
+  this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
+
+}
       this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
       this.formData.append('rentPerHour', this.vehicleModel.vRentperHr);
+      this.formData.append('gpsCoorginates',"");
+      this.formData.append('gpsAddress',"");
+      this.formData.append('pickUpAddress',"");
+
 
 
       console.log(this.formData)

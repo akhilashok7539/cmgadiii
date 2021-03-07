@@ -33,6 +33,23 @@ a {
     color: #009ce7;
 }
 
+@media only screen and (max-width: 991px) {
+    .container-fluid {
+        margin-left: 93px !important;
+        margin-top: 99px !important;
+        padding-right: 9px !important;
+    }
+    #wrapper #content-wrapper {
+        background-color: #f8f9fc;
+        overflow-x: unset;
+    }
+    .d-block {
+        border-radius: 19px;
+        width: 102%;
+        height: 161px;
+    }
+}
+
 input,
 button,
 a {

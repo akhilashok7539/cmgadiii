@@ -113,4 +113,8 @@ export class AdminService {
     return this.http.post(this.BASEURL+'updatePassword?currentPassword='+old+'&newPassword='+password,req);
 
   }
+  getallbankdetails()
+  {
+    return this.http.get(this.BASEURL+'owner/listAllBankDetails?page=0&size=100')
+  }
 }
