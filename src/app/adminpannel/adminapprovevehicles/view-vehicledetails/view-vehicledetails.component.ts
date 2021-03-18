@@ -33,6 +33,9 @@ export class ViewVehicledetailsComponent implements OnInit {
   liscenimag;
   driverid;
   liscenimagback;
+  ownername;
+  pickUpAddress: any;
+  gpsAddress: any;
   constructor(private domsanitizer: DomSanitizer, private adminService: AdminService,private onerservice:OwnerService) { }
 
   ngOnInit() {
@@ -50,8 +53,10 @@ export class ViewVehicledetailsComponent implements OnInit {
     this.vehicleModel.vehicleRegistration = this.vehicledetails['numberPlate'];
     this.vehicleID = this.vehicledetails['id'];
     this.driverDetails = this.vehicledetails['driverId'];
-    
+    this.ownername = this.vehicledetails['ownerName']
     this.driverRentPerKM = this.vehicledetails['driverRentPerKM'];
+    this.pickUpAddress = this.vehicledetails['pickUpAddress'];
+    this.gpsAddress = this.vehicledetails['gpsAddress'];
     this.vehiclestatus = sessionStorage.getItem('tabstatus');
     this.getvehicleImage2imagesbyId();
     this.getlicencefrnt();

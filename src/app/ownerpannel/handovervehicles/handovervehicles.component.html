@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div class="page-wrapper" style="margin-top: 101px;">
     <div class="row">
 
@@ -17,13 +17,13 @@
         <hr>
     </div>
 
+
+
+
     <div class="row" style="margin-top: 10px;">
         <div class="col-sm-3" *ngFor="let results of results">
-            <!-- <mat-card style="margin-bottom: 10px;"> -->
             <div class="card" style="margin-bottom: 10px;">
-                <!-- <span class="close">   <button matTooltip="View Vehicle" class="btn btn-dark"
-                    style="display: block;margin-bottom: 10px;margin-left: auto;"
-                    (click)="view(results)"> <i class="fa fa-eye"></i> </button></span> -->
+           
                 <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                 <P style="text-align: center;">Company : {{results.companyName}}</P>
                 <P style="text-align: center;">Customer Name : {{results.customerName}}</P>
@@ -33,10 +33,81 @@
                 &nbsp;
 
                 <button class="btn btn-dark" (click)="openDialog(results)">Add current kilometer</button>
-                <!-- </mat-card> -->
             </div>
         </div>
     </div>
 
 
+</div> -->
+
+
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Handover Management</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Vehicle Name</th>
+                                        <th>Customer Name</th>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let car of results">
+                                        <!-- <th>{{apUrl}}vehicle/getImage1/{{car.id}}</th> -->
+                                        <th>{{car.companyName}}</th>
+                                        <th>{{car.customerName}}</th>
+                                        <th>{{car.startingLocation}}</th>
+                                        <th>{{car.destinationLocation}}</th>
+                                        <th> <button class="btn btn-dark" (click)="openDialog(car)">Add current
+                                                kilometer</button>
+                                        </th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

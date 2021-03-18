@@ -107,6 +107,17 @@
             </div>
         </a>
     </li>
+    <li class="nav-item " *ngIf="Role == 'ADMIN'">
+        <a class="nav-link" routerLink="/cancelled-bookings">
+            <!-- <i class="fa fa-refresh "></i> -->
+            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                <!-- <i class="fa fa-refresh" style="    font-size: 14px;
+                margin-right: 7px;"> </i> -->
+                <img src="./assets/img/icons/reportswhite.png" alt=""> Cancelled Bookings
+
+            </div>
+        </a>
+    </li>
     <li class="nav-item" *ngIf="Role != 'ADMIN'">
         <a class="nav-link" routerLink="/vehicletracking">
             <!-- <i class="fa fa-map-marker "></i>
@@ -160,12 +171,12 @@
         </a>
     </li>
     <li class="nav-item " *ngIf="Role != 'ADMIN'">
-        <a class="nav-link" routerLink="/bankdetails">
+        <a class="nav-link" routerLink="/paymentpage">
             <!-- <i class="fa fa-university"></i> -->
             <div class="text-xs font-weight-bold text-uppercase mb-1">
                 <i class="fa fa-university" style="      padding-right: 8px;  font-size: 19px;
                 margin-right: 3px;
-                color: #e1dff0;"> </i> Bank Manage
+                color: #e1dff0;"> </i> Payments
 
             </div>
 

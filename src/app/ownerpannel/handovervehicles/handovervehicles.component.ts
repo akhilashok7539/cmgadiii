@@ -20,6 +20,7 @@ export class HandovervehiclesComponent implements OnInit {
   apiurl;
   formData = new FormData();
   message = 'data found';
+  page = 0;
   constructor(private ownerService:OwnerService,public dialog: MatDialog,private router:Router) { }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class HandovervehiclesComponent implements OnInit {
 
   getapprovedVehicles()
   {
-    this.ownerService.getallRequestfromUserBsedonStatus(this.ownerId, this.APPROVED).subscribe(
+    this.ownerService.getallvehicleforhanover(this.ownerId,this.page).subscribe(
       data => {
         this.results = data;
         if (this.results.length == 0) {
@@ -58,6 +59,7 @@ export class HandovervehiclesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
       console.log('The dialog was closed');
      
     });

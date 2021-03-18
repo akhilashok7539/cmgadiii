@@ -34,8 +34,9 @@ export class AddnewCarsComponent implements OnInit {
   ownerdetails;
   submitted = false;
   error: any;
-  driverslist:any = [];
-  constructor(private fb: FormBuilder, private router: Router,private toaster:ToastrService,
+  driverslist: any = [];
+  mapdataresponse: any;
+  constructor(private fb: FormBuilder, private router: Router, private toaster: ToastrService,
     private owenerservice: OwnerService) { }
 
   ngOnInit() {
@@ -59,9 +60,9 @@ export class AddnewCarsComponent implements OnInit {
         // img1:['',Validators.required],
         // img2 :['',Validators.required],
         driver: [''],
-        dRent:[''],
-        vRentperHr:['',Validators.required],
-        vRentperKm:['',Validators.required],
+        dRent: [''],
+        paddress: [''],
+        vRentperKm: ['', Validators.required],
       }
     )
     this.ownerdetails = JSON.parse(localStorage.getItem('userDetail'));
@@ -70,34 +71,33 @@ export class AddnewCarsComponent implements OnInit {
     this.getalllocality();
     this.getalldrivers();
   }
-  vehicletype(event){
+  vehicletype(event) {
     console.log(event.target.value);
-    if(event.target.value =='3Wheeler')
-    {
+    if (event.target.value == '3Wheeler') {
       Swal.fire(
         'Minumum Charge  25 per 1.5 KM',
-        ''+'Waiting Charge - Per Half hour basis'+'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 25/-',
+        '' + 'Waiting Charge - Per Half hour basis' + 'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 25/-',
 
         'success'
       )
     }
-    else{
+    else {
       Swal.fire(
         'Minumum Charge  150 per 5 KM',
-        ''+'Waiting Charge - Per Half hour basis'+'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 150/-',
+        '' + 'Waiting Charge - Per Half hour basis' + 'Note : Beyond 1.5km per hour or per km charges whichever comes big will be included with RS 150/-',
 
         'success'
       )
     }
-    
+
   }
   getalldrivers() {
     this.owenerservice.getalldrivers(this.ownerId).subscribe(
-      data =>{
+      data => {
         this.driverslist = data;
         console.log(this.driverslist)
       },
-      error =>{
+      error => {
 
       }
     )
@@ -136,17 +136,22 @@ export class AddnewCarsComponent implements OnInit {
     this.lisenceback = this.lisence2.item(0);
   }
   get f() { return this.addVehiclesform.controls; }
-  
+
   submit() {
     this.submitted = true;
-
+    this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
     // stop here if form is invalid
+    // console.log(this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+
+    console.log(this.mapdataresponse)
     if (this.addVehiclesform.invalid) {
+      console.log(this.vehicleModel.paddress);
       
       return;
     }
     else {
-
+      let vrent = parseInt(this.vehicleModel.vRentperKm) * 30;
+      this.vehicleModel.vRentperHr = vrent.toString();
       this.formData.append('type', this.vehicleModel.vehicleType);
       this.formData.append('companyName', this.vehicleModel.vehicleCompany);
       this.formData.append('model', this.vehicleModel.vehicleModel);
@@ -155,70 +160,60 @@ export class AddnewCarsComponent implements OnInit {
       this.formData.append('locality', this.vehicleModel.locality);
       this.formData.append('rentPerDay', this.vehicleModel.rent);
       this.formData.append('ownerId', this.ownerId);
+      this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+      this.formData.append("gpsAddress", this.mapdataresponse['address']);
+      if(this.mapdataresponse == null)
+      {
+        this.formData.append("pickUpAddress", this.vehicleModel.paddress);
+
+      }
+      else
+      {
+        this.formData.append("pickUpAddress", null);
+
+      }
+
+
       // this.formData.append('licenceFront', this.lisencefrnt);
       // this.formData.append('licenceBack', this.lisenceback);
       // this.formData.append('rcImage', this.rcproof);
       // this.formData.append('image1', this.image1);
       // this.formData.append('image2', this.image2);
       this.formData.append('driverId', this.vehicleModel.driver);
-if(this.vehicleModel.dRent == undefined)
-{
-  this.formData.append('driverRentPerKM', "");
+      if (this.vehicleModel.dRent == undefined) {
+        this.formData.append('driverRentPerKM', "");
 
-}
-else{
-  this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
+      }
+      else {
+        this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
 
-}
+      }
       this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
       this.formData.append('rentPerHour', this.vehicleModel.vRentperHr);
-      this.formData.append('gpsCoorginates',"");
-      this.formData.append('gpsAddress',"");
-      this.formData.append('pickUpAddress',"");
+
 
 
 
       console.log(this.formData)
       this.owenerservice.addnewvehicle(this.formData).subscribe(
         data => {
-          // Swal.fire({
-          //   title: 'Are you sure?',
-          //   text: 'You will not be able to recover this imaginary file!',
-          //   icon: 'success',
-          //   showCancelButton: true,
-          //   confirmButtonText: 'Ok',
-          
-          // }).then((result) => {
-          //   if (result.value) {
-          //     Swal.fire(
-          //       'Vehicle Added!',
-          //       'Vehicle Added Successfully',
-          //       'success'
-          //     )
-          //   this.router.navigate(['/vehicles']);
-              
-    
-          //   } 
-          
-          // })
-          localStorage.setItem('vehicleadddetailsid',JSON.stringify(data));
+         
+          localStorage.setItem('vehicleadddetailsid', JSON.stringify(data));
           Swal.fire(
             'Vehicle Added!',
             'Basic Details Added Successfully',
             'success'
           )
-        this.router.navigate(['/image1']);
-          
+          this.router.navigate(['/image1']);
+
         },
         error => {
-          // alert('error')
           this.error = error.error['message'];
           Swal.fire(
             'Unable to add Vehicle!',
             this.error,
             'error'
           )
-          // this.toaster.error(this.error)
           this.formData.delete;
 
         }
@@ -226,10 +221,9 @@ else{
     }
 
   }
-  clicks()
-  {
-    
+  clicks() {
+
   }
 
-  
+
 }

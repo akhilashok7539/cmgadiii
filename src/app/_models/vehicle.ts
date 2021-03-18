@@ -18,5 +18,6 @@ export class Vehicle{
     vRentperKm:string
     dname:string;
     dnumber:string;
-    daddreess:string;;
+    daddreess:string;
+    paddress:string;
 }

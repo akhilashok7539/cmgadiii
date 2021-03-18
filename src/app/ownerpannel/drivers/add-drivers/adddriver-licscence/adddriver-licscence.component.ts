@@ -104,11 +104,13 @@ export class AdddriverLicscenceComponent implements OnInit {
       this.formData.append('id', this.driverId['id']);
       this.ownerservice.adddriverimnage(this.formData).subscribe(
         data =>{
+          this.formData = new FormData();
           Swal.fire(
             'Driver License Added!',
             'Driver License Added Successfully',
             'success'
           )
+          this.formData.delete;
           // this.router.navigate(['/driverlicsenceback']);
         },
         error =>{
@@ -117,6 +119,7 @@ export class AdddriverLicscenceComponent implements OnInit {
             'Driver License Added Error Successfully',
             'error'
           )
+          this.formData.delete;
         }
       )
     }
@@ -134,11 +137,13 @@ export class AdddriverLicscenceComponent implements OnInit {
       this.formData.append('id', this.driverId['id']);
       this.ownerservice.adddriverimnage(this.formData).subscribe(
         data =>{
+          this.formData = new FormData();
           Swal.fire(
             'Driver License Added!',
             'Driver License Added Successfully',
             'success'
           )
+          this.formData.delete;
           // this.router.navigate(['/driverlicsenceback']);
         },
         error =>{
@@ -147,6 +152,7 @@ export class AdddriverLicscenceComponent implements OnInit {
             'Driver License Added Error Successfully',
             'error'
           )
+          this.formData.delete;
         }
       )
     }
@@ -162,11 +168,13 @@ export class AdddriverLicscenceComponent implements OnInit {
       this.formData.append('id', this.driverId['id']);
       this.ownerservice.adddriverimnage(this.formData).subscribe(
         data =>{
+          this.formData = new FormData();
           Swal.fire(
             'Driver Profile Pic Added!',
             'Driver Profile Pic Added Successfully',
             'success'
           )
+          this.formData.delete;
           // this.router.navigate(['/driverlicsenceback']);
         },
         error =>{
@@ -175,6 +183,7 @@ export class AdddriverLicscenceComponent implements OnInit {
             'Driver Profile Pic Added Error Successfully',
             'error'
           )
+          this.formData.delete;
         }
       )
     }
@@ -195,6 +204,7 @@ export class AdddriverLicscenceComponent implements OnInit {
             'Driver NOC Added Successfully',
             'success'
           )
+          this.formData.delete;
           // this.router.navigate(['/driverlicsenceback']);
         },
         error =>{
@@ -203,6 +213,7 @@ export class AdddriverLicscenceComponent implements OnInit {
             'Driver NOC Added Error Successfully',
             'error'
           )
+          this.formData.delete;
         }
       )
     }

@@ -27,6 +27,14 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
+                                <label for="">Choose Location <span class="text-danger">*</span></label>
+                                <button class="btn btn-warning" style="    color: white;
+                                width: 100%;
+                                " routerLink="/mappage"> <i class="fa fa-map-o" ></i> Choose Location from map</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
                                 <label>Vehicle Type<span class="text-danger">*</span></label>
 
                                 <select [ngClass]="{ 'is-invalid': submitted && f.vehicleType.errors }" [(ngModel)]="vehicleModel.vehicleType" formControlName="vehicleType" (change)="vehicletype($event)" class="form-control">
@@ -141,14 +149,13 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label>Vehicle Rent Per Hour</label>
-                                <input [ngClass]="{ 'is-invalid': submitted && f.vRentperHr.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperHr" formControlName="vRentperHr">
-                                <div *ngIf="submitted && f.vRentperHr.errors" class="invalid-feedback">
-                                    <div *ngIf="f.vRentperHr.errors.required">Vehicle Rent per Hour is required</div>
-                                </div>
+                                <label>Pick Up Address</label>
+                                <input class="form-control" type="text" [(ngModel)]="vehicleModel.paddress" formControlName="paddress">
+
 
                             </div>
                         </div>
+
                         <!-- <div class="col-sm-4">
                             <div class="form-group">
                                 <label> License Front <span class="text-danger">*</span></label>

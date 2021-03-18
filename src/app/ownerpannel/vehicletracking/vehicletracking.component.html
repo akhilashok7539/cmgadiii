@@ -136,6 +136,7 @@
                                         <th>Vehicle Model</th>
                                         <th>Requested Days</th>
                                         <th>Requested Date</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
@@ -147,6 +148,7 @@
                                         <td>{{result.model}}</td>
                                         <td>{{result.requestedDays}}</td>
                                         <td>{{result.requestedDate}}</td>
+                                        <td><button class="btn btn-primary" (click)="trackview(result)" style="    background: #3158c8;"> <i class="fa fa-eye"></i> View</button></td>
                                     </tr>
 
                                 </tbody>

@@ -33,6 +33,10 @@ export class OwnerService {
     return this.http.get(this.BASEURL + 'driver/list?ownerId=' + id + '&type=1&page=0&size=50');
 
   }
+  deleteDriver(id){
+    return this.http.delete(this.BASEURL + 'driver/delete?id=' + id );
+
+  }
   addnewdriver(formdata){
     return this.http.post(this.BASEURL + 'driver/add', formdata);
 
@@ -162,4 +166,14 @@ export class OwnerService {
   {
     return this.http.post(this.BASEURL+'payment/savePayment',data);
   }
+  checkotherbookings(oid,vid)
+  {
+    return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompletedByVehicle?ownerId='+oid+'&vehicleId='+vid+'&page=0&size=200')
+  }
+  getallvehicleforhanover(oid,page)
+  {
+    return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompleted?ownerId='+oid+'&page='+page+'&size=200')
+
+  }
+
 }

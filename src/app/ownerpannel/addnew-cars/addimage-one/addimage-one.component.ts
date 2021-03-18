@@ -28,6 +28,7 @@ export class AddimageOneComponent implements OnInit {
   lisenceback: any;
   vehicleId: any;
   submitted = false;
+  imagepreview:any;
   constructor(private fb: FormBuilder, private router: Router,private toaster:ToastrService,
     private owenerservice: OwnerService) { }
 
@@ -52,6 +53,11 @@ export class AddimageOneComponent implements OnInit {
   addimage1(event) {
     this.img1 = event.target.files;
     this.image1 = this.img1.item(0);
+    var reader = new FileReader();
+    reader.readAsDataURL(this.img1.item(0));
+    reader.onload = (event)=>{
+      // this.imagepreview = event.target.result;
+    }
   }
 
   submit(){

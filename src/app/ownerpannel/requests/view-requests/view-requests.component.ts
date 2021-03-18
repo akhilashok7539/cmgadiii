@@ -21,7 +21,9 @@ export class ViewRequestsComponent implements OnInit {
   rentPerDay: any;
   approvalstatus:any;
   formData = new FormData();
-
+  ownerid;
+  vehicleId: any;
+  bookingsarray:any = [];
   constructor(private activaterouter:ActivatedRoute,private router:Router,
     private ownerservice:OwnerService) { }
 
@@ -46,7 +48,36 @@ export class ViewRequestsComponent implements OnInit {
         this.model = this.results.vehicleForm['model'];
         this.numberPlate = this.results.vehicleForm['numberPlate'];
         this.rentPerDay = this.results.vehicleForm['rentPerDay'];
+        this.ownerid = this.results['customerId'];
+        this.vehicleId = this.results['vehicleId'];
       },  
+      error =>{
+
+      }
+    )
+  }
+  checkbooking()
+  {
+    this.ownerservice.checkotherbookings(this.ownerid,this.vehicleId).subscribe(
+      data =>{
+        console.log(data);
+        this.bookingsarray = data;
+        if(this.bookingsarray.length ==0)
+        {
+          Swal.fire(
+            'No Bookings!',
+            'No Bookings Available',
+            'success'
+          )
+        }
+        else{
+          Swal.fire(
+            'Bookings Found!',
+            'Bookings Available',
+            'success'
+          )
+        }
+      },
       error =>{
 
       }

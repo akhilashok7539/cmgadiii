@@ -30,6 +30,8 @@ export class OwnerviewvehiclesComponent implements OnInit {
   zoom: number;
   private geoCoder;
   address: string;
+  pickUpAddress;
+  gpsAddress;
   constructor(private adminService:AdminService,  
     private ngZone: NgZone,
     private domsanitizer:DomSanitizer,private owenerservice:OwnerService) { }
@@ -75,6 +77,8 @@ export class OwnerviewvehiclesComponent implements OnInit {
         this.rentPerHour = this.results['rentPerHour'];
         this.vehicleModel.locality = this.results['locality'];
         this.vehicleModel.vehicleYear = this.results['year'];
+        this.pickUpAddress = this.results['pickUpAddress'];
+        this.gpsAddress = this.results['gpsAddress'];
         if(this.results['driverId'] != null)
         {
           this.vehicleModel.driver = this.results['driverId'];
@@ -136,11 +140,14 @@ export class OwnerviewvehiclesComponent implements OnInit {
       data =>{
         this.DriverDetailsofCar = data['driver'];
         console.log(this.DriverDetailsofCar);
-        
-        this.vehicleModel.dname = this.DriverDetailsofCar['name'];
-        this.vehicleModel.dnumber = this.DriverDetailsofCar['number'];
-        this.vehicleModel.daddreess = this.DriverDetailsofCar['addresss'];
-        this.id = this.DriverDetailsofCar['id'];
+        if(this.DriverDetailsofCar !=null)
+        {
+          this.vehicleModel.dname = this.DriverDetailsofCar['name'];
+          this.vehicleModel.dnumber = this.DriverDetailsofCar['number'];
+          this.vehicleModel.daddreess = this.DriverDetailsofCar['addresss'];
+          this.id = this.DriverDetailsofCar['id'];
+        }
+      
       },
       error =>{
 

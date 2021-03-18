@@ -59,6 +59,8 @@ import { AllbanksComponent } from './adminpannel/allbanks/allbanks.component';
 import { AddFeedbackComponent } from './chatsadnfeedbacks/add-feedback/add-feedback.component';
 import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/ownerpaymentsection.component';
 import { MappagesComponent } from './mappages/mappages.component';
+import { CannceledBookingsComponent } from './adminpannel/cannceled-bookings/cannceled-bookings.component';
+import { ViewTrackingComponent } from './ownerpannel/vehicletracking/view-tracking/view-tracking.component';
 
 
 const routes: Routes = [
@@ -129,6 +131,10 @@ const routes: Routes = [
   { path:'carrenters', component:CarRentersComponent ,canActivate:[AuthGuard]},
   { path:'paymentpage', component:OwnerpaymentsectionComponent ,canActivate:[AuthGuard]},
   { path:'mappage', component:MappagesComponent },
+  { path:'cancelled-bookings', component:CannceledBookingsComponent ,canActivate:[AuthGuard]},
+
+  { path:'view-vehicle', component:ViewTrackingComponent,canActivate:[AuthGuard] },
+
 
 ];
 

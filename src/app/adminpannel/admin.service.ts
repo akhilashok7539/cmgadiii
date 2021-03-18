@@ -117,4 +117,12 @@ export class AdminService {
   {
     return this.http.get(this.BASEURL+'owner/listAllBankDetails?page=0&size=100')
   }
+  getallcancelledbookings(fromdate,todate,page)
+  {
+    return this.http.get(this.BASEURL+'trip/listCancelledTripForAdminDate?start='+fromdate+'&end='+todate+'&page='+page+'&size=1000')
+  }
+  getadmincount()
+  {
+    return this.http.get(this.BASEURL+'admin/getAllCountDetails')
+  }
 }

@@ -58,6 +58,8 @@
 
                 <!-- </div>  -->
                 <div class="row" style="    margin: 13px auto 0;" *ngIf="approvalstatus == 2">
+                    <button class="btn btn-warning" style="margin-right: 10px;" (click)="checkbooking()"> <i class="fa fa-check"></i> Check Other Booking</button>
+
                     <button class="btn btn-success" style="margin-right: 10px;" (click)="approve()"> <i class="fa fa-check"></i> Approve</button>
                     <button class="btn btn-danger" style="margin-left: 10px;" (click)="reject()"> <i class="fa fa-close"></i> Reject</button>
                 </div>

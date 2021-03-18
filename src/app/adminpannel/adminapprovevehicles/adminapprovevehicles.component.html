@@ -44,9 +44,8 @@
                 <div class="col-sm-12">
                     <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabClick($event)">
                         <mat-tab label="Pending">
-                            <div class="row" style="margin-top: 10px;">
+                            <!-- <div class="row" style="margin-top: 10px;">
                                 <div class="col-sm-3" *ngFor="let results of results">
-                                    <!-- <mat-card style="margin-bottom: 10px;"> -->
                                     <div class="card">
                                         <img src="{{apiurl}}vehicle/getImage1/{{results.id}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                         <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -62,10 +61,48 @@
                                             <button class="btn btn-danger" style=" " (click)="reject(results)"><i class="fa fa-times" aria-hidden="true"></i> Reject</button>
 
                                         </div>
-                                        <!-- </mat-card> -->
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                    <thead style=" color: #fff; background: #3158c8; ">
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Locality </th>
+                                            <th>Rent</th>
+                                            <th>Action </th>
+
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let b of results">
+                                            <td>{{b.companyName}}</td>
+                                            <td>{{b.model}}</td>
+
+                                            <td>{{b.locationName}}</td>
+                                            <td>
+                                                <p *ngIf="b.rentPerDay == null">{{b.rentPerKM}}/km</p>
+                                                <p *ngIf="b.rentPerKM == null">{{b.rentPerDay}}/day</p>
+                                            </td>
+                                            <td>
+
+                                                <button class="btn btn-dark" style="" (click)="view(b)"> <i class="fa fa-eye"></i> View Vehicle</button> &nbsp;
+                                                <button class="btn btn-success" style="" (click)="approve(b)"><i class="fa fa-check"></i> Approve</button>&nbsp;
+                                                <button class="btn btn-danger" style=" " (click)="reject(b)"><i class="fa fa-times" aria-hidden="true"></i> Reject</button>
+
+                                            </td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
+
 
                             <h5 *ngIf="message == 'No data found'" style="      margin-top: 100px;  text-align: center;overflow: hidden;">No Request Found</h5>
 
@@ -74,9 +111,9 @@
 
 
                         <mat-tab label="Accepted">
-                            <div class="row" style="margin-top: 10px;">
+                            <!-- <div class="row" style="margin-top: 10px;">
                                 <div class="col-sm-3" *ngFor="let results of results">
-                                    <!-- <mat-card style="margin-bottom: 10px;"> -->
+                                 
                                     <div class="card">
                                         <img src="{{apiurl}}vehicle/getImage1/{{results.id}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                         <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -87,9 +124,45 @@
                                         <p style="text-align: center;" *ngIf="results.rentPerHour == null">Ren Per KM : No Data</p>
                                         &nbsp;
                                         <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"><i class="fa fa-eye"></i> View Vehicle</button>
-                                        <!-- </mat-card> -->
+                                     
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                    <thead style=" color: #fff; background: #3158c8; ">
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Locality </th>
+                                            <th>Rent</th>
+                                            <th>Action </th>
+
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let b of results">
+                                            <td>{{b.companyName}}</td>
+                                            <td>{{b.model}}</td>
+
+                                            <td>{{b.locationName}}</td>
+                                            <td>
+                                                <p *ngIf="b.rentPerDay == null">{{b.rentPerKM}}/km</p>
+                                                <p *ngIf="b.rentPerKM == null">{{b.rentPerDay}}/day</p>
+                                            </td>
+                                            <td>
+
+                                                <button class="btn btn-dark" (click)="view(b)"> <i class="fa fa-eye"></i> View Vehicle</button> &nbsp;
+
+                                            </td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                             <h5 *ngIf="message == 'No data found'" style="     margin-top: 100px;   text-align: center;overflow: hidden;">No Request Found</h5>
 
@@ -97,9 +170,9 @@
 
 
                         <mat-tab label="Rejected">
-                            <div class="row" style="margin-top: 10px;">
+                            <!-- <div class="row" style="margin-top: 10px;">
                                 <div class="col-sm-3" *ngFor="let results of results">
-                                    <!-- <mat-card style="margin-bottom: 10px;"> -->
+                                   
                                     <div class="card">
                                         <img src="{{apiurl}}vehicle/getImage1/{{results.id}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                         <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -111,9 +184,45 @@
 
                                         &nbsp;
                                         <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"> <i class="fa fa-eye"></i> View Vehicle</button>
-                                        <!-- </mat-card> -->
+                                        
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                    <thead style=" color: #fff; background: #3158c8; ">
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Locality </th>
+                                            <th>Rent</th>
+                                            <th>Action </th>
+
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let b of results">
+                                            <td>{{b.companyName}}</td>
+                                            <td>{{b.model}}</td>
+
+                                            <td>{{b.locationName}}</td>
+                                            <td>
+                                                <p *ngIf="b.rentPerDay == null">{{b.rentPerKM}}/km</p>
+                                                <p *ngIf="b.rentPerKM == null">{{b.rentPerDay}}/day</p>
+                                            </td>
+                                            <td>
+
+                                                <button class="btn btn-dark" (click)="view(b)"> <i class="fa fa-eye"></i> View Vehicle</button> &nbsp;
+
+                                            </td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </mat-tab>
                         <h5 *ngIf="message == 'No data found'" style="     margin-top: 100px;   text-align: center;overflow: hidden;">No Request Found</h5>

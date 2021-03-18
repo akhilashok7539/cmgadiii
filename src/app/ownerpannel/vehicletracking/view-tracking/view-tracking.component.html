@@ -1,0 +1,88 @@
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">View Vehicle Tracking</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <a class="btn btn btn-primary btn-rounded float-right " style="color: white;background: #496fdb;" routerLink="/add-location"><i class="fa fa-plus"></i> Add Locality </a> -->
+
+
+
+                    </div>
+                    <div class=" offset-3 col-sm-6 offset-3">
+                        <div class="card">
+                            <div class="row">
+                                <!-- <h6 >Take Vehicle City</h6>
+                                <div class="col-sm-3">
+
+                                    <h6 >Take Vehicle City</h6>
+                                    <i class="fa fa-car" style="    font-size: 57px;
+                                    margin-left: 27px;"></i>
+                                    <h6>{{results.startingLocation}}</h6>
+
+                                </div>
+                                <div class="col-sm-6"></div>
+
+                                <div class="col-sm-3">
+
+                                    <h6 style="text-align: right;margin-bottom: 22px;">Return Vehicle City</h6>
+                                    <i class="fa fa-car" style="font-size: 57px;
+                                    float: right;
+                                    margin-right: 39px;
+                                "></i>
+                                </div> -->
+                                <div class="col-sm-12">
+                                    <h6>Take Vehicle City</h6>
+                                    <i class="fa fa-car" style="    font-size: 57px;
+                                       margin-left: 43%;margin-bottom: 20px;"></i>
+                                    <h6>{{results.startingLocation}}</h6>
+
+
+                                    <h6>Return Vehicle City</h6>
+                                    <i class="fa fa-car" style="    font-size: 57px;
+                                       margin-left: 43%;margin-bottom: 20px;"></i>
+                                    <h6>{{results.destinationLocation}}</h6>
+
+                                    <h6>Take Off Day</h6>
+
+                                    <h6>{{results.requestedDate}}</h6>
+
+                                    <h6>Return Day</h6>
+
+                                    <h6>{{results.requestEndDate}}</h6>
+
+                                    <hr>
+                                    <p>Customer Details</p>
+                                    <h6 style="text-align: left;">{{results.customerName}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

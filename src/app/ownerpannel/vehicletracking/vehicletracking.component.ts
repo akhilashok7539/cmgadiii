@@ -30,4 +30,10 @@ export class VehicletrackingComponent implements OnInit {
       }
     )
   }
+  trackview(s){
+    console.log(s);
+    sessionStorage.setItem("vehicletracking",JSON.stringify(s))
+    this.Router.navigate(['/view-vehicle'])
+    
+  }
 }

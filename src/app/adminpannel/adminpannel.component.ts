@@ -9,12 +9,25 @@ import { AdminService } from './admin.service';
 })
 export class AdminpannelComponent implements OnInit {
  Role;
-  constructor( ) { }
+  constructor(private adminservice:AdminService) { }
 
   ngOnInit() {
     this.Role = JSON.parse(localStorage.getItem("ROLE"));
     console.log(this.Role);
+    this.getcount();
     
   }
- 
+ getcount()
+ {
+  this.adminservice.getadmincount().subscribe(
+    data =>{
+      console.log(data);
+      
+    },
+    error =>{
+
+    }
+  )
+ }
+
 }

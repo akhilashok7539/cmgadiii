@@ -5,9 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Vehicle <em style="    font-style: normal;
+                <!-- <h3>Vehicle <em style="    font-style: normal;
                     color: #ffd000;"> Details</em> </h3>
-                <hr>
+                <hr> -->
 
             </div>
             <div class="col-sm-8">
@@ -17,7 +17,9 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <h5 style="text-align: center;    margin-left: 24px;"> {{vehicleModel.vehicleCompany}},{{vehicleModel.vehicleModel}}</h5>
+                            <h3>Vehicle <em style="    font-style: normal;
+                                color: #ffd000;"> Details</em> </h3>
+
                             <hr>
                         </div>
                         <!-- <div class="col-sm-3">
@@ -34,10 +36,15 @@
                             <img src="{{apiurl}}vehicle/getImage1/{{vId}}" alt="" style="     width: 200px; height: 186px;  ">
                         </div>
                         <div class="col-sm-8">
+                            <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle Name : {{vehicleModel.vehicleCompany}},{{vehicleModel.vehicleModel}}</p>
+
                             <p style="margin-top: 10px;    text-align: left;"><i class="fa fa-car"></i>&nbsp;Vehicle Type :{{vehicleModel.vehicleType}}</p>
                             <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number : {{vehicleModel.vehicleRegistration}}</p>
                             <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location : {{vehicleModel.locality}}
                             </p>
+                            <p *ngIf="pickUpAddress == null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{gpsAddress}}</p>
+                            <p *ngIf="gpsAddress == null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{pickUpAddress}}</p>
+
                             <hr>
                             <h6>Rent Details</h6>
                             &nbsp;

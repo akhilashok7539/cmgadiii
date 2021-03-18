@@ -88,6 +88,8 @@ import { OwnerpaymentsectionComponent } from './ownerpannel/ownerpaymentsection/
 import { CollectCashComponent } from './ownerpannel/ownerpaymentsection/collect-cash/collect-cash.component';
 import { MappagesComponent } from './mappages/mappages.component';
 import { AgmCoreModule } from '@agm/core';
+import { CannceledBookingsComponent } from './adminpannel/cannceled-bookings/cannceled-bookings.component';
+import { ViewTrackingComponent } from './ownerpannel/vehicletracking/view-tracking/view-tracking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -158,7 +160,9 @@ import { AgmCoreModule } from '@agm/core';
     AddFeedbackComponent,
     OwnerpaymentsectionComponent,
     CollectCashComponent,
-    MappagesComponent
+    MappagesComponent,
+    CannceledBookingsComponent,
+    ViewTrackingComponent
   ],
   imports: [
     BrowserModule,

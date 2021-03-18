@@ -145,7 +145,9 @@ margin-top: 100px;  ">
                                             background: none;" matTooltip="License Back">
                                              <i class="fa fa-eye"></i> View</Button>
                                         </td> -->
-                                        <td><i matTooltip="Edit Profile" (click)="edit(driverslist)" class="fa fa-edit"></i></td>
+                                        <td> <button class="btn btn-dark" (click)="edit(driverslist)"><i matTooltip="Edit Profile" class="fa fa-edit"></i> Edit</button>&nbsp;
+                                            <button class="btn btn-warning" (click)="delete(driverslist)"><i matTooltip="Edit Profile"  class="fa fa-trash"></i> Delete</button>
+                                        </td>
                                     </tr>
 
                                 </tbody>

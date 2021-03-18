@@ -19,16 +19,15 @@
                             <div class="offset-8 col-sm-4">
                                 <select [(ngModel)]="optionselected" (change)="selectedeventfilter(optionselected)" class="form-control" style="margin-top: 10px;">
                                     <option value="" selected disabled>Filter By</option>
-                                   
+
                                     <option value="Pending">Pending</option>
                                     <option value="Preorder">Pre-Book</option>
                                 </select>
                             </div>
                         </div>
-
+                        <!-- 
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-sm-3" *ngFor="let results of results">
-                                <!-- <mat-card style="margin-bottom: 10px;"> -->
                                 <div class="card">
                                     <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                     <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -45,17 +44,52 @@
                                             margin-left: 11px;" (click)="reject(results)"> <i class="fa fa-close"></i> Reject</button>
 
                                     </div>
-                                    <!-- </mat-card> -->
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Vehicle Name</th>
+                                        <th>Customer Name</th>
+                                        <th>Requested Date</th>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let car of results">
+                                        <!-- <th>{{apUrl}}vehicle/getImage1/{{car.id}}</th> -->
+                                        <th>{{car.companyName}}</th>
+                                        <th>{{car.customerName}}</th>
+                                        <th>{{car.requestedDate}}</th>
+                                        <th>{{car.startingLocation}}</th>
+                                        <th>{{car.destinationLocation}}</th>
+                                        <th> <button class="btn btn-dark" style="" (click)="view(car)"> <i
+                                                    class="fa fa-eye"></i> View More</button> &nbsp; <button class="btn btn-success" (click)="approve(car)"><i
+                                                    class="fa fa-check"></i> Approve</button> &nbsp; <button class="btn btn-danger" style="   
+                                                    " (click)="reject(car)"> <i class="fa fa-close"></i>
+                                                Reject</button>
+
+                                        </th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
                         </div>
+
+
                         <h5 *ngIf="message == 'No Data Found'" style="      margin-top: 100px;  text-align: center;overflow: hidden;">No Request Found</h5>
 
                     </mat-tab>
                     <mat-tab label="Approved">
-                        <div class="row" style="margin-top: 10px;">
+                        <!-- <div class="row" style="margin-top: 10px;">
                             <div class="col-sm-3" *ngFor="let results of results">
-                                <!-- <mat-card style="margin-bottom: 10px;"> -->
                                 <div class="card">
                                     <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                     <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -63,22 +97,55 @@
                                     <p style="text-align: center;">Requested Date : {{results.requestedDate}}</p>
 
                                     <P style="text-align: center;">Starting Location : {{results.startingLocation}}</P>
-                                    <P style="text-align: center;">Destination Location : {{results.destinationLocation}}</P>
+                                    <P style="text-align: center;">Destination Location : {{results.destinationLocation}}
+                                    </P>
 
                                     &nbsp;
-                                    <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"> <i class="fa fa-eye"></i>  View More</button>
+                                    <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"> <i class="fa fa-eye"></i> View More</button>
 
-                                    <!-- </mat-card> -->
+                                 
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Vehicle Name</th>
+                                        <th>Customer Name</th>
+                                        <th>Requested Date</th>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let car of results">
+                                        <!-- <th>{{apUrl}}vehicle/getImage1/{{car.id}}</th> -->
+                                        <th>{{car.companyName}}</th>
+                                        <th>{{car.customerName}}</th>
+                                        <th>{{car.requestedDate}}</th>
+                                        <th>{{car.startingLocation}}</th>
+                                        <th>{{car.destinationLocation}}</th>
+                                        <th> <button class="btn btn-dark" style="" (click)="view(car)"> <i
+                                                    class="fa fa-eye"></i> View More</button>
+
+                                        </th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
                         </div>
                         <h5 *ngIf="message == 'No Data Found'" style="      margin-top: 100px;  text-align: center;overflow: hidden;">No Request Found</h5>
 
                     </mat-tab>
                     <mat-tab label="Reject">
-                        <div class="row" style="margin-top: 10px;">
+                        <!-- <div class="row" style="margin-top: 10px;">
                             <div class="col-sm-3" *ngFor="let results of results">
-                                <!-- <mat-card style="margin-bottom: 10px;"> -->
+                               
                                 <div class="card">
                                     <img src="{{apiurl}}vehicle/getImage1/{{results.vehicleId}}" alt="" style="display: block;height: 134px;margin-bottom: 10px;margin-left: auto;margin-right: auto;">
                                     <P style="text-align: center;">Company : {{results.companyName}}</P>
@@ -86,14 +153,47 @@
                                     <p style="text-align: center;">Requested Date : {{results.requestedDate}}</p>
 
                                     <P style="text-align: center;">Starting Location : {{results.startingLocation}}</P>
-                                    <P style="text-align: center;">Destination Location : {{results.destinationLocation}}</P>
+                                    <P style="text-align: center;">Destination Location : {{results.destinationLocation}}
+                                    </P>
 
                                     &nbsp;
-                                    <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"> <i class="fa fa-eye"></i>  View More</button>
+                                    <button class="btn btn-dark" style="display: block;margin-bottom: 10px;margin-left: auto;margin-right: auto;" (click)="view(results)"> <i class="fa fa-eye"></i> View More</button>
 
-                                    <!-- </mat-card> -->
+                                
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Vehicle Name</th>
+                                        <th>Customer Name</th>
+                                        <th>Requested Date</th>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let car of results">
+                                        <!-- <th>{{apUrl}}vehicle/getImage1/{{car.id}}</th> -->
+                                        <th>{{car.companyName}}</th>
+                                        <th>{{car.customerName}}</th>
+                                        <th>{{car.requestedDate}}</th>
+                                        <th>{{car.startingLocation}}</th>
+                                        <th>{{car.destinationLocation}}</th>
+                                        <th> <button class="btn btn-dark" style="" (click)="view(car)"> <i
+                                                    class="fa fa-eye"></i> View More</button>
+
+                                        </th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
                         </div>
                         <h5 *ngIf="message == 'No Data Found'" style="      margin-top: 100px;  text-align: center;overflow: hidden;">No Request Found</h5>
 

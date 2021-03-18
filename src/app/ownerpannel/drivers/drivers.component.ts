@@ -8,6 +8,7 @@ import { ViewliscenceComponent } from './viewliscence/viewliscence.component';
 import { ViewlicsencebackComponent } from './viewlicsenceback/viewlicsenceback.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-drivers',
@@ -128,5 +129,26 @@ export class DriversComponent implements OnInit {
     console.log(e.id)
     sessionStorage.setItem("driverId",e.id);
     this.router.navigate(['/editdrivers']);
+  }
+  delete(e){
+    console.log(e.id)
+    this.ownerservice.deleteDriver(e.id).subscribe(
+      data =>{
+        Swal.fire(
+          'Driver Deleted!',
+          'Driver Deleted Successfully',
+          'success'
+        )
+        this.ngOnInit();
+      },
+      error =>{
+        Swal.fire(
+          'Unable to Delete Driver !',
+          'Driver Deleted UnSuccessfull',
+          'error'
+        )
+      }
+    )
+
   }
 }

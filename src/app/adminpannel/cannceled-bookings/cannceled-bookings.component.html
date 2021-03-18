@@ -1,0 +1,81 @@
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Cancelled Bookings </h1>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="">From Date</label>
+                        <input type="date" class="form-control" (change)="fromdate($event)">
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="">To Date</label>
+
+                        <input type="date" class="form-control" (change)="todate($event)">
+
+                    </div>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Starting Location</th>
+                                        <th>Destination Location </th>
+                                        <th>Requested Date</th>
+                                        <th>Vehicle Model </th>
+                                        <th>Payment Status</th>
+
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let b of cancelledbookings">
+                                        <td>{{b.customerName}}</td>
+                                        <td>{{b.startingLocation}}</td>
+                                        <td>{{b.destinationLocation}}</td>
+                                        <td>{{b.requestedDate}} - {{b.requestEndDate}} </td>
+                                        <td>{{b.model}}</td>
+                                        <td *ngIf="b.paymentMode == null"> No Payment</td>
+                                        <td *ngIf="b.paymentMode == 1"> Online Payment</td>
+                                        <td *ngIf="b.paymentMode == 2"> Direct Payment</td>
+
+
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

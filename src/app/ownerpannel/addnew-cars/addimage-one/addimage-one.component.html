@@ -25,7 +25,7 @@
                                 <div *ngIf="submitted && f.img1.errors" class="invalid-feedback">
                                     <div *ngIf="f.img1.errors.required">Image 1 is required</div>
                                 </div>
-
+                                <img [src]="imagepreview" alt="">
                             </div>
                         </div>
                     </div>
