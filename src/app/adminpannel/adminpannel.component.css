@@ -31,3 +31,7 @@
         height: 161px;
     }
 }
+
+.border-left-info {
+    border-left: 0.25rem solid #ff920a !important;
+}

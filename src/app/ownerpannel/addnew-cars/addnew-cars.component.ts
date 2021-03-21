@@ -24,7 +24,7 @@ export class AddnewCarsComponent implements OnInit {
   lisenceback: any;
   lat = 13;
   lng = 80;
-
+  renttype:any = 'rentperday';
   addVehiclesform: FormGroup;
 
   formData = new FormData();
@@ -45,31 +45,66 @@ export class AddnewCarsComponent implements OnInit {
     this.vehicleModel.vehicleType = '';
     this.vehicleModel.driver = '';
 
-    this.addVehiclesform = this.fb.group(
-      {
-        vehicleType: ['', Validators.required],
-        vehicleModel: ['', Validators.required],
-        vehicleYear: ['', Validators.required],
-        vehicleCompany: ['', Validators.required],
-        vehicleRegistration: ['', Validators.required],
-        locality: ['', Validators.required],
-        rent: ['', Validators.required],
-        // liscencefrnt:['',Validators.required],
-        // liscenceback:['',Validators.required],
-        // rcbook:['',Validators.required],
-        // img1:['',Validators.required],
-        // img2 :['',Validators.required],
-        driver: [''],
-        dRent: [''],
-        paddress: [''],
-        vRentperKm: ['', Validators.required],
-      }
-    )
+    if(this.renttype == 'rentperday')
+    {
+      this.addVehiclesform = this.fb.group(
+        {
+          vehicleType: ['', Validators.required],
+          vehicleModel: ['', Validators.required],
+          vehicleYear: ['', Validators.required],
+          vehicleCompany: ['', Validators.required],
+          vehicleRegistration: ['', Validators.required],
+          locality: ['', Validators.required],
+          
+          rent: ['', Validators.required],
+          // liscencefrnt:['',Validators.required],
+          // liscenceback:['',Validators.required],
+          // rcbook:['',Validators.required],
+          // img1:['',Validators.required],
+          // img2 :['',Validators.required],
+          renttype :[''],
+          driver: [''],
+          dRent: [''],
+          paddress: [''],
+          vRentperKm: [''],
+        }
+      )
+    }
+    else{
+      this.addVehiclesform = this.fb.group(
+        {
+          vehicleType: ['', Validators.required],
+          vehicleModel: ['', Validators.required],
+          vehicleYear: ['', Validators.required],
+          vehicleCompany: ['', Validators.required],
+          vehicleRegistration: ['', Validators.required],
+          locality: ['', Validators.required],
+          
+          rent: [''],
+          // liscencefrnt:['',Validators.required],
+          // liscenceback:['',Validators.required],
+          // rcbook:['',Validators.required],
+          // img1:['',Validators.required],
+          // img2 :['',Validators.required],
+          renttype :[''],
+          driver: [''],
+          dRent: [''],
+          paddress: [''],
+          vRentperKm: ['', Validators.required],
+        }
+      )
+    }
+  
     this.ownerdetails = JSON.parse(localStorage.getItem('userDetail'));
     this.ownerId = this.ownerdetails['userId'];
     console.log(this.ownerId)
     this.getalllocality();
     this.getalldrivers();
+  }
+  changerenttype(s)
+  {
+    console.log(s);
+    
   }
   vehicletype(event) {
     console.log(event.target.value);
@@ -150,8 +185,22 @@ export class AddnewCarsComponent implements OnInit {
       return;
     }
     else {
-      let vrent = parseInt(this.vehicleModel.vRentperKm) * 30;
-      this.vehicleModel.vRentperHr = vrent.toString();
+      console.log(this.vehicleModel.vRentperKm);
+      if(this.vehicleModel.vRentperKm == undefined)
+      {
+        this.vehicleModel.vRentperKm = "";
+        this.formData.append('rentPerHour', "");
+      }
+      else
+
+      {
+        let vrent = parseInt(this.vehicleModel.vRentperKm) * 30;
+        this.vehicleModel.vRentperHr = vrent.toString();
+        this.formData.append('rentPerHour',this.vehicleModel.vRentperHr);
+
+      }
+      
+      
       this.formData.append('type', this.vehicleModel.vehicleType);
       this.formData.append('companyName', this.vehicleModel.vehicleCompany);
       this.formData.append('model', this.vehicleModel.vehicleModel);
@@ -159,12 +208,20 @@ export class AddnewCarsComponent implements OnInit {
       this.formData.append('numberPlate', this.vehicleModel.vehicleRegistration);
       this.formData.append('locality', this.vehicleModel.locality);
       this.formData.append('rentPerDay', this.vehicleModel.rent);
+      this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
+     
+
       this.formData.append('ownerId', this.ownerId);
-      this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
-      this.formData.append("gpsAddress", this.mapdataresponse['address']);
       if(this.mapdataresponse == null)
       {
-        this.formData.append("pickUpAddress", this.vehicleModel.paddress);
+        if(this.vehicleModel.paddress == undefined)
+        {
+          this.toaster.error("Enter the pickup address")
+        }
+        else{
+          this.formData.append("pickUpAddress", this.vehicleModel.paddress);
+
+        }
 
       }
       else
@@ -173,6 +230,17 @@ export class AddnewCarsComponent implements OnInit {
 
       }
 
+      if(this.vehicleModel.paddress != null || this.vehicleModel.paddress != undefined)
+      {
+        this.formData.append("gpsCoorginates", "");
+        this.formData.append("gpsAddress", "");
+      }
+      else{
+        this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+        this.formData.append("gpsAddress", this.mapdataresponse['address']);
+      }
+    
+     
 
       // this.formData.append('licenceFront', this.lisencefrnt);
       // this.formData.append('licenceBack', this.lisenceback);
@@ -188,8 +256,7 @@ export class AddnewCarsComponent implements OnInit {
         this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
 
       }
-      this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
-      this.formData.append('rentPerHour', this.vehicleModel.vRentperHr);
+      
 
 
 

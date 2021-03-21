@@ -20,4 +20,5 @@ export class Vehicle{
     dnumber:string;
     daddreess:string;
     paddress:string;
+    pkaddress:string;
 }

@@ -60,8 +60,9 @@ export class EditCarsComponent implements OnInit {
         // img2 :['',Validators.required],
         driver: [''],
         dRent:[''],
-        vRentperHr:['',Validators.required],
-        vRentperKm:['',Validators.required],
+        vRentperHr:[''],
+        vRentperKm:[''],
+        pkaddress:[''],
 
       }
     )
@@ -89,6 +90,7 @@ export class EditCarsComponent implements OnInit {
         this.vehicleModel.vehicleYear = this.results['year'];
         this.vehicleModel.vRentperHr= this.results['rentPerHour'];
         this.vehicleModel.vRentperKm  = this.results['rentPerKM'];
+
         if(this.results['driverId'] != null)
         {
           this.vehicleModel.driver = this.results['driverId'];
@@ -98,7 +100,18 @@ export class EditCarsComponent implements OnInit {
         else {
           this.vehicleModel.driver = '';
         }
-
+        if(this.results['pickUpAddress'] != null)
+        {
+          this.vehicleModel.pkaddress = this.results['pickUpAddress'];
+        }
+        if( this.vehicleModel.vRentperHr == null)
+        {
+          this.vehicleModel.vRentperHr = "";
+        }
+        if( this.vehicleModel.vRentperKm == null)
+        {
+          this.vehicleModel.vRentperKm = "";
+        }
 
       },
       error => {
@@ -181,7 +194,7 @@ export class EditCarsComponent implements OnInit {
     this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
     this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
     this.formData.append('rentPerHour', this.vehicleModel.vRentperHr);
-
+    this.formData.append("pickUpAddress", this.vehicleModel.pkaddress);
     this.owenerservice.editvehicle(this.formData).subscribe(
       data => {
         // this.toaster.success('Vehicle Updated Successfully');

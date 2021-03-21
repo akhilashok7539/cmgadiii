@@ -51,28 +51,36 @@
                                 "></i>
                                 </div> -->
                                 <div class="col-sm-12">
-                                    <h6>Take Vehicle City</h6>
+                                    <h6 style="color: #777777;">Take Vehicle City</h6>
                                     <i class="fa fa-car" style="    font-size: 57px;
                                        margin-left: 43%;margin-bottom: 20px;"></i>
                                     <h6>{{results.startingLocation}}</h6>
+                                    <hr>
 
-
-                                    <h6>Return Vehicle City</h6>
+                                    <h6 style="color: #777777;">Return Vehicle City</h6>
                                     <i class="fa fa-car" style="    font-size: 57px;
                                        margin-left: 43%;margin-bottom: 20px;"></i>
                                     <h6>{{results.destinationLocation}}</h6>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6 style="color: #777777;">Take Off Day</h6>
 
-                                    <h6>Take Off Day</h6>
+                                            <h6>{{results.requestedDate}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6 style="color: #777777;">Return Day</h6>
 
-                                    <h6>{{results.requestedDate}}</h6>
+                                            <h6>{{results.requestEndDate}}</h6>
+                                        </div>
+                                    </div>
 
-                                    <h6>Return Day</h6>
 
-                                    <h6>{{results.requestEndDate}}</h6>
+
 
                                     <hr>
                                     <p>Customer Details</p>
-                                    <h6 style="text-align: left;">{{results.customerName}}</h6>
+                                    <h6 style="text-align: left;">Name : {{results.customerName}}</h6>
                                 </div>
                             </div>
                         </div>

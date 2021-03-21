@@ -24,12 +24,12 @@
                     </div>
                     <div class="col-sm-3">
                         <label for="">From Date</label>
-                        <input type="date" class="form-control" (change)="fromdate($event)">
+                        <input type="date" class="form-control" [(ngModel)]="date3" (change)="fromdate($event)">
                     </div>
                     <div class="col-sm-3">
                         <label for="">To Date</label>
 
-                        <input type="date" class="form-control" (change)="todate($event)">
+                        <input type="date" class="form-control" [(ngModel)]="date2" (change)="todate($event)">
 
                     </div>
                 </div>

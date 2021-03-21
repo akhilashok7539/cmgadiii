@@ -23,7 +23,7 @@
             <div class="container-fluid" style="margin-left: 223px;
             margin-top: 99px;
             padding-right: 240px;  ">
-                <div class="container" *ngIf="Role != 'ADMIN'">
+                <!-- <div class="container" *ngIf="Role != 'ADMIN'">
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -56,7 +56,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
@@ -120,11 +120,11 @@
                         </div>
                     </div> -->
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
-                        <div class="card border-left-success shadow h-100 py-2" style="border-left: 0.25rem solid #ff0278 !important;">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body" routerLink="/vehicletracking">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="color: #ff0278 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Vehicle Tracking</div>
                                     </div>
                                     <div class="col-auto">
@@ -136,11 +136,11 @@
                     </div>
 
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
-                        <div class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #ff5f02 !important;">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body" routerLink="/drivers">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="color: #ff5f02 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Drivers</div>
                                     </div>
                                     <div class="col-auto">
@@ -152,12 +152,12 @@
                     </div>
 
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #ff02d5 !important;">
+                        <div routerLink="/admin-paymentreports" class="card border-left-primary shadow h-100 py-2">
 
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1" style="color: #ff02d5 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Payment Reports</div>
                                         <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">18</div> -->
                                     </div>
@@ -170,12 +170,12 @@
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
                         <!-- <div class="card border-left-info shadow h-100 py-2"> -->
-                        <div routerLink="/request" class="card border-left-info shadow h-100 py-2" style="border-left: 0.25rem solid #00d6a1 !important;">
+                        <div routerLink="/request" class="card border-left-primary shadow h-100 py-2">
 
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="color: #00d6a1 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Request</div>
                                     </div>
                                     <div class="col-auto">
@@ -186,11 +186,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
-                        <div routerLink="/handovervehicles" class="card border-left-info shadow h-100 py-2">
+                        <div routerLink="/handovervehicles" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div style="    color: #ff8e00 !important;" class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Handover Vehicle </div>
                                     </div>
                                     <div class="col-auto">
@@ -203,11 +203,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
-                        <div routerLink="/bankdetails" class="card border-left-info shadow h-100 py-2">
+                        <div routerLink="/bankdetails" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Bank Manage</div>
                                     </div>
                                     <div class="col-auto">
@@ -218,11 +218,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role != 'ADMIN'">
-                        <div routerLink="/paymentpage" class="card border-left-info shadow h-100 py-2">
+                        <div routerLink="/paymentpage" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Payments</div>
                                     </div>
                                     <div class="col-auto">
@@ -238,7 +238,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Reset Password</div>
                                     </div>
                                     <div class="col-auto">
@@ -254,7 +254,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Feedbacks</div>
                                     </div>
                                     <div class="col-auto">
@@ -265,11 +265,11 @@
                         </div>
                     </div> -->
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-info shadow h-100 py-2" style="    border-left: 0.25rem solid #ff5e00 !important;">
+                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="   color: #ff5e00 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Location Management</div>
                                     </div>
                                     <div class="col-auto">
@@ -280,11 +280,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-info shadow h-100 py-2" style="    border-left: 0.25rem solid #4700ee !important;">
+                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="   color: #4700ee !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total vehicle count</div>
                                     </div>
                                     <div class="col-auto">
@@ -295,11 +295,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-info shadow h-100 py-2" style="    border-left: 0.25rem solid #e10000 !important;">
+                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="   color: #e10000 !important;">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total trips count</div>
                                     </div>
                                     <div class="col-auto">
@@ -310,11 +310,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-info shadow h-100 py-2" style=" border-left: 0.25rem solid #28a745 !important">
+                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total customers count</div>
                                     </div>
                                     <div class="col-auto">

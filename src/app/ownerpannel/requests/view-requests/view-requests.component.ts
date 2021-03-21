@@ -24,6 +24,8 @@ export class ViewRequestsComponent implements OnInit {
   ownerid;
   vehicleId: any;
   bookingsarray:any = [];
+  rentPerHour;
+  rentPerKM;
   constructor(private activaterouter:ActivatedRoute,private router:Router,
     private ownerservice:OwnerService) { }
 
@@ -48,6 +50,8 @@ export class ViewRequestsComponent implements OnInit {
         this.model = this.results.vehicleForm['model'];
         this.numberPlate = this.results.vehicleForm['numberPlate'];
         this.rentPerDay = this.results.vehicleForm['rentPerDay'];
+        this.rentPerHour = this.results.vehicleForm['rentPerHour'];
+        this.rentPerKM= this.results.vehicleForm['rentPerKM'];
         this.ownerid = this.results['customerId'];
         this.vehicleId = this.results['vehicleId'];
       },  

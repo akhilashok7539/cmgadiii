@@ -14,6 +14,8 @@ export class CannceledBookingsComponent implements OnInit {
   faday;
   tday;
   date1;
+  date2;
+  date3;
   constructor(private adminservice:AdminService) { }
 
   ngOnInit() {
@@ -55,6 +57,8 @@ export class CannceledBookingsComponent implements OnInit {
      data =>{
         console.log(data);
         this.cancelledbookings = data;
+        this.date3 = this.faday;
+        this.date2 = this.tday;
      },
      error=>{
 

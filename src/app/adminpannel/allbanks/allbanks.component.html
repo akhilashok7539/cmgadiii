@@ -38,7 +38,7 @@
                                         <th>Bank Name</th>
                                         <th>Account Number </th>
                                         <th>IFSC Code</th>
-                                        <th>Branch </th>
+                                        <th>Customer Name </th>
 
 
                                     </tr>
@@ -46,10 +46,10 @@
 
                                 <tbody>
                                     <tr *ngFor="let b of results">
-                                        <td>{{b.name}}</td>
-                                        <td>{{b.name}}</td>
-                                        <td>{{b.name}}</td>
-                                        <td>{{b.name}}</td>
+                                        <td>{{b.bankName}}</td>
+                                        <td>{{b.accountNumber}}</td>
+                                        <td>{{b.ifscCode}}</td>
+                                        <td>{{b.accountHolderName}}</td>
 
 
                                     </tr>

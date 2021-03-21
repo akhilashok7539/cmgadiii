@@ -215,6 +215,16 @@
         
                                     </div>
                                 </div> -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Pick Up Address</label>
+                                            <input [ngClass]="{ 'is-invalid': submitted && f.pkaddress.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.pkaddress" formControlName="pkaddress">
+                                            <div *ngIf="submitted && f.pkaddress.errors" class="invalid-feedback">
+                                                <div *ngIf="f.pkaddress.errors.required">Pick Up Address is required</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12">
                                         <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
                                         <!-- <button (click)="clicks()">click</button> -->

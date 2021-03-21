@@ -75,7 +75,7 @@ export class OwnerviewvehiclesComponent implements OnInit {
         this.vehicleModel.rent = this.results['rentPerDay'];
         this.rentperkm = this.results['rentPerKM'];
         this.rentPerHour = this.results['rentPerHour'];
-        this.vehicleModel.locality = this.results['locality'];
+        this.vehicleModel.locality = this.results['locationName'];
         this.vehicleModel.vehicleYear = this.results['year'];
         this.pickUpAddress = this.results['pickUpAddress'];
         this.gpsAddress = this.results['gpsAddress'];

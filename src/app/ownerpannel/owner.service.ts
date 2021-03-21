@@ -175,5 +175,11 @@ export class OwnerService {
     return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompleted?ownerId='+oid+'&page='+page+'&size=200')
 
   }
-
+  addcomments(formdata){
+    return this.http.post(this.BASEURL+'rating/postReview',formdata);
+  }
+  deleteCar(id)
+  {
+    return this.http.delete(this.BASEURL+'vehicle/delete?id='+id);
+  }
 }

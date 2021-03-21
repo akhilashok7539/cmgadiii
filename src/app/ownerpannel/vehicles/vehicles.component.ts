@@ -54,7 +54,18 @@ export class VehiclesComponent implements OnInit {
   }
   delete(e)
   {
-    this.toaster.warning('We are working on this module please be patient')
+    this.ownerserivice.deleteCar(e.id).subscribe(
+      data =>{
+        this.toaster.success('Vehicle Deleted Successfully');
+        this.ngOnInit();
+
+      },
+      error=>{
+        this.toaster.error('Vehicle Deleted Unsuccessfully');
+
+        this.ngOnInit();
+      }
+    )
   }
   changeFilter(s)
   {
