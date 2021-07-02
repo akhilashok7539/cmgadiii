@@ -5,7 +5,9 @@ import { Vehicle } from 'src/app/_models/vehicle';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
-
+import { MappagesComponent } from 'src/app/mappages/mappages.component';
+import { MatDialog } from '@angular/material/dialog';
+declare const google: any;
 @Component({
   selector: 'app-addnew-cars',
   templateUrl: './addnew-cars.component.html',
@@ -36,7 +38,10 @@ export class AddnewCarsComponent implements OnInit {
   error: any;
   driverslist: any = [];
   mapdataresponse: any;
-  constructor(private fb: FormBuilder, private router: Router, private toaster: ToastrService,
+  decoddedAddress;
+ 
+  constructor(private fb: FormBuilder, private dialog:MatDialog,
+    private router: Router, private toaster: ToastrService,
     private owenerservice: OwnerService) { }
 
   ngOnInit() {
@@ -57,7 +62,7 @@ export class AddnewCarsComponent implements OnInit {
           locality: ['', Validators.required],
           
           rent: ['', Validators.required],
-          // liscencefrnt:['',Validators.required],
+          lcoationmanuval:['',Validators.required],
           // liscenceback:['',Validators.required],
           // rcbook:['',Validators.required],
           // img1:['',Validators.required],
@@ -180,7 +185,7 @@ export class AddnewCarsComponent implements OnInit {
 
     console.log(this.mapdataresponse)
     if (this.addVehiclesform.invalid) {
-      console.log(this.vehicleModel.paddress);
+      console.log(this.addVehiclesform.value);
       
       return;
     }
@@ -238,6 +243,7 @@ export class AddnewCarsComponent implements OnInit {
       else{
         this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
         this.formData.append("gpsAddress", this.mapdataresponse['address']);
+        this.decoddedAddress =  this.mapdataresponse['address']
       }
     
      
@@ -292,5 +298,18 @@ export class AddnewCarsComponent implements OnInit {
 
   }
 
+  viewmap(){
+    const dialogRef = this.dialog.open(MappagesComponent, {
+      width: '1000px',
+     
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result closed`);
+      // let geocoder = new google.maps.Geocoder();
+      // let latlng = new google.maps.LatLng(this.lat, this.lng);
+      this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
+      this.decoddedAddress =  this.mapdataresponse['address']
+    });
+  }
 }

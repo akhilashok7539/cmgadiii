@@ -1,5 +1,5 @@
 <!-- <app-navigation></app-navigation> -->
-<app-header></app-header>
+<!-- <app-header></app-header>
 <app-sidebar></app-sidebar>
 <div class="page-wrapper" style="margin-top: 33px;">
 
@@ -17,8 +17,6 @@
 
             <div class="col-sm-8 col-9 text-right m-b-20">
 
-                <!-- <a class="btn btn btn-primary btn-rounded float-right " style="color: white;" (click)="addcompany()"><i
-                        class="fa fa-plus"></i> </a> -->
             </div>
         </div>
 
@@ -29,7 +27,7 @@
             <div class="table-responsive">
                 <div class="row">
                     <div class="col-sm-4">
-                        <!-- <h5>Vehicles</h5> -->
+                     
 
                     </div>
                     <div class="col-sm-4"></div>
@@ -81,6 +79,95 @@
 
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div id="wrapper">
+
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-header></app-header>
+            <!-- End of Topbar -->
+            <!-- <app-adminhome></app-adminhome> -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid" style="margin-left: 223px;
+            margin-top: 99px;
+            padding-right: 240px;  ">
+                <!-- Page Heading -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <h1 class="h3 mb-2 text-gray-800">Payment Reports</h1>
+
+                    </div>
+
+
+                </div>
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-6">
+                        <label for="">From</label>
+                        <input type="date" class="form-control" [(ngModel)]="date1">
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <label for="">To</label>
+                        <input type="date" class="form-control" [(ngModel)]="date2" (change)="selected(date2)">
+
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead style=" color: #fff; background: #3158c8; ">
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Date</th>
+                                        <th>Owner Name</th>
+                                        <th>Payment Mode</th>
+                                        <th>Vehicle Model</th>
+                                        <th>Vehicle Rent</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let s of results">
+                                        <td>{{s.customerName}}</td>
+                                        <td>{{s.date}}</td>
+                                        <td>{{s.ownerName}}</td>
+                                        <td *ngIf="s.paymentMode == null">Booking Cancelled</td>
+                                        <td *ngIf="s.paymentMode == 1">Online Payment</td>
+                                        <td *ngIf="s.paymentMode == 2">Direct Payment</td>
+
+                                        <td>{{s.vehicleName}}</td>
+                                        <td>{{s.vehicleRent}}</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <button (click)="loadMore()" style="    width: 100%;
+                            border: none;
+                            margin-bottom: 19px;
+                            padding: 10px;
+                            border-radius: 8px;
+                            color: #686363;" *ngIf="results.length != 0">Load More</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

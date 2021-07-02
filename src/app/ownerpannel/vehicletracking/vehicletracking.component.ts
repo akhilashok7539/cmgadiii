@@ -24,6 +24,8 @@ export class VehicletrackingComponent implements OnInit {
     this.ownerservice.getallvechilcetracking(this.userId,this.page).subscribe(
       data =>{
         this.result = data;
+        console.log(this.result);
+        
       },
       error =>{
 
@@ -35,5 +37,24 @@ export class VehicletrackingComponent implements OnInit {
     sessionStorage.setItem("vehicletracking",JSON.stringify(s))
     this.Router.navigate(['/view-vehicle'])
     
+  }
+  loadMore()
+  {
+    this.page++
+    this.userDetails = JSON.parse(localStorage.getItem('userDetail'))
+    this.userId = this.userDetails['userId'];
+    this.ownerservice.getallvechilcetracking(this.userId,this.page).subscribe(
+      data =>{
+        
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.result.push(element)
+        });
+      },
+      error =>{
+
+      }
+    )
   }
 }

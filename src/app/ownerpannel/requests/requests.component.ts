@@ -21,6 +21,9 @@ export class RequestsComponent implements OnInit {
   message = 'data found';
   optionselected:any="";
   pagenumberprebook=0;
+  pendingIndex = 0;
+  approvedIndex =0;
+  rejectedIndex=0;
   constructor(private ownerService: OwnerService, private router: Router) { }
 
   ngOnInit() {
@@ -32,16 +35,21 @@ export class RequestsComponent implements OnInit {
   tabClick(event) {
     if (event.index == 0) {
       console.log('PENDING');
+      this.pendingIndex = 0;
       this.getallPendingdata();
-
+     
     }
     else if (event.index == 1) {
       console.log('approved');
+      this.approvedIndex =0;
+  
       this.getallApprovedData();
     }
     else if (event.index == 2) {
       console.log('rejected');
+      this.rejectedIndex=0;
       this.getallrejectedData();
+
     }
   }
   selectedeventfilter(s){
@@ -55,7 +63,7 @@ export class RequestsComponent implements OnInit {
   }
   getallPendingdata() {
 
-    this.ownerService.getallRequestfromUserBsedonStatus(this.ownerId, this.PENDING).subscribe(
+    this.ownerService.getallRequestfromUserBsedonStatus(this.pendingIndex,this.ownerId, this.PENDING).subscribe(
       data => {
         this.results = data;
         if (this.results.length == 0) {
@@ -90,7 +98,7 @@ export class RequestsComponent implements OnInit {
   }
   getallApprovedData() {
 
-    this.ownerService.getallRequestfromUserBsedonStatus(this.ownerId, this.APPROVED).subscribe(
+    this.ownerService.getallRequestApproved(this.pendingIndex,this.ownerId).subscribe(
       data => {
         this.results = data;
         if (this.results.length == 0) {
@@ -108,7 +116,7 @@ export class RequestsComponent implements OnInit {
   }
   getallrejectedData() {
 
-    this.ownerService.getallRequestfromUserBsedonStatus(this.ownerId, this.REJECTED).subscribe(
+    this.ownerService.getallRequestfromUserBsedonStatus(this.rejectedIndex,this.ownerId, this.REJECTED).subscribe(
       data => {
         this.results = data;
         if (this.results.length == 0) {
@@ -174,5 +182,56 @@ export class RequestsComponent implements OnInit {
       }
     )
 
+  }
+  loadMorerejected()
+  {
+   
+    this.rejectedIndex++
+    this.ownerService.getallRequestfromUserBsedonStatus(this.rejectedIndex,this.ownerId, this.REJECTED).subscribe(
+      data => {
+        // this.results = data;
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+
+      }
+    )
+  }
+  loadMoreapproved()
+  {
+   
+    this.approvedIndex++
+    this.ownerService.getallRequestApproved(this.pendingIndex,this.ownerId).subscribe(
+      data => {
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+
+      }
+    )
+  }
+  loadMorePending()
+  {
+    this.pendingIndex++
+    this.ownerService.getallRequestfromUserBsedonStatus(this.pendingIndex,this.ownerId, this.PENDING).subscribe(
+      data => {
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+
+      }
+    )
   }
 }

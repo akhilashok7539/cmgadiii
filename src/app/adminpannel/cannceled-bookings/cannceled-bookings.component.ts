@@ -65,4 +65,24 @@ export class CannceledBookingsComponent implements OnInit {
      }
     )
   }
+  loadMore()
+  {
+    this.page++
+    this.adminservice.getallcancelledbookings(this.faday, this.tday,this.page).subscribe(
+      data =>{
+        //  console.log(data);
+        //  this.cancelledbookings = data;
+         this.date3 = this.faday;
+         this.date2 = this.tday;
+         let datalist ;
+         datalist = data;
+         datalist.forEach(element => {
+           this.cancelledbookings.push(element)
+         });
+      },
+      error=>{
+ 
+      }
+     )
+  }
 }

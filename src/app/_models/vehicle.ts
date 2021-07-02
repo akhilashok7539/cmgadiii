@@ -21,4 +21,5 @@ export class Vehicle{
     daddreess:string;
     paddress:string;
     pkaddress:string;
+    lcoationmanuval:string;
 }

@@ -29,7 +29,7 @@ export class DriversComponent implements OnInit {
   limit: number = 15;
   skip: number = 0;
   totalLength: number = 0;
-  pageIndex: number = 0;
+  pageIndex=0;
   pageLimit: number[] = [5, 10];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
@@ -149,6 +149,10 @@ export class DriversComponent implements OnInit {
         )
       }
     )
+
+  }
+  loadMore()
+  {
 
   }
 }

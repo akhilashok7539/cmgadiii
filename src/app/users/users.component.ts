@@ -24,4 +24,21 @@ export class UsersComponent implements OnInit {
       }
     )
   }
+  loadMore()
+  {
+    this.page++
+    this.adminservice.getallusers(this.page).subscribe(
+      data =>{
+        // this.results = data;
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error =>{
+
+      }
+    )
+  }
 }

@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Email ID</th>
-                                        <th>Address</th>
+                                        <!-- <th>Address</th> -->
                                         <th>Mobile</th>
                                     </tr>
                                 </thead>
@@ -39,15 +39,21 @@
                                     <tr *ngFor="let car of results">
                                         <th>{{car.name}}</th>
                                         <th>{{car.emailId}}</th>
-
+<!-- 
                                         <th>{{car.address}}
-                                        </th>
+                                        </th> -->
                                         <th>{{car.mobile}}</th>
                                     </tr>
 
 
                                 </tbody>
                             </table>
+                            <button (click)="loadMore()" style="    width: 100%;
+                            border: none;
+                            margin-bottom: 19px;
+                            padding: 10px;
+                            border-radius: 8px;
+                            color: #686363;" *ngIf="results.length != 0">Load More</button>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-paymentreports',
@@ -8,33 +9,67 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./paymentreports.component.css']
 })
 export class PaymentreportsComponent implements OnInit {
-  results: any;
-  searchString: any;
-
-  displayedColumns = ['transId','uname','unumber', 'dname','dnumber'];
-  limit: number = 5;
-  skip: number = 0;
-  totalLength: number = 0;
-  pageIndex: number = 0;
-  pageLimit: number[] = [5, 10];
-  dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  message: any = 'data found';
-  constructor() { }
+  results:any=[];
+faday;
+tday;
+page = 0;
+date1;
+date2;
+size =200;
+  constructor(private AdminService:AdminService) { }
 
   ngOnInit() {
+
+    var date = new Date();
+    console.log(date)
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    var firstDay = date.getFullYear() +'-'+ month + '-' +'01'
+    let today = new Date().toISOString().slice(0, 10).replace(/-/g,'-');
+    console.log(firstDay);
+    this.faday = firstDay;
+    this.tday = today;
+    console.log(today);
+    this.date1 = this.faday;
+    this.date2 =this.tday;
+    this.getPaymentreport();
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+
+  getPaymentreport()
+  {
+    this.AdminService.getPymentreport(this.faday,this.tday,this.page).subscribe(
+      data =>{
+        console.log(data);
+        this.results = data;
+      },
+      error =>{
+
+      }
+    )
   }
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); 
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
-    console.log(this.dataSource.filteredData.length)
-    if(this.dataSource.filteredData.length == 0 )
-    {
-      this.message = 'No data found';
-    }
+  selected(s){
+    this.AdminService.getPymentreport(this.date1,this.date2,this.page).subscribe(
+      data =>{
+        this.results = data;
+      },
+      error=>{
+
+      }
+    ) 
+  }
+  loadMore()
+  {
+    this.page++;
+    this.AdminService.getPymentreport(this.date1,this.date2,this.page).subscribe(
+      data =>{
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error=>{
+
+      }
+    ) 
   }
 }

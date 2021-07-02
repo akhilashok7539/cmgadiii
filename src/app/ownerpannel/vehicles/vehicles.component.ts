@@ -16,6 +16,7 @@ export class VehiclesComponent implements OnInit {
   apUrl: any;
   vstatus:any ='';
   errormessage ;
+  pagination = 0;
   constructor(private ownerserivice:OwnerService,private toaster:ToastrService,
     private router:Router) {
     this.apUrl = environment.BASEURL;
@@ -28,7 +29,7 @@ export class VehiclesComponent implements OnInit {
   }
   getallcarsbyowers()
   {
-    this.ownerserivice.getallcars(this.userId).subscribe(
+    this.ownerserivice.getallcars(this.pagination,this.userId).subscribe(
       data =>{
         this.carList =data;
         this.errormessage = "data found";
@@ -87,5 +88,31 @@ export class VehiclesComponent implements OnInit {
       }
     )
     
+  }
+  loadMore()
+  {
+    this.pagination++
+    this.ownerserivice.getallcars(this.pagination,this.userId).subscribe(
+      data =>{
+        // this.carList.concat(data)
+        // this.carList =data;
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.carList.push(element)
+        });
+        // this.errormessage = "data found";
+        // if(this.carList.length == 0)
+        // {
+        // this.errormessage = "No data found";
+
+        // }
+        console.log(this.carList);
+        
+      },
+      error =>{
+        this.errormessage = "No data found";
+      }
+    )
   }
 }

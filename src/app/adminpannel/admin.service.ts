@@ -42,20 +42,20 @@ export class AdminService {
     return this.http.put(this.BASEURL+'admin/updateLocality',formdata);
 
   }
-  getallvehicles(){
-    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=2&page=0&size=100');
+  getallvehicles(pendingIndex){
+    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=2&page='+pendingIndex+'&size=20');
 
   }
   getalldata(fday,lastday,pagesize,size){
     return this.http.get(this.BASEURL+'rating/listReview?start='+fday+'&end='+lastday+'&page='+pagesize+'&size='+size);
 
   }
-  getallvehiclesapproved(){
-    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=1&page=0&size=100');
+  getallvehiclesapproved(approvedIndex){
+    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=1&page='+approvedIndex+'&size=100');
 
   }
-  getallvehiclesRejected(){
-    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=3&page=0&size=100');
+  getallvehiclesRejected(rejectedIndex){
+    return this.http.get(this.BASEURL+'vehicle/listBasedOnApprovalStatus?status=3&page='+rejectedIndex+'&size=100');
 
   }
   approve(formdata)
@@ -113,16 +113,21 @@ export class AdminService {
     return this.http.post(this.BASEURL+'updatePassword?currentPassword='+old+'&newPassword='+password,req);
 
   }
-  getallbankdetails()
+  getallbankdetails(page)
   {
-    return this.http.get(this.BASEURL+'owner/listAllBankDetails?page=0&size=100')
+    return this.http.get(this.BASEURL+'owner/listAllBankDetails?page='+page+'&size=100')
   }
   getallcancelledbookings(fromdate,todate,page)
   {
-    return this.http.get(this.BASEURL+'trip/listCancelledTripForAdminDate?start='+fromdate+'&end='+todate+'&page='+page+'&size=1000')
+    return this.http.get(this.BASEURL+'trip/listCancelledTripForAdminDate?start='+fromdate+'&end='+todate+'&page='+page+'&size=20')
   }
   getadmincount()
   {
     return this.http.get(this.BASEURL+'admin/getAllCountDetails')
+  }
+  getPymentreport(fday,today,page)
+  {
+    return this.http.get(this.BASEURL+'payment/getDateBetweenForAdmin?start='+fday+'&page='+page+'&size=20&end='+today)
+
   }
 }

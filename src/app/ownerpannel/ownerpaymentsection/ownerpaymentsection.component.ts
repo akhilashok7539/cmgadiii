@@ -45,4 +45,21 @@ collectcash(s){
     console.log(`Dialog result closed`);
   });
 }
+loadMore()
+{
+  this.page++
+  this.ownerservice.getallpaymentsbnyownerid(this.ownerId,this.page).subscribe(
+    data =>{
+      let datalist;
+      datalist = data;
+      datalist.forEach(element => {
+        this.payementresults.push(element)
+      });
+      // this.payementresults = data;
+    },
+    error =>{
+
+    }
+  )
+}
 }

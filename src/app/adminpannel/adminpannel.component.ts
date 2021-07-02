@@ -9,6 +9,7 @@ import { AdminService } from './admin.service';
 })
 export class AdminpannelComponent implements OnInit {
  Role;
+ countdetails:any = [];
   constructor(private adminservice:AdminService) { }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class AdminpannelComponent implements OnInit {
   this.adminservice.getadmincount().subscribe(
     data =>{
       console.log(data);
-      
+      this.countdetails = data;
     },
     error =>{
 

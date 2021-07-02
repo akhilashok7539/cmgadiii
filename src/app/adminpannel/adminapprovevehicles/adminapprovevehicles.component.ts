@@ -22,7 +22,9 @@ export class AdminapprovevehiclesComponent implements OnInit {
   pageLimit: number[] = [5, 10];
   dataSource = new MatTableDataSource();
   formData = new FormData();
-
+  pendingIndex = 0;
+  approvedIndex =0;
+  rejectedIndex=0;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   message: any = 'data found';
   apiurl: any;
@@ -48,7 +50,7 @@ export class AdminapprovevehiclesComponent implements OnInit {
 
     sessionStorage.setItem('tabstatus',"PENDING");
 
-    this.adminservice.getallvehicles().subscribe(
+    this.adminservice.getallvehicles(this.pendingIndex).subscribe(
       data => {
         this.results = data;
         this.dataSource.data = this.results;
@@ -128,17 +130,22 @@ export class AdminapprovevehiclesComponent implements OnInit {
     console.log(tab.index);
     if (tab.index == 0) {
       console.log('PENDING');
+      this.pendingIndex = 0;
+      
       this.getallvehiclesforapproval();
       sessionStorage.setItem('tabstatus',"PENDING");
     }
     else if (tab.index == 1) {
       console.log('ACCEPTED');
+      this.approvedIndex =0;
+    
       this.getallvehiclesApproved();
       sessionStorage.setItem('tabstatus',"ACCEPTED");
 
     }
     else if (tab.index == 2) {
       console.log('rejected');
+      this.rejectedIndex=0;
       this.getallvehiclesRejected();
       sessionStorage.setItem('tabstatus',"REJECTED");
 
@@ -146,7 +153,7 @@ export class AdminapprovevehiclesComponent implements OnInit {
   }
   getallvehiclesApproved() {
 
-    this.adminservice.getallvehiclesapproved().subscribe(
+    this.adminservice.getallvehiclesapproved(this.approvedIndex).subscribe(
       data => {
         this.results = data;
         this.dataSource.data = this.results;
@@ -171,7 +178,7 @@ export class AdminapprovevehiclesComponent implements OnInit {
     )
   }
   getallvehiclesRejected() {
-    this.adminservice.getallvehiclesRejected().subscribe(
+    this.adminservice.getallvehiclesRejected(this.rejectedIndex).subscribe(
       data => {
         this.results = data;
         this.dataSource.data = this.results;
@@ -213,4 +220,56 @@ export class AdminapprovevehiclesComponent implements OnInit {
   //     }
   //   )
   // }
+  loadMorePending()
+  {
+    this.pendingIndex++;
+    this.adminservice.getallvehicles(this.pendingIndex).subscribe(
+      data => {
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+        this.dataSource = new MatTableDataSource();
+      }
+    )
+  }
+  loadMorerejected()
+  {
+    this.rejectedIndex++
+    this.adminservice.getallvehiclesRejected(this.rejectedIndex).subscribe(
+      data => {
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+        // this.dataSource = new MatTableDataSource();
+        this.results = [];
+
+      }
+    )
+  }
+  loadMoreApproved()
+  {
+    this.approvedIndex++
+    this.adminservice.getallvehiclesapproved(this.approvedIndex).subscribe(
+      data => {
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+        // this.dataSource = new MatTableDataSource();
+        this.results = [];
+
+      }
+    )
+  }
 }

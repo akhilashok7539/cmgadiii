@@ -24,4 +24,20 @@ export class CarRentersComponent implements OnInit {
       }
     )
   }
+  loadMore()
+  {
+    this.page++;
+    this.adminservice.getallownersforadmin(this.page).subscribe(
+      data =>{
+        let datalist ;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error =>{
+
+      }
+    )
+  }
 }

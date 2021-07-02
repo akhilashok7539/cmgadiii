@@ -33,7 +33,7 @@ export class VerifyotpComponent implements OnInit {
     this.loginservice.verifyotp(this.registerModel.mobNo,mobnumber['mobilenumber']).subscribe(
       data =>{
         this.router.navigate(['/register'])
-        this.toaster.error("OTP Verified")
+        this.toaster.success("OTP Verified")
       },
       error=>{
         this.toaster.error("Invalid OTP")

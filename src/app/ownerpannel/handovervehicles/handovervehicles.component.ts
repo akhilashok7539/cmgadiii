@@ -69,5 +69,20 @@ export class HandovervehiclesComponent implements OnInit {
     sessionStorage.setItem("vID",e.id);
     this.router.navigate(['/ownerviewvehicles']);
   }
-  
+  loadmore()
+  {
+    this.page++
+    this.ownerService.getallvehicleforhanover(this.ownerId,this.page).subscribe(
+      data => {
+        let datalist;
+        datalist = data;
+        datalist.forEach(element => {
+          this.results.push(element)
+        });
+      },
+      error => {
+
+      }
+    )
+  }
 }

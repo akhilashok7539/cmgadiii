@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 // import { MapsAPILoader} from '@agm/core';
 import { google } from '@google/maps';
@@ -17,7 +18,8 @@ export class MappagesComponent implements OnInit {
   longitude: number =76.3214111328125;
   private geoCoder;
   address;
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    public dialogRef: MatDialogRef<MappagesComponent>) { }
 
   ngOnInit() {
   }
@@ -60,7 +62,8 @@ export class MappagesComponent implements OnInit {
     }
     console.log(req);
     sessionStorage.setItem("mapcordinatess",JSON.stringify(req))
-    this.router.navigate(['/add-cars'])
+    // this.router.navigate(['/add-cars']);
+    this.dialogRef.close();
   }
 }
 

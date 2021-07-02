@@ -101,6 +101,12 @@
 
                                     </tbody>
                                 </table>
+                                <button (click)="loadMorePending()" style="    width: 100%;
+                                border: none;
+                                margin-bottom: 19px;
+                                padding: 10px;
+                                border-radius: 8px;
+                                color: #686363;" *ngIf="results.length != 0">Load More</button>
                             </div>
 
 
@@ -163,6 +169,12 @@
 
                                     </tbody>
                                 </table>
+                                <button (click)="loadMoreApproved()" style="    width: 100%;
+                                border: none;
+                                margin-bottom: 19px;
+                                padding: 10px;
+                                border-radius: 8px;
+                                color: #686363;" *ngIf="results.length != 0">Load More</button>
                             </div>
                             <h5 *ngIf="message == 'No data found'" style="     margin-top: 100px;   text-align: center;overflow: hidden;">No Request Found</h5>
 
@@ -223,6 +235,12 @@
 
                                     </tbody>
                                 </table>
+                                <button (click)="loadMorerejected()" style="    width: 100%;
+                                border: none;
+                                margin-bottom: 19px;
+                                padding: 10px;
+                                border-radius: 8px;
+                                color: #686363;" *ngIf="results.length != 0">Load More</button>
                             </div>
                         </mat-tab>
                         <h5 *ngIf="message == 'No data found'" style="     margin-top: 100px;   text-align: center;overflow: hidden;">No Request Found</h5>

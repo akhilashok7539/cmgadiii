@@ -16,8 +16,8 @@ export class OwnerService {
   getalllocality() {
     return this.http.get(this.BASEURL + 'admin/listLocality');
   }
-  getallcars(id) {
-    return this.http.get(this.BASEURL + 'vehicle/list?ownerId=' + id + '&page=0&size=100');
+  getallcars(pagination,id) {
+    return this.http.get(this.BASEURL + 'vehicle/list?ownerId=' + id + '&page='+pagination+'&size=20');
 
   }
   addnewvehicle(formdata) {
@@ -110,9 +110,13 @@ export class OwnerService {
   {
     return this.http.get(this.BASEURL+'vehicle/listApprovalStatusForOwner?ownerId='+id+'&status='+status+'&page=0&size=100')
   }
-  getallRequestfromUserBsedonStatus(id,status)
+  getallRequestApproved(pendingIndex,id){
+    return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompleted?ownerId='+id+'&page='+pendingIndex+'&size=100')
+
+  }
+  getallRequestfromUserBsedonStatus(pendingIndex,id,status)
   {
-    return this.http.get(this.BASEURL+'trip/listForOwnerByApprovalStatus?ownerId='+id+'&status='+status);
+    return this.http.get(this.BASEURL+'trip/listForOwnerByApprovalStatus?ownerId='+id+'&status='+status+'&page='+pendingIndex+'&size=100');
   }
   getallRequestfromUserBsedonprebook(id,pagenumber){
     return this.http.get(this.BASEURL+'trip/listAllPreBooking?ownerId='+id+'&page='+pagenumber+'&size=100');
@@ -146,7 +150,7 @@ export class OwnerService {
 
   }
   getallvechilcetracking(uid,page){
-    return this.http.get(this.BASEURL+'trip/listForVehicleTrack?ownerId='+uid+'&page='+page+'&size=2500');
+    return this.http.get(this.BASEURL+'trip/listForVehicleTrack?ownerId='+uid+'&page='+page+'&size=20');
 
   }
   addcurrentkilometer(req)
@@ -172,7 +176,7 @@ export class OwnerService {
   }
   getallvehicleforhanover(oid,page)
   {
-    return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompleted?ownerId='+oid+'&page='+page+'&size=200')
+    return this.http.get(this.BASEURL+'trip/listForOwnerByNotCompleted?ownerId='+oid+'&page='+page+'&size=20')
 
   }
   addcomments(formdata){

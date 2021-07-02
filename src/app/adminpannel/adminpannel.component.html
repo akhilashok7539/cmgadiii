@@ -83,7 +83,8 @@
                                             Vehicle Management</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-car fa-2x text-gray-300"></i>
+                                        <!-- <i class="fa fa-car fa-2x text-gray-300"></i> -->
+                                        <img src="./assets/img/dahboardicons/vehcle mnge-01.png" alt="" style="height: 50px;">
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +99,8 @@
                                             Vehicle Management</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-car fa-2x text-gray-300"></i>
+                                        <!-- <i class="fa fa-car fa-2x text-gray-300"></i> -->
+                                        <img src="./assets/img/dahboardicons/vehcle mnge-01.png" alt="" style="height: 50px;">
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +130,9 @@
                                             Vehicle Tracking</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-map-marker fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/vehicle trackng-01.png" alt="" style="height: 50px;">
+
+
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +148,9 @@
                                             Drivers</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-user fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/driver manage-01.png" alt="" style="height: 50px;">
+
+
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +168,8 @@
                                         <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">18</div> -->
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-clipboard fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/pymnt report-01.png" alt="" style="height: 50px;">
+
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +186,7 @@
                                             Request</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-refresh fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/pymnt report-01.png" alt="" style="height: 50px;">
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +202,9 @@
                                     </div>
                                     <div class="col-auto">
                                         <!-- <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> -->
-                                        <img src="./assets/img/iconshandover.png" alt="" style="width: 26px !important;">
+                                        <img src="./assets/img/dahboardicons/handvr vhcle-01-01.png" alt="" style="height: 50px;">
+
+
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +220,8 @@
                                             Bank Manage</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-university fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/bank mnge icon.png" alt="" style="height: 50px;">
+
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +236,9 @@
                                             Payments</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-dollar-sign fa-2x text-gray-300"></i>
+
+                                        <img src="./assets/img/dahboardicons/pymnt report-01.png" alt="" style="height: 50px;">
+
                                     </div>
                                 </div>
                             </div>
@@ -273,14 +285,17 @@
                                             Location Management</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-map-marker fa-2x text-gray-300"></i>
+                                        <img src="./assets/img/dahboardicons/vehicle trackng-01.png" alt="" style="height: 50px;">
+
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -288,14 +303,14 @@
                                             Total vehicle count</div>
                                     </div>
                                     <div class="col-auto">
-                                        <h6 style="color: #4700ee;">20</h6>
+                                        <h6 style="color: #4700ee;">{{countdetails.vehicleCount}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -303,14 +318,14 @@
                                             Total trips count</div>
                                     </div>
                                     <div class="col-auto">
-                                        <h6 style="color: #e10000;">20</h6>
+                                        <h6 style="color: #4700ee;">{{countdetails.tripCount}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 mb-4" *ngIf="Role == 'ADMIN'">
-                        <div routerLink="/locations" class="card border-left-primary shadow h-100 py-2">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -318,7 +333,7 @@
                                             Total customers count</div>
                                     </div>
                                     <div class="col-auto">
-                                        <h6 style="color: #28a745;">20</h6>
+                                        <h6 style="color: #4700ee;">{{countdetails.customerCount}}</h6>
                                     </div>
                                 </div>
                             </div>

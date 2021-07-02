@@ -189,6 +189,6 @@ import { ViewTrackingComponent } from './ownerpannel/vehicletracking/view-tracki
     // fakeBackendProvider,
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ViewliscenceComponent,AddVehiclekmHandoverComponent,CollectCashComponent]
+  entryComponents:[ViewliscenceComponent,MappagesComponent,AddVehiclekmHandoverComponent,CollectCashComponent]
 })
 export class AppModule { }

@@ -13,11 +13,11 @@
                 <h3>Add New Vehicles</h3>
             </div>
             <div class="col-sm-4"></div>
-            <!-- <div class="col-sm-4">
-                <h3>Pricing : <em *ngIf="vehicleModel.vehicleType == '3Wheeler'">25 RS Per 1.5 KM</em>
-                    <em *ngIf="vehicleModel.vehicleType == '4Wheeler'">150 RS per 5 KM</em>
-                </h3>
-            </div> -->
+            <div class="col-sm-4">
+                <p *ngIf="decoddedAddress != null">GPS Address : <em >{{decoddedAddress}}</em>
+                   
+                </p>
+            </div>
 
         </div>
         <div class="row" style="     padding: 34px;   background-color: WHITE;">
@@ -25,13 +25,28 @@
 
                 <form [formGroup]="addVehiclesform">
                     <div class="row">
+
                         <div class="col-sm-4">
+                            <label for="">Choose Location Type<span class="text-danger">*</span></label>
+                            <select name="" id="" [ngClass]="{ 'is-invalid': submitted && f.lcoationmanuval.errors }" [(ngModel)]="vehicleModel.lcoationmanuval" formControlName="lcoationmanuval" class="form-control">
+                                <option value="" disabled>Choose a location Type</option>
+                                <option value="l">Location From Map</option>
+                                <option value="m">Enter location Manuvaly</option>
+
+                            </select>
+                            <div *ngIf="submitted && f.lcoationmanuval.errors" class="invalid-feedback">
+                                <div *ngIf="f.lcoationmanuval.errors.required">Choose a location address type is required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" *ngIf="vehicleModel.lcoationmanuval == 'l'">
                             <div class="form-group">
                                 <label for="">Choose Location <span class="text-danger">*</span></label>
-                                <button class="btn btn-warning" style="    color: white;
+                                <button   class="btn btn-warning" style="    color: white;
                                 width: 100%;
-                                " routerLink="/mappage"> <i class="fa fa-map-o" ></i> Choose Location from map</button>
+                                " (click)="viewmap()"> <i class="fa fa-map-o" ></i> Choose Location from map</button>
                             </div>
+                            
+                            <!-- routerLink="/mappage" -->
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
@@ -163,7 +178,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-4" *ngIf="vehicleModel.lcoationmanuval == 'm'">
                             <div class="form-group">
                                 <label>Pick Up Address</label>
                                 <input class="form-control" type="text" [(ngModel)]="vehicleModel.paddress" formControlName="paddress">
