@@ -4,18 +4,19 @@ import { Observable } from "rxjs";
 
 import { finalize } from "rxjs/operators";
 import { LoadingService } from '../loading/loading.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Injectable()
 export class LoadingScreenInterceptor implements HttpInterceptor {
 
-    constructor(public loaderService: LoadingService ) { }
+    constructor( private spinner: NgxSpinnerService ) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this.loaderService.show();
+        this.spinner.show();
         console.log('loadingg......');
 
         return next.handle(req).pipe(
-            finalize(() => this.loaderService.hide())
+            finalize(() =>   this.spinner.hide())
         );
     }
 }

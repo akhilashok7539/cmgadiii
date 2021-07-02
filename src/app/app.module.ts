@@ -90,6 +90,7 @@ import { MappagesComponent } from './mappages/mappages.component';
 import { AgmCoreModule } from '@agm/core';
 import { CannceledBookingsComponent } from './adminpannel/cannceled-bookings/cannceled-bookings.component';
 import { ViewTrackingComponent } from './ownerpannel/vehicletracking/view-tracking/view-tracking.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -169,7 +170,7 @@ import { ViewTrackingComponent } from './ownerpannel/vehicletracking/view-tracki
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-
+    NgxSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA8VTIDe4Yi7VHOJLbVgsr5UyDKHV2vBe4'
     }),
