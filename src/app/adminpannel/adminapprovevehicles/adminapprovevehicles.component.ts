@@ -73,14 +73,20 @@ export class AdminapprovevehiclesComponent implements OnInit {
     this.formData.append('status', "1");
     this.adminservice.approve(this.formData).subscribe(
       data => {
+        this.formData.delete('vehicleId')
+        this.formData.delete('status')
         Swal.fire(
           'Vehicle Approved!',
           'Vehicle Added Successfully',
           'success'
         )
         this.ngOnInit();
+      
+
       },
       error => {
+        this.formData.delete('vehicleId')
+        this.formData.delete('status')
         Swal.fire(
           'Unable to Approve Vehicle!',
           'Vehicle Approve  UnSuccessfully',
@@ -94,6 +100,8 @@ export class AdminapprovevehiclesComponent implements OnInit {
     this.formData.append('status', "3");
     this.adminservice.reject(this.formData).subscribe(
       data => {
+        this.formData.delete('vehicleId')
+        this.formData.delete('status')
         Swal.fire(
           'Vehicle Reject!',
           'Vehicle Reject Successfully',
@@ -102,6 +110,8 @@ export class AdminapprovevehiclesComponent implements OnInit {
         this.ngOnInit();
       },
       error => {
+        this.formData.delete('vehicleId')
+        this.formData.delete('status')
         Swal.fire(
           'Unable to Reject Vehicle !',
           'Vehicle Reject UnSuccessfully',
