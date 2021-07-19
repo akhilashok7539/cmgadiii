@@ -1,3 +1,23 @@
 /* ::ng-deep .mat-toolbar{
     position: fixed;
 } */
+
+@media only screen and (max-width: 600px) {
+ .heading{
+    visibility: hidden;
+ }
+ .imglogo{
+    margin-top: 41px;
+ }
+}
+
+.heading{
+    padding-left: 6px;
+    float: right;
+    margin-top: 23px;
+    color: #ffcb67;
+    font-weight: bold;
+}
+.imglogo{
+width: 61px;
+}

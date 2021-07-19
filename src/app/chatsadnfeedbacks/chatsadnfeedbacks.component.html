@@ -217,7 +217,7 @@
                                         <td>{{s.userName}}</td>
                                         <td>{{s.experiance}}</td>
                                         <td>{{s.createdTime | slice:0:10}}</td>
-                                        <td>{{s.comment}}</td>
+                                        <td *ngIf="s.comment != 'undefined'">{{s.comment}}</td>
 
                                     </tr>
 

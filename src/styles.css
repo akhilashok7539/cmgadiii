@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~ngx-toastr/toastr';
+@import "~ngx-toastr/toastr";
 html,
 body {
     height: 100%;
@@ -21,13 +21,20 @@ body {
     max-width: 100%;
     padding: 1.25em;
     border: none;
-    border-radius: .3125em;
+    border-radius: 0.3125em;
     background: #fff;
     font-family: inherit;
     font-size: 1rem;
 }
 
-
+@media only screen and (max-width: 600px) {
+    .page-wrapper {
+        margin-left: 93px !important;
+    }
+    .container-fluid{
+        margin-left: 93px !important;
+    }
+}
 /*
 *
 * ------------------------------------------------------------------
@@ -43,7 +50,6 @@ body {
 * -------------------------------------------------------------------
 *
 */
-
 
 /*===========================
 *	[Table of Contents]
@@ -102,11 +108,9 @@ body {
 *
 */
 
-
 /*==========================================
     Author Style Here
 ==========================================*/
-
 
 /*== Theme Defualt CSS ==*/
 
@@ -191,9 +195,7 @@ body {
     z-index: 9999;
 }
 
-
 /*== Theme Defualt CSS ==*/
-
 
 /*== Header Top CSS Start ==*/
 
@@ -231,9 +233,7 @@ header.fixTotop #header-top {
     display: none !important;
 }
 
-
 /*== Header Top CSS End ==*/
-
 
 /*== Header Bottom CSS Start ==*/
 
@@ -400,9 +400,7 @@ a.slicknav_btn {
     background-color: transparent !important;
 }
 
-
 /*== Header Bottom CSS End ==*/
-
 
 /*== Slider Area CSS Start ==*/
 
@@ -490,7 +488,7 @@ a.slicknav_btn {
 }
 
 .gj-calendar-bootstrap table tr td.today div {
-    color: #ffd000
+    color: #ffd000;
 }
 
 .gj-calendar-bootstrap table tr td.selected div {
@@ -509,9 +507,7 @@ a.slicknav_btn {
     margin-bottom: 10px;
 }
 
-
 /*== Slider Area CSS End ==*/
-
 
 /*== About Area CSS Start ==*/
 
@@ -560,9 +556,7 @@ a.slicknav_btn {
     width: 100%;
 }
 
-
 /*== About Area CSS End ==*/
-
 
 /*== Partner Area CSS Start ==*/
 
@@ -581,9 +575,7 @@ a.slicknav_btn {
     width: auto;
 }
 
-
 /*== Partner Area CSS End ==*/
-
 
 /*== Service Area CSS Start ==*/
 
@@ -615,9 +607,7 @@ a.slicknav_btn {
     padding: 50px 20px;
 }
 
-
 /*== Service Area CSS End ==*/
-
 
 /*== Home 3 Service Area CSS Start ==*/
 
@@ -720,9 +710,7 @@ a.slicknav_btn {
     margin-top: 10px;
 }
 
-
 /*== Home 3 Service Area CSS End ==*/
-
 
 /*== Fun Fact Area CSS Start ==*/
 
@@ -763,9 +751,7 @@ a.slicknav_btn {
     text-transform: uppercase;
 }
 
-
 /*== Fun Fact Area CSS End ==*/
-
 
 /*== Choose Car Area CSS Start ==*/
 
@@ -793,9 +779,8 @@ a.slicknav_btn {
 .choose-content-wrap .nav-tabs li a.active {
     background-color: #ffd000 !important;
     background-color: #ffd000 !important;
-    color: #fff!important;
+    color: #fff !important;
 }
-
 
 /* Popular Cars Css Start */
 
@@ -831,7 +816,7 @@ a.slicknav_btn {
     text-transform: uppercase;
 }
 
-.popucar-menu a+a {
+.popucar-menu a + a {
     border-left: 0px;
 }
 
@@ -884,7 +869,7 @@ a.slicknav_btn {
 .p-car-thumbnails a.car-hover:hover:after {
     -webkit-transform: scale(1);
     transform: scale(1);
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .p-car-thumbnails a.car-hover::before {
@@ -963,9 +948,7 @@ a.slicknav_btn {
     border-color: #ffd000;
 }
 
-
 /* Popular Cars Css End */
-
 
 /* Newest Cars Css Start */
 
@@ -1001,7 +984,7 @@ a.slicknav_btn {
     text-transform: uppercase;
 }
 
-.newcar-menu a+a {
+.newcar-menu a + a {
     border-left: 0px;
 }
 
@@ -1063,12 +1046,9 @@ a.slicknav_btn {
     width: 100%;
 }
 
-
 /* Newest Cars Css End */
 
-
 /*== Choose Car Area CSS End ==*/
-
 
 /*== Pricing Area CSS Start ==*/
 
@@ -1118,9 +1098,7 @@ a.slicknav_btn {
     border-top: 1px solid #999;
 }
 
-
 /*== Pricing Area CSS End ==*/
-
 
 /*== Testimonial Area CSS Start ==*/
 
@@ -1185,9 +1163,7 @@ a.slicknav_btn {
     background-color: #ffd000;
 }
 
-
 /*== Testimonial Area CSS End ==*/
-
 
 /*== Mobile Apps CSS Start ==*/
 
@@ -1227,7 +1203,7 @@ a.slicknav_btn {
 }
 
 .mobile-app-content p {
-    margin: 5px 0 20px
+    margin: 5px 0 20px;
 }
 
 .app-btns a {
@@ -1254,9 +1230,7 @@ a.slicknav_btn {
     position: relative;
 }
 
-
 /*== Mobile Apps CSS End ==*/
-
 
 /*== Article Area CSS Start ==*/
 
@@ -1367,9 +1341,7 @@ a.slicknav_btn {
     color: #fff;
 }
 
-
 /*== Article Area CSS End ==*/
-
 
 /*== Footer Area CSS Start ==*/
 
@@ -1548,9 +1520,7 @@ a.slicknav_btn {
     padding: 15px 0;
 }
 
-
 /*== Footer Area CSS End ==*/
-
 
 /*== Preloader Area CSS Start ==*/
 
@@ -1586,9 +1556,7 @@ body.loader-active {
     width: 150px;
 }
 
-
 /*== Preloader Area CSS End ==*/
-
 
 /*
 *
@@ -1600,11 +1568,9 @@ body.loader-active {
 *
 **/
 
-
 /*==========================
     Home Page Two Start
 ============================*/
-
 
 /*== SlideShow CSS ==*/
 
@@ -1657,9 +1623,7 @@ body,
     opacity: 1;
 }
 
-
 /*== SlideShow CSS ==*/
-
 
 /*== Book Car CSS ==*/
 
@@ -1739,9 +1703,7 @@ body,
     background-size: 12px auto;
 }
 
-
 /*== Book Car CSS ==*/
-
 
 /*== About Area CSS ==*/
 
@@ -1781,9 +1743,7 @@ body,
     color: #fff;
 }
 
-
 /*== About Area CSS ==*/
-
 
 /*== Car Choose Area CSS ==*/
 
@@ -1821,9 +1781,7 @@ body,
     background-color: #ffd000;
 }
 
-
 /*== Car Choose Area CSS ==*/
-
 
 /*== Team Area CSS ==*/
 
@@ -1954,14 +1912,11 @@ body,
     background-color: #000;
 }
 
-
 /*== Team Area CSS ==*/
-
 
 /*==========================
     Home Page Three Start
 ============================*/
-
 
 /*== Slider Area CSS ==*/
 
@@ -1983,9 +1938,7 @@ body,
     padding: 200px 0 220px;
 }
 
-
 /*== Slider Area CSS ==*/
-
 
 /*== Book Car CSS ==*/
 
@@ -2048,9 +2001,7 @@ body,
     border: medium none;
 }
 
-
 /*== Book Car CSS ==*/
-
 
 /*== What Do Area CSS ==*/
 
@@ -2112,13 +2063,11 @@ body,
     padding: 8px 15px;
 }
 
-
 /*== What Do Area CSS ==*/
 
 #service-area.section-padding {
     padding-bottom: 50px;
 }
-
 
 /*== What Choose CSS ==*/
 
@@ -2202,9 +2151,7 @@ body,
     padding-left: 15px;
 }
 
-
 /*== What Choose CSS ==*/
-
 
 /*== Our Cars CSS ==*/
 
@@ -2295,14 +2242,11 @@ body,
     width: 100%;
 }
 
-
 /*== Our Cars CSS ==*/
-
 
 /*==========================
     Car Page Css Start
 ============================*/
-
 
 /*== Page Title CSS ==*/
 
@@ -2316,7 +2260,6 @@ body,
 #page-title-area .section-title {
     margin-bottom: 0;
 }
-
 
 /*== Car List CSS ==*/
 
@@ -2406,7 +2349,7 @@ body,
     margin-right: 5px;
 }
 
-.car-info-list li+li {
+.car-info-list li + li {
     border-left: 0;
 }
 
@@ -2446,7 +2389,6 @@ body,
     color: #fff;
 }
 
-
 /*== Page Pagination CSS ==*/
 
 .page-pagi {
@@ -2472,7 +2414,6 @@ body,
     color: #fff;
 }
 
-
 /*== Without Sidebar Car Page CSS Here ==*/
 
 .car-list-info.without-bar {
@@ -2492,7 +2433,6 @@ body,
 .car-list-content .col-lg-6:last-child .single-car-wrap {
     margin-bottom: 0;
 }
-
 
 /*== Sidebar CSS Here ==*/
 
@@ -2603,7 +2543,6 @@ body,
     border-color: #ffd000;
     color: #fff;
 }
-
 
 /*==============================
     Car Details Page Css Start
@@ -2737,7 +2676,6 @@ body,
     text-transform: uppercase;
 }
 
-
 /*==============================
     Service Page Css Start
 ================================*/
@@ -2794,7 +2732,6 @@ body,
     text-transform: uppercase;
 }
 
-
 /*==============================
     Article Details Page Css
 ================================*/
@@ -2840,7 +2777,6 @@ body,
     width: 100%;
 }
 
-
 /*==============================
     About Page Css
 ================================*/
@@ -2885,7 +2821,6 @@ body,
     font-family: fontawesome;
     margin-right: 15px;
 }
-
 
 /*==============================
     FAQ Page Css
@@ -2955,7 +2890,6 @@ body,
     display: none;
 }
 
-
 /*==============================
     Gallery Page Css
 ================================*/
@@ -2963,7 +2897,6 @@ body,
 #gallery-page-content .popucar-menu {
     margin-top: 0;
 }
-
 
 /*==============================
     Packages Page Css
@@ -3002,7 +2935,6 @@ body,
 .package-list li:last-child {
     border-bottom: 0 none;
 }
-
 
 /*==============================
     Login Page Css
@@ -3110,14 +3042,14 @@ body,
 }
 
 .login-with-btn.google {
-    background: -webkit-gradient(linear, left top, left bottom, from(#DC4A38), to(#Dd5b21));
-    background: linear-gradient(to bottom, #DC4A38, #Dd5b21);
+    background: -webkit-gradient(linear, left top, left bottom, from(#dc4a38), to(#dd5b21));
+    background: linear-gradient(to bottom, #dc4a38, #dd5b21);
     margin-top: 15px;
 }
 
 .login-with-btn.google:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#Dd5b21), to(#DC4A38));
-    background: linear-gradient(to bottom, #Dd5b21, #DC4A38);
+    background: -webkit-gradient(linear, left top, left bottom, from(#dd5b21), to(#dc4a38));
+    background: linear-gradient(to bottom, #dd5b21, #dc4a38);
 }
 
 .login-with-btn:hover {
@@ -3149,7 +3081,6 @@ body,
     text-decoration: underline;
 }
 
-
 /*==============================
     $404 ERROR Page Css
 ================================*/
@@ -3172,7 +3103,7 @@ body,
     font-size: 150px;
     font-weight: 400;
     line-height: 100%;
-    font-family: 'Monoton', cursive;
+    font-family: "Monoton", cursive;
 }
 
 .four,
@@ -3181,7 +3112,7 @@ body,
     vertical-align: middle;
 }
 
-.zero>img {
+.zero > img {
     margin-left: 5px;
     margin-top: 5px;
     width: 115px;
@@ -3219,7 +3150,6 @@ body,
 #page-404-wrap.overlay::after {
     background-color: rgba(0, 0, 0, 0.9);
 }
-
 
 /*==============================
     Driver Page Css
@@ -3277,23 +3207,23 @@ body,
 }
 
 .driver-mem-sicons a:hover i.fa-facebook {
-    background-color: #5D82D1;
-    border-color: #5D82D1;
+    background-color: #5d82d1;
+    border-color: #5d82d1;
 }
 
 .driver-mem-sicons a:hover i.fa-twitter {
-    background-color: #40BFF5;
-    border-color: #40BFF5;
+    background-color: #40bff5;
+    border-color: #40bff5;
 }
 
 .driver-mem-sicons a:hover i.fa-dribbble {
-    background-color: #F7659C;
-    border-color: #F7659C;
+    background-color: #f7659c;
+    border-color: #f7659c;
 }
 
 .driver-mem-sicons a:hover i.fa-pinterest {
-    background-color: #E13138;
-    border-color: #E13138;
+    background-color: #e13138;
+    border-color: #e13138;
 }
 
 .driver-mem-sicons a:last-child {

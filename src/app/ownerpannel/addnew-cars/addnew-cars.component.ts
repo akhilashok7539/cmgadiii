@@ -95,7 +95,7 @@ export class AddnewCarsComponent implements OnInit {
           driver: [''],
           dRent: [''],
           paddress: [''],
-          vRentperKm: ['', Validators.required],
+          vRentperKm: [''],
         }
       )
     }
@@ -231,7 +231,7 @@ export class AddnewCarsComponent implements OnInit {
       }
       else
       {
-        this.formData.append("pickUpAddress", null);
+        // this.formData.append("pickUpAddress", null);
 
       }
 

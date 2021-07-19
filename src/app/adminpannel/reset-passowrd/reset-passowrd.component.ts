@@ -4,6 +4,7 @@ import { MustMatch } from 'src/app/register/password-validation';
 import { Login } from 'src/app/_models/login';
 import { AdminService } from '../admin.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-passowrd',
@@ -14,7 +15,8 @@ export class ResetPassowrdComponent implements OnInit {
   resetForm: FormGroup;
   adminmodel :Login;
   submitted =false;
-  constructor(private fb:FormBuilder,private adminservice:AdminService) { }
+  constructor(private fb:FormBuilder,private router:Router,
+    private adminservice:AdminService) { }
 
   ngOnInit() {
     this.adminmodel = new Login();
@@ -40,7 +42,8 @@ export class ResetPassowrdComponent implements OnInit {
     else if (this.resetForm.valid){
       this.adminservice.resetpassword(this.adminmodel.oldPasswords,this.adminmodel.password).subscribe(
         data =>{
-          this.resetForm.reset();
+          // this.resetForm.reset();
+          this.router.navigate(['/admin']);
           Swal.fire(
             'Password Reset!',
             'Password Reset Successfully',
