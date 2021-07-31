@@ -130,4 +130,8 @@ export class AdminService {
     return this.http.get(this.BASEURL+'payment/getDateBetweenForAdmin?start='+fday+'&page='+page+'&size=20&end='+today)
 
   }
+  resertpassword(email,req)
+  {
+    return this.http.post(this.BASEURL+'api/auth/forgot/other?email='+email,req);
+  }
 }

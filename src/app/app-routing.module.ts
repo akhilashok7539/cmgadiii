@@ -95,7 +95,7 @@ const routes: Routes = [
   { path:'drivers', component: DriversComponent,canActivate:[AuthGuard]},
   { path:'add-feedback', component: AddFeedbackComponent,canActivate:[AuthGuard]},
   { path:'add-drivers', component: AddDriversComponent,canActivate:[AuthGuard]},
-  { path:'forgotpassword', component: ForgotpasswordComponent,canActivate:[AuthGuard]},
+  { path:'forgotpassword', component: ForgotpasswordComponent},
   { path:'add-location', component: AddLocationComponent,canActivate:[AuthGuard]},
   { path:'edit-location/:id/:name', component: EditLocationComponent,canActivate:[AuthGuard]},
 

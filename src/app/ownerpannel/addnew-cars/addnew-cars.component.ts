@@ -61,7 +61,7 @@ export class AddnewCarsComponent implements OnInit {
           vehicleRegistration: ['', Validators.required],
           locality: ['', Validators.required],
           
-          rent: ['', Validators.required],
+          rent: [''],
           lcoationmanuval:['',Validators.required],
           // liscenceback:['',Validators.required],
           // rcbook:['',Validators.required],
@@ -264,15 +264,22 @@ export class AddnewCarsComponent implements OnInit {
         this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
 
       }
-      
-
+      if(this.vehicleModel.driver === undefined || this.vehicleModel.driver === "")
+      {
+        this.formData.delete('driverRentPerKM');
+      }
+      if(this.vehicleModel.rent === undefined || this.vehicleModel.driver === "")
+      {
+        this.formData.delete("rentPerDay")
+        this.formData.append('rentPerDay',"");
+      }
 
 
 
       console.log(this.formData)
       this.owenerservice.addnewvehicle(this.formData).subscribe(
         data => {
-         
+         this.formData.delete;
           localStorage.setItem('vehicleadddetailsid', JSON.stringify(data));
           Swal.fire(
             'Vehicle Added!',
@@ -283,6 +290,8 @@ export class AddnewCarsComponent implements OnInit {
 
         },
         error => {
+         this.formData.delete;
+          this.formData = new FormData();
           this.error = error.error['message'];
           Swal.fire(
             'Unable to add Vehicle!',
