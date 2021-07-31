@@ -38,3 +38,9 @@ h6{
     font-size: 25px;
     margin-bottom: 37px;
 }
+
+@media only screen and (max-width: 600px) {
+        .mobilehide{
+            display: none !important;
+        }
+    }

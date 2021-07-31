@@ -22,4 +22,5 @@ export class Vehicle{
     paddress:string;
     pkaddress:string;
     lcoationmanuval:string;
+    renttype:string;
 }

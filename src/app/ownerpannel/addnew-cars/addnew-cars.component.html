@@ -18,12 +18,19 @@
                    
                 </p>
                 <p *ngIf="vehicleModel.vehicleType === '3Wheeler'">
-                   <span  *ngIf="vehicleModel.rent != ''"> Rent Per Day for 3 Wheeler : {{ vehicleModel.rent * 10}}</span>
-                   
+                   <span  *ngIf="renttype === 'rentperday'"> Rent Per Day for 3 Wheeler : {{vehicleModel.rent}}</span>
+
+                   <span  *ngIf="renttype === 'rentperkm'"> Rent Per Hour for 3 Wheeler : {{ vehicleModel.vRentperKm * 10}}</span>
                 
                 </p>
                 <p *ngIf="vehicleModel.vehicleType === '4Wheeler'">
-                    <span  *ngIf="vehicleModel.rent != ''"> Rent Per Day for 4 Wheeler : {{ vehicleModel.rent * 30}}</span>
+                    <span *ngIf="renttype === 'rentperday'">Rent Per Day for 4 Wheeler : {{vehicleModel.rent}}</span>
+                  
+                    <span  *ngIf="renttype === 'rentperkm'"> Rent Per Hour for 4 Wheeler : {{ vehicleModel.vRentperKm * 30}} 
+                        <!-- <p > </p>  -->
+                        <!-- <p >   </p> -->
+                        <!-- Rent Per Day for 4 Wheeler : {{ vehicleModel.rent * 30}} -->
+                    </span>
                     </p>
 
             </div>
@@ -257,3 +264,4 @@
         </div>
     </div>
 </div>
+<!-- <pre>{{addVehiclesform.value | json}}</pre> -->

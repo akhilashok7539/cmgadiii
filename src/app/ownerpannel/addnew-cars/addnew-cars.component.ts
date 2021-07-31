@@ -26,7 +26,7 @@ export class AddnewCarsComponent implements OnInit {
   lisenceback: any;
   lat = 13;
   lng = 80;
-  renttype:any = 'rentperday';
+  renttype = 'rentperday';
   addVehiclesform: FormGroup;
 
   formData = new FormData();
@@ -109,6 +109,7 @@ export class AddnewCarsComponent implements OnInit {
   changerenttype(s)
   {
     console.log(s);
+    this.vehicleModel.vRentperKm = "";
     
   }
   vehicletype(event) {
@@ -204,6 +205,7 @@ export class AddnewCarsComponent implements OnInit {
         this.formData.append('rentPerHour',this.vehicleModel.vRentperHr);
 
       }
+     
       
       
       this.formData.append('type', this.vehicleModel.vehicleType);
