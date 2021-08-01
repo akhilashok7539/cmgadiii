@@ -156,7 +156,7 @@
                                     <div class="col-sm-4" *ngIf="renttype == 'rentperkm'">
                                         <div class="form-group">
                                             <label>Vehicle Rent Per KM</label>
-                                            <input [ngClass]="{ 'is-invalid': submitted && f.vRentperKm.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperKm" formControlName="vRentperKm">
+                                            <input [ngClass]="{ 'is-invalid': submitted && f.vRentperKm.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperKm"  formControlName="vRentperKm">
                                             <div *ngIf="submitted && f.vRentperKm.errors" class="invalid-feedback">
                                                 <div *ngIf="f.vRentperKm.errors.required">Vehicle Rent Per KM is required
                                                 </div>
@@ -167,7 +167,7 @@
                                     <div class="col-sm-4" *ngIf="renttype == 'rentperkm'">
                                         <div class="form-group">
                                             <label>Vehicle Rent Per Hour</label>
-                                            <input [ngClass]="{ 'is-invalid': submitted && f.vRentperHr.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperHr" formControlName="vRentperHr">
+                                            <input disabled [ngClass]="{ 'is-invalid': submitted && f.vRentperHr.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperHr" formControlName="vRentperHr">
                                             <div *ngIf="submitted && f.vRentperHr.errors" class="invalid-feedback">
                                                 <div *ngIf="f.vRentperHr.errors.required">Vehicle Rent per Hour is required
                                                 </div>
