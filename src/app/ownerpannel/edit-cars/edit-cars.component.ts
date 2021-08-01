@@ -58,7 +58,7 @@ export class EditCarsComponent implements OnInit {
         vehicleCompany: ['', Validators.required],
         vehicleRegistration: ['', Validators.required],
         locality: ['', Validators.required],
-        rent: ['', Validators.required],
+        rent: [''],
         // liscencefrnt:['',Validators.required],
         // liscenceback:['',Validators.required],
         // rcbook:['',Validators.required],
