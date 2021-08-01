@@ -39,8 +39,8 @@ export class AddnewCarsComponent implements OnInit {
   driverslist: any = [];
   mapdataresponse: any;
   decoddedAddress;
- 
-  constructor(private fb: FormBuilder, private dialog:MatDialog,
+  rentPerHour: any;
+  constructor(private fb: FormBuilder, private dialog: MatDialog,
     private router: Router, private toaster: ToastrService,
     private owenerservice: OwnerService) { }
 
@@ -50,8 +50,7 @@ export class AddnewCarsComponent implements OnInit {
     this.vehicleModel.vehicleType = '';
     this.vehicleModel.driver = '';
 
-    if(this.renttype == 'rentperday')
-    {
+    if (this.renttype == 'rentperday') {
       this.addVehiclesform = this.fb.group(
         {
           vehicleType: ['', Validators.required],
@@ -60,14 +59,14 @@ export class AddnewCarsComponent implements OnInit {
           vehicleCompany: ['', Validators.required],
           vehicleRegistration: ['', Validators.required],
           locality: ['', Validators.required],
-          
+
           rent: [''],
-          lcoationmanuval:['',Validators.required],
+          lcoationmanuval: ['', Validators.required],
           // liscenceback:['',Validators.required],
           // rcbook:['',Validators.required],
           // img1:['',Validators.required],
           // img2 :['',Validators.required],
-          renttype :[''],
+          renttype: [''],
           driver: [''],
           dRent: [''],
           paddress: [''],
@@ -75,7 +74,7 @@ export class AddnewCarsComponent implements OnInit {
         }
       )
     }
-    else{
+    else {
       this.addVehiclesform = this.fb.group(
         {
           vehicleType: ['', Validators.required],
@@ -84,14 +83,14 @@ export class AddnewCarsComponent implements OnInit {
           vehicleCompany: ['', Validators.required],
           vehicleRegistration: ['', Validators.required],
           locality: ['', Validators.required],
-          
+
           rent: [''],
           // liscencefrnt:['',Validators.required],
           // liscenceback:['',Validators.required],
           // rcbook:['',Validators.required],
           // img1:['',Validators.required],
           // img2 :['',Validators.required],
-          renttype :[''],
+          renttype: [''],
           driver: [''],
           dRent: [''],
           paddress: [''],
@@ -99,18 +98,17 @@ export class AddnewCarsComponent implements OnInit {
         }
       )
     }
-  
+
     this.ownerdetails = JSON.parse(localStorage.getItem('userDetail'));
     this.ownerId = this.ownerdetails['userId'];
     console.log(this.ownerId)
     this.getalllocality();
     this.getalldrivers();
   }
-  changerenttype(s)
-  {
+  changerenttype(s) {
     console.log(s);
-    this.vehicleModel.vRentperKm = "";
-    
+    // this.vehicleModel.vRentperKm = "";
+
   }
   vehicletype(event) {
     console.log(event.target.value);
@@ -178,35 +176,194 @@ export class AddnewCarsComponent implements OnInit {
   }
   get f() { return this.addVehiclesform.controls; }
 
+  // submit() {
+  //   this.submitted = true;
+  //   this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
+
+
+  //   console.log(this.mapdataresponse)
+  //   if (this.addVehiclesform.invalid) {
+  //     console.log(this.addVehiclesform.value);
+
+  //     return;
+  //   }
+  //   else {
+  //     console.log(this.vehicleModel.vRentperKm);
+  //     if(this.vehicleModel.vRentperKm == undefined)
+  //     {
+  //       this.vehicleModel.vRentperKm = "";
+  //       this.formData.append('rentPerHour', "");
+  //     }
+  //     else
+
+  //     {
+
+  //     }
+
+  //     if(this.vehicleModel.vehicleType  === '3Wheeler')
+  //     {
+  //       let vrent = parseInt(this.vehicleModel.vRentperKm) * 10;
+  //       this.vehicleModel.vRentperHr = vrent.toString();
+  //       this.formData.append('rentPerHour',this.vehicleModel.vRentperHr);
+  //     }
+  //     if(this.vehicleModel.vehicleType  === '4Wheeler')
+  //     {
+  //       let vrent = parseInt(this.vehicleModel.vRentperKm) * 30;
+  //       this.vehicleModel.vRentperHr = vrent.toString();
+  //       this.formData.append('rentPerHour',this.vehicleModel.vRentperHr);
+
+  //     }
+
+
+  //     this.formData.append('type', this.vehicleModel.vehicleType);
+  //     this.formData.append('companyName', this.vehicleModel.vehicleCompany);
+  //     this.formData.append('model', this.vehicleModel.vehicleModel);
+  //     this.formData.append('year', this.vehicleModel.vehicleYear);
+  //     this.formData.append('numberPlate', this.vehicleModel.vehicleRegistration);
+  //     this.formData.append('locality', this.vehicleModel.locality);
+  //     this.formData.append('rentPerDay', this.vehicleModel.rent);
+  //     this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
+
+
+  //     this.formData.append('ownerId', this.ownerId);
+  //     if(this.mapdataresponse == null)
+  //     {
+  //       if(this.vehicleModel.paddress == undefined)
+  //       {
+  //         this.toaster.error("Enter the pickup address")
+  //       }
+  //       else{
+  //         this.formData.append("pickUpAddress", this.vehicleModel.paddress);
+
+  //       }
+
+  //     }
+  //     else
+  //     {
+
+
+  //     }
+
+  //     if(this.vehicleModel.paddress != null || this.vehicleModel.paddress != undefined)
+  //     {
+  //       this.formData.append("gpsCoorginates", "");
+  //       this.formData.append("gpsAddress", "");
+  //     }
+  //     else{
+  //       this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+  //       this.formData.append("gpsAddress", this.mapdataresponse['address']);
+  //       this.decoddedAddress =  this.mapdataresponse['address']
+  //     }
+  //     this.formData.append('driverId', this.vehicleModel.driver);
+
+  //     if (this.vehicleModel.dRent == undefined) {
+  //       this.formData.append('driverRentPerKM', "");
+
+  //     }
+  //     else {
+  //       this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
+  //     }
+  //     if(this.vehicleModel.driver === undefined || this.vehicleModel.driver === "")
+  //     {
+  //       this.formData.delete('driverRentPerKM');
+  //     }
+  //     if(this.vehicleModel.rent === undefined || this.vehicleModel.driver === "")
+  //     {
+  //       this.formData.delete("rentPerDay")
+  //       this.formData.append('rentPerDay',"");
+  //     }
+  //     console.log(this.formData)
+  //     this.owenerservice.addnewvehicle(this.formData).subscribe(
+  //       data => {
+  //        this.formData.delete;
+  //         localStorage.setItem('vehicleadddetailsid', JSON.stringify(data));
+  //         Swal.fire(
+  //           'Vehicle Added!',
+  //           'Basic Details Added Successfully',
+  //           'success'
+  //         )
+  //         this.router.navigate(['/image1']);
+  //       },
+  //       error => {
+  //        this.formData.delete;
+  //         this.formData = new FormData();
+  //         this.error = error.error['message'];
+  //         Swal.fire(
+  //           'Unable to add Vehicle!',
+  //           this.error,
+  //           'error'
+  //         )
+  //         this.formData.delete;
+
+  //       }
+  //     )
+  //   }
+
+  // }
+  clicks() {
+
+  }
+
+  viewmap() {
+    const dialogRef = this.dialog.open(MappagesComponent, {
+      width: '1000px',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result closed`);
+      // let geocoder = new google.maps.Geocoder();
+      // let latlng = new google.maps.LatLng(this.lat, this.lng);
+      this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
+      this.decoddedAddress = this.mapdataresponse['address']
+    });
+  }
+
+
+
+
+  // submit response
+
+
   submit() {
     this.submitted = true;
     this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
-    // stop here if form is invalid
-    // console.log(this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+
 
     console.log(this.mapdataresponse)
     if (this.addVehiclesform.invalid) {
-      console.log(this.addVehiclesform.value);
-      
       return;
     }
     else {
-      console.log(this.vehicleModel.vRentperKm);
-      if(this.vehicleModel.vRentperKm == undefined)
-      {
-        this.vehicleModel.vRentperKm = "";
-        this.formData.append('rentPerHour', "");
-      }
-      else
-
-      {
+      if (this.vehicleModel.vehicleType === "4Wheeler") {
         let vrent = parseInt(this.vehicleModel.vRentperKm) * 30;
-        this.vehicleModel.vRentperHr = vrent.toString();
-        this.formData.append('rentPerHour',this.vehicleModel.vRentperHr);
-
+        this.rentPerHour = vrent.toString();
       }
-     
-      
+      else {
+        let vrent = parseInt(this.vehicleModel.vRentperKm) * 10;
+        this.rentPerHour = vrent.toString();
+      }
+      if (this.vehicleModel.lcoationmanuval === "l") {
+        this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
+        this.formData.append("gpsAddress", this.mapdataresponse['address']);
+      }
+      if (this.vehicleModel.lcoationmanuval === "m") {
+        this.formData.append("pickUpAddress", this.vehicleModel.paddress);
+      }
+      if (this.vehicleModel.driver != '') {
+        this.formData.append("driverId", this.vehicleModel.driver);
+        this.formData.append("driverRentPerKM", this.vehicleModel.dRent);
+      }
+      if (this.renttype === "rentperday") {
+        this.formData.append('rentPerDay', this.vehicleModel.rent);
+      }
+      else {
+        this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
+        this.formData.append('rentPerHour', this.rentPerHour);
+      }
+      console.log("rentPerDay",this.vehicleModel.rent);
+      console.log("rentPerHour",this.rentPerHour);
+
       
       this.formData.append('type', this.vehicleModel.vehicleType);
       this.formData.append('companyName', this.vehicleModel.vehicleCompany);
@@ -214,72 +371,10 @@ export class AddnewCarsComponent implements OnInit {
       this.formData.append('year', this.vehicleModel.vehicleYear);
       this.formData.append('numberPlate', this.vehicleModel.vehicleRegistration);
       this.formData.append('locality', this.vehicleModel.locality);
-      this.formData.append('rentPerDay', this.vehicleModel.rent);
-      this.formData.append('rentPerKM', this.vehicleModel.vRentperKm);
-     
-
       this.formData.append('ownerId', this.ownerId);
-      if(this.mapdataresponse == null)
-      {
-        if(this.vehicleModel.paddress == undefined)
-        {
-          this.toaster.error("Enter the pickup address")
-        }
-        else{
-          this.formData.append("pickUpAddress", this.vehicleModel.paddress);
-
-        }
-
-      }
-      else
-      {
-        // this.formData.append("pickUpAddress", null);
-
-      }
-
-      if(this.vehicleModel.paddress != null || this.vehicleModel.paddress != undefined)
-      {
-        this.formData.append("gpsCoorginates", "");
-        this.formData.append("gpsAddress", "");
-      }
-      else{
-        this.formData.append("gpsCoorginates", this.mapdataresponse['latitude'] + ',' + this.mapdataresponse["longitude"]);
-        this.formData.append("gpsAddress", this.mapdataresponse['address']);
-        this.decoddedAddress =  this.mapdataresponse['address']
-      }
-    
-     
-
-      // this.formData.append('licenceFront', this.lisencefrnt);
-      // this.formData.append('licenceBack', this.lisenceback);
-      // this.formData.append('rcImage', this.rcproof);
-      // this.formData.append('image1', this.image1);
-      // this.formData.append('image2', this.image2);
-      this.formData.append('driverId', this.vehicleModel.driver);
-      if (this.vehicleModel.dRent == undefined) {
-        this.formData.append('driverRentPerKM', "");
-
-      }
-      else {
-        this.formData.append('driverRentPerKM', this.vehicleModel.dRent);
-
-      }
-      if(this.vehicleModel.driver === undefined || this.vehicleModel.driver === "")
-      {
-        this.formData.delete('driverRentPerKM');
-      }
-      if(this.vehicleModel.rent === undefined || this.vehicleModel.driver === "")
-      {
-        this.formData.delete("rentPerDay")
-        this.formData.append('rentPerDay',"");
-      }
-
-
-
-      console.log(this.formData)
       this.owenerservice.addnewvehicle(this.formData).subscribe(
         data => {
-         this.formData.delete;
+          this.formData.delete;
           localStorage.setItem('vehicleadddetailsid', JSON.stringify(data));
           Swal.fire(
             'Vehicle Added!',
@@ -287,10 +382,9 @@ export class AddnewCarsComponent implements OnInit {
             'success'
           )
           this.router.navigate(['/image1']);
-
         },
         error => {
-         this.formData.delete;
+          this.formData.delete;
           this.formData = new FormData();
           this.error = error.error['message'];
           Swal.fire(
@@ -302,25 +396,10 @@ export class AddnewCarsComponent implements OnInit {
 
         }
       )
+
     }
-
-  }
-  clicks() {
-
   }
 
-  viewmap(){
-    const dialogRef = this.dialog.open(MappagesComponent, {
-      width: '1000px',
-     
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result closed`);
-      // let geocoder = new google.maps.Geocoder();
-      // let latlng = new google.maps.LatLng(this.lat, this.lng);
-      this.mapdataresponse = JSON.parse(sessionStorage.getItem("mapcordinatess"));
-      this.decoddedAddress =  this.mapdataresponse['address']
-    });
-  }
+
 }

@@ -93,6 +93,22 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
+                                            <label>Rent Type<span class="text-danger">*</span></label>
+                                            <select [ngClass]="{ 'is-invalid': submitted && f.renttype.errors }" [(ngModel)]="renttype" formControlName="renttype" (change)="changerenttype(renttype)" class="form-control">
+                                                <option value="rentperday" selected >Rent Per Day</option>
+                                                <option value="rentperkm" >Rent Per Km</option>
+            
+                                     
+                                            </select>
+            
+            
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-sm-4" *ngIf="renttype == 'rentperday'">
+                                        <div class="form-group">
                                             <label>Rent Per Day<span class="text-danger">*</span></label>
                                             <input [ngClass]="{ 'is-invalid': submitted && f.rent.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.rent" formControlName="rent">
                                             <div *ngIf="submitted && f.rent.errors" class="invalid-feedback">
@@ -137,7 +153,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4" *ngIf="renttype == 'rentperkm'">
                                         <div class="form-group">
                                             <label>Vehicle Rent Per KM</label>
                                             <input [ngClass]="{ 'is-invalid': submitted && f.vRentperKm.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperKm" formControlName="vRentperKm">
@@ -148,7 +164,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4" *ngIf="renttype == 'rentperkm'">
                                         <div class="form-group">
                                             <label>Vehicle Rent Per Hour</label>
                                             <input [ngClass]="{ 'is-invalid': submitted && f.vRentperHr.errors }" class="form-control" type="text" [(ngModel)]="vehicleModel.vRentperHr" formControlName="vRentperHr">
@@ -159,6 +175,7 @@
 
                                         </div>
                                     </div>
+
                                     <!-- <div class="col-sm-4">
                                     <div class="form-group">
                                         <label> License Front <span class="text-danger">*</span></label>
@@ -215,6 +232,28 @@
         
                                     </div>
                                 </div> -->
+                                <div class="col-sm-4">
+                                    <label for="">Choose Location Type<span class="text-danger">*</span></label>
+                                    <select name="" id="" [ngClass]="{ 'is-invalid': submitted && f.lcoationmanuval.errors }" [(ngModel)]="vehicleModel.lcoationmanuval" formControlName="lcoationmanuval" class="form-control">
+                                        <option value="" disabled>Choose a location Type</option>
+                                        <option value="l">Location From Map</option>
+                                        <option value="m">Enter location Manuvaly</option>
+        
+                                    </select>
+                                    <div *ngIf="submitted && f.lcoationmanuval.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lcoationmanuval.errors.required">Choose a location address type is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4" *ngIf="vehicleModel.lcoationmanuval == 'l'">
+                                    <div class="form-group">
+                                        <label for="">Choose Location <span class="text-danger">*</span></label>
+                                        <button   class="btn btn-warning" style="    color: white;
+                                        width: 100%;
+                                        " (click)="viewmapEdit()"> <i class="fa fa-map-o" ></i> Choose Location from map</button>
+                                    </div>
+                                    
+                                    <!-- routerLink="/mappage" -->
+                                </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Pick Up Address</label>
@@ -225,6 +264,7 @@
 
                                         </div>
                                     </div>
+                                    <p *ngIf="vehicleModel.lcoationmanuval == 'l'" style="margin-left:18px">{{results.gpsAddress}}</p>
                                     <div class="col-sm-12">
                                         <button style="width: 20%; margin-left: auto;margin-right: auto;display: block;" (click)="submit()" class="btn btn-warning">Submit</button>
                                         <!-- <button (click)="clicks()">click</button> -->

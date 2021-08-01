@@ -42,13 +42,13 @@
                             <p style="    text-align: left;"><i class="fa fa-registered"></i>&nbsp; Registration Number : {{vehicleModel.vehicleRegistration}}</p>
                             <p style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Location : {{vehicleModel.locality}}
                             </p>
-                            <p *ngIf="pickUpAddress == null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{gpsAddress}}</p>
-                            <p *ngIf="gpsAddress == null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{pickUpAddress}}</p>
+                            <p *ngIf="pickUpAddress != null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{pickUpAddress}}</p>
+                            <p *ngIf="gpsAddress != null" style="    text-align: left;"><i class="fa fa-map-marker"></i> &nbsp; Pick Up Address : {{gpsAddress}}</p>
 
                             <hr>
                             <h6>Rent Details</h6>
                             &nbsp;
-                            <p *ngIf="rentPerHour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour : {{rentperhour}}
+                            <p *ngIf="rentPerHour != null" style="    text-align: left;"><i class="fa fa-inr"></i>&nbsp; Rent Per Hour : {{rentPerHour}}
                             </p>
                             <p *ngIf="vehicleModel.rent != null" style="    text-align: left;"><i class="fa fa-calendar"></i>&nbsp; Rent Per Day : {{vehicleModel.rent}}
                             </p>
